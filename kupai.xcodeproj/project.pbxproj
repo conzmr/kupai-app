@@ -12,6 +12,9 @@
 		994DBC23233C7740004A24CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 994DBC21233C7740004A24CF /* Main.storyboard */; };
 		994DBC25233C7742004A24CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 994DBC24233C7742004A24CF /* Assets.xcassets */; };
 		994DBC28233C7742004A24CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 994DBC26233C7742004A24CF /* LaunchScreen.storyboard */; };
+		994DBC30233C8C70004A24CF /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994DBC2F233C8C70004A24CF /* PageCell.swift */; };
+		994DBC32233DA0FA004A24CF /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994DBC31233DA0FA004A24CF /* Page.swift */; };
+		99D871D8234A91F0005B9B41 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D871D7234A91F0005B9B41 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		994DBC24233C7742004A24CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		994DBC27233C7742004A24CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		994DBC29233C7742004A24CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		994DBC2F233C8C70004A24CF /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
+		994DBC31233DA0FA004A24CF /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		99D871D7234A91F0005B9B41 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,12 +60,15 @@
 		994DBC1C233C7740004A24CF /* kupai */ = {
 			isa = PBXGroup;
 			children = (
+				994DBC2F233C8C70004A24CF /* PageCell.swift */,
 				994DBC1D233C7740004A24CF /* AppDelegate.swift */,
 				994DBC1F233C7740004A24CF /* ViewController.swift */,
 				994DBC21233C7740004A24CF /* Main.storyboard */,
 				994DBC24233C7742004A24CF /* Assets.xcassets */,
 				994DBC26233C7742004A24CF /* LaunchScreen.storyboard */,
 				994DBC29233C7742004A24CF /* Info.plist */,
+				994DBC31233DA0FA004A24CF /* Page.swift */,
+				99D871D7234A91F0005B9B41 /* Extensions.swift */,
 			);
 			path = kupai;
 			sourceTree = "<group>";
@@ -135,8 +144,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99D871D8234A91F0005B9B41 /* Extensions.swift in Sources */,
 				994DBC20233C7740004A24CF /* ViewController.swift in Sources */,
 				994DBC1E233C7740004A24CF /* AppDelegate.swift in Sources */,
+				994DBC32233DA0FA004A24CF /* Page.swift in Sources */,
+				994DBC30233C8C70004A24CF /* PageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
