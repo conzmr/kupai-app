@@ -176,7 +176,7 @@
         <!--Inicio-->
         <scene sceneID="LM0-Oh-f9H">
             <objects>
-                <viewController id="HBQ-8A-TWR" sceneMemberID="viewController">
+                <viewController id="HBQ-8A-TWR" customClass="FeedController" customModule="kupai" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Axr-lW-7ej">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -184,6 +184,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kDk-MO-h1v">
                                 <rect key="frame" x="0.0" y="140" width="414" height="756"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="HBQ-8A-TWR" id="djY-tS-ivh"/>
+                                    <outlet property="delegate" destination="HBQ-8A-TWR" id="pcs-Z3-CSc"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -196,6 +200,9 @@
                         <viewLayoutGuide key="safeArea" id="p8t-13-7ki"/>
                     </view>
                     <navigationItem key="navigationItem" title="Inicio" id="Xzd-Sw-Vg0"/>
+                    <connections>
+                        <outlet property="promotionsFeedTableView" destination="kDk-MO-h1v" id="gwW-Ag-MNX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nbw-BA-f4C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

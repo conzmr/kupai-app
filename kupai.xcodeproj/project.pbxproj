@@ -20,6 +20,9 @@
 		99D871E0234B0A19005B9B41 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99D871DF234B0A19005B9B41 /* Images.xcassets */; };
 		99D871E2234B1343005B9B41 /* SignupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99D871E1234B1343005B9B41 /* SignupCell.xib */; };
 		99D871E4234B145F005B9B41 /* SignupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D871E3234B145F005B9B41 /* SignupCell.swift */; };
+		99D871E6234B2627005B9B41 /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D871E5234B2627005B9B41 /* FeedController.swift */; };
+		99D871E9234B2773005B9B41 /* FeedPromoCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D871E7234B2773005B9B41 /* FeedPromoCellTableViewCell.swift */; };
+		99D871EA234B2773005B9B41 /* FeedPromoCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99D871E8234B2773005B9B41 /* FeedPromoCellTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		99D871DF234B0A19005B9B41 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		99D871E1234B1343005B9B41 /* SignupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignupCell.xib; sourceTree = "<group>"; };
 		99D871E3234B145F005B9B41 /* SignupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupCell.swift; sourceTree = "<group>"; };
+		99D871E5234B2627005B9B41 /* FeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
+		99D871E7234B2773005B9B41 /* FeedPromoCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPromoCellTableViewCell.swift; sourceTree = "<group>"; };
+		99D871E8234B2773005B9B41 /* FeedPromoCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedPromoCellTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +90,9 @@
 				99D871DF234B0A19005B9B41 /* Images.xcassets */,
 				99D871E1234B1343005B9B41 /* SignupCell.xib */,
 				99D871E3234B145F005B9B41 /* SignupCell.swift */,
+				99D871E5234B2627005B9B41 /* FeedController.swift */,
+				99D871E7234B2773005B9B41 /* FeedPromoCellTableViewCell.swift */,
+				99D871E8234B2773005B9B41 /* FeedPromoCellTableViewCell.xib */,
 			);
 			path = kupai;
 			sourceTree = "<group>";
@@ -147,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99D871E0234B0A19005B9B41 /* Images.xcassets in Resources */,
+				99D871EA234B2773005B9B41 /* FeedPromoCellTableViewCell.xib in Resources */,
 				99D871E2234B1343005B9B41 /* SignupCell.xib in Resources */,
 				994DBC28233C7742004A24CF /* LaunchScreen.storyboard in Resources */,
 				994DBC23233C7740004A24CF /* Main.storyboard in Resources */,
@@ -167,7 +177,9 @@
 				994DBC1E233C7740004A24CF /* AppDelegate.swift in Sources */,
 				99D871DE234AE2BE005B9B41 /* LoginViewController.swift in Sources */,
 				994DBC32233DA0FA004A24CF /* Page.swift in Sources */,
+				99D871E6234B2627005B9B41 /* FeedController.swift in Sources */,
 				994DBC30233C8C70004A24CF /* PageCell.swift in Sources */,
+				99D871E9234B2773005B9B41 /* FeedPromoCellTableViewCell.swift in Sources */,
 				99D871DA234AA900005B9B41 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedPromoCellTableViewCellId" rowHeight="206" id="KGk-i7-Jjw" customClass="FeedPromoCellTableViewCell" customModule="kupai" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="206"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="205.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZgT-ja-4bY">
+                        <rect key="frame" x="20" y="15" width="280" height="170"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="corp-cumpleanos" translatesAutoresizingMaskIntoConstraints="NO" id="j44-VT-q5Z">
+                                <rect key="frame" x="0.0" y="0.0" width="280" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Seh-KK-30E"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lV1-cw-qRE">
+                                <rect key="frame" x="10" y="115" width="260" height="45"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ihop" translatesAutoresizingMaskIntoConstraints="NO" id="E7i-Ap-DAk">
+                                        <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="45" id="GTP-pv-ysW"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="PnX-qL-KTM">
+                                        <rect key="frame" x="53" y="0.0" width="207" height="45"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Título de la promoción" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kla-pu-7y9">
+                                                <rect key="frame" x="0.0" y="0.0" width="177.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Nombre del restaurante" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BwI-jP-LCh">
+                                                <rect key="frame" x="0.0" y="20.5" width="153" height="24.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="BwI-jP-LCh" firstAttribute="top" secondItem="kla-pu-7y9" secondAttribute="bottom" id="3y5-GZ-D10"/>
+                                            <constraint firstItem="kla-pu-7y9" firstAttribute="top" secondItem="PnX-qL-KTM" secondAttribute="top" id="8Kc-35-bxA"/>
+                                            <constraint firstAttribute="bottom" secondItem="BwI-jP-LCh" secondAttribute="bottom" id="Kvd-hE-TW7"/>
+                                            <constraint firstItem="BwI-jP-LCh" firstAttribute="top" secondItem="kla-pu-7y9" secondAttribute="bottom" id="fVX-Z0-YhN"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="PnX-qL-KTM" firstAttribute="leading" secondItem="E7i-Ap-DAk" secondAttribute="trailing" constant="8" id="FGN-BN-s92"/>
+                                    <constraint firstAttribute="bottom" secondItem="PnX-qL-KTM" secondAttribute="bottom" id="I5U-rZ-gWQ"/>
+                                    <constraint firstItem="PnX-qL-KTM" firstAttribute="top" secondItem="lV1-cw-qRE" secondAttribute="top" id="Lg4-tD-9Aa"/>
+                                    <constraint firstAttribute="trailing" secondItem="PnX-qL-KTM" secondAttribute="trailing" id="RjU-6H-jhT"/>
+                                    <constraint firstItem="PnX-qL-KTM" firstAttribute="centerY" secondItem="lV1-cw-qRE" secondAttribute="centerY" id="UmF-VL-AkO"/>
+                                    <constraint firstItem="E7i-Ap-DAk" firstAttribute="centerY" secondItem="lV1-cw-qRE" secondAttribute="centerY" id="hR7-9O-ND7"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="j44-VT-q5Z" firstAttribute="top" secondItem="ZgT-ja-4bY" secondAttribute="top" id="13U-Yh-rLi"/>
+                            <constraint firstItem="j44-VT-q5Z" firstAttribute="leading" secondItem="ZgT-ja-4bY" secondAttribute="leading" id="3wM-SP-0Yu"/>
+                            <constraint firstItem="lV1-cw-qRE" firstAttribute="top" secondItem="j44-VT-q5Z" secondAttribute="bottom" constant="15" id="K5b-qq-reC"/>
+                            <constraint firstItem="lV1-cw-qRE" firstAttribute="leading" secondItem="ZgT-ja-4bY" secondAttribute="leading" constant="10" id="N75-Vk-nQe"/>
+                            <constraint firstAttribute="trailing" secondItem="j44-VT-q5Z" secondAttribute="trailing" id="fDb-vb-OfL"/>
+                            <constraint firstAttribute="bottom" secondItem="lV1-cw-qRE" secondAttribute="bottom" constant="10" id="fVL-hw-fHW"/>
+                            <constraint firstAttribute="trailing" secondItem="lV1-cw-qRE" secondAttribute="trailing" constant="10" id="jCV-MP-jQF"/>
+                            <constraint firstAttribute="height" constant="170" id="vld-as-5OF"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="ZgT-ja-4bY" secondAttribute="bottom" constant="15" id="4zU-5K-GHv"/>
+                    <constraint firstItem="ZgT-ja-4bY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="E3L-YJ-E8f"/>
+                    <constraint firstAttribute="trailing" secondItem="ZgT-ja-4bY" secondAttribute="trailing" constant="20" id="Pld-0Z-bU3"/>
+                    <constraint firstItem="ZgT-ja-4bY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="uPE-TO-iLM"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="cellContainer" destination="ZgT-ja-4bY" id="9LJ-pa-0lr"/>
+            </connections>
+            <point key="canvasLocation" x="134.78260869565219" y="75"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="corp-cumpleanos" width="800" height="400"/>
+        <image name="ihop" width="1000" height="747"/>
+    </resources>
+</document>
