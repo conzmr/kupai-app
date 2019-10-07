@@ -16,6 +16,7 @@
 		994DBC32233DA0FA004A24CF /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994DBC31233DA0FA004A24CF /* Page.swift */; };
 		99D871D8234A91F0005B9B41 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D871D7234A91F0005B9B41 /* Extensions.swift */; };
 		99D871DA234AA900005B9B41 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D871D9234AA900005B9B41 /* Constants.swift */; };
+		99D871DC234AD5F2005B9B41 /* LoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D871DB234AD5F2005B9B41 /* LoginCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		994DBC31233DA0FA004A24CF /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		99D871D7234A91F0005B9B41 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		99D871D9234AA900005B9B41 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		99D871DB234AD5F2005B9B41 /* LoginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				994DBC31233DA0FA004A24CF /* Page.swift */,
 				99D871D7234A91F0005B9B41 /* Extensions.swift */,
 				99D871D9234AA900005B9B41 /* Constants.swift */,
+				99D871DB234AD5F2005B9B41 /* LoginCell.swift */,
 			);
 			path = kupai;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99D871D8234A91F0005B9B41 /* Extensions.swift in Sources */,
+				99D871DC234AD5F2005B9B41 /* LoginCell.swift in Sources */,
 				994DBC20233C7740004A24CF /* ViewController.swift in Sources */,
 				994DBC1E233C7740004A24CF /* AppDelegate.swift in Sources */,
 				994DBC32233DA0FA004A24CF /* Page.swift in Sources */,
