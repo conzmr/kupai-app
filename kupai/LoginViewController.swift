@@ -35,7 +35,7 @@ class LoginViewController: UIViewController {
         loginDataView.clipsToBounds = true
         
         loginButton.backgroundColor = primaryColor
-        loginButton.setTitleColor(secondaryColor, for: .normal)
+        loginButton.setTitleColor(.white, for: .normal)
         loginButton.layer.cornerRadius = 3
         loginButton.clipsToBounds = true
         
