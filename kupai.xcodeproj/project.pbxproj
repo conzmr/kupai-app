@@ -18,6 +18,8 @@
 		99D871DC234AD5F2005B9B41 /* LoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D871DB234AD5F2005B9B41 /* LoginCell.swift */; };
 		99D871DE234AE2BE005B9B41 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D871DD234AE2BE005B9B41 /* LoginViewController.swift */; };
 		99D871E0234B0A19005B9B41 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99D871DF234B0A19005B9B41 /* Images.xcassets */; };
+		99D871E2234B1343005B9B41 /* SignupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99D871E1234B1343005B9B41 /* SignupCell.xib */; };
+		99D871E4234B145F005B9B41 /* SignupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D871E3234B145F005B9B41 /* SignupCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		99D871DB234AD5F2005B9B41 /* LoginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCell.swift; sourceTree = "<group>"; };
 		99D871DD234AE2BE005B9B41 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		99D871DF234B0A19005B9B41 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		99D871E1234B1343005B9B41 /* SignupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignupCell.xib; sourceTree = "<group>"; };
+		99D871E3234B145F005B9B41 /* SignupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,8 @@
 				99D871DB234AD5F2005B9B41 /* LoginCell.swift */,
 				99D871DD234AE2BE005B9B41 /* LoginViewController.swift */,
 				99D871DF234B0A19005B9B41 /* Images.xcassets */,
+				99D871E1234B1343005B9B41 /* SignupCell.xib */,
+				99D871E3234B145F005B9B41 /* SignupCell.swift */,
 			);
 			path = kupai;
 			sourceTree = "<group>";
@@ -141,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99D871E0234B0A19005B9B41 /* Images.xcassets in Resources */,
+				99D871E2234B1343005B9B41 /* SignupCell.xib in Resources */,
 				994DBC28233C7742004A24CF /* LaunchScreen.storyboard in Resources */,
 				994DBC23233C7740004A24CF /* Main.storyboard in Resources */,
 			);
@@ -154,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99D871D8234A91F0005B9B41 /* Extensions.swift in Sources */,
+				99D871E4234B145F005B9B41 /* SignupCell.swift in Sources */,
 				99D871DC234AD5F2005B9B41 /* LoginCell.swift in Sources */,
 				994DBC20233C7740004A24CF /* ViewController.swift in Sources */,
 				994DBC1E233C7740004A24CF /* AppDelegate.swift in Sources */,

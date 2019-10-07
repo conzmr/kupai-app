@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="signupCellId" id="GIL-Kf-QWL" customClass="SignupCell" customModule="kupai" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="gradient-bg" translatesAutoresizingMaskIntoConstraints="NO" id="r3F-FE-T73">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="146"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="130" id="Mnk-SY-wRO"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0K2-cw-bhH">
+                    <rect key="frame" x="16" y="172" width="382" height="90"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WdW-yI-j0Q">
+                            <rect key="frame" x="0.0" y="44.5" width="382" height="1"/>
+                            <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="Cem-d3-ZaH"/>
+                            </constraints>
+                        </view>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Correo electrónico" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9LJ-8k-XJx">
+                            <rect key="frame" x="16" y="8" width="350" height="28.5"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MBR-sJ-lIZ">
+                            <rect key="frame" x="16" y="53.5" width="350" height="28.5"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="9LJ-8k-XJx" firstAttribute="leading" secondItem="0K2-cw-bhH" secondAttribute="leading" constant="16" id="1PV-eS-SND"/>
+                        <constraint firstAttribute="trailing" secondItem="MBR-sJ-lIZ" secondAttribute="trailing" constant="16" id="62h-D1-NTG"/>
+                        <constraint firstItem="MBR-sJ-lIZ" firstAttribute="top" secondItem="WdW-yI-j0Q" secondAttribute="bottom" constant="8" id="AnS-yA-DiL"/>
+                        <constraint firstAttribute="trailing" secondItem="WdW-yI-j0Q" secondAttribute="trailing" id="IeR-JR-RQe"/>
+                        <constraint firstItem="9LJ-8k-XJx" firstAttribute="top" secondItem="0K2-cw-bhH" secondAttribute="top" constant="8" id="brZ-6W-7Ii"/>
+                        <constraint firstItem="WdW-yI-j0Q" firstAttribute="leading" secondItem="0K2-cw-bhH" secondAttribute="leading" id="ckn-Re-wud"/>
+                        <constraint firstItem="WdW-yI-j0Q" firstAttribute="centerY" secondItem="0K2-cw-bhH" secondAttribute="centerY" id="jGf-LZ-EME"/>
+                        <constraint firstAttribute="trailing" secondItem="9LJ-8k-XJx" secondAttribute="trailing" constant="16" id="kqd-Xf-mas"/>
+                        <constraint firstAttribute="height" constant="90" id="lbK-mh-i9Y"/>
+                        <constraint firstAttribute="bottom" secondItem="MBR-sJ-lIZ" secondAttribute="bottom" constant="8" id="ocf-2P-rjh"/>
+                        <constraint firstItem="WdW-yI-j0Q" firstAttribute="top" secondItem="9LJ-8k-XJx" secondAttribute="bottom" constant="8" id="peg-gB-Dhg"/>
+                        <constraint firstItem="MBR-sJ-lIZ" firstAttribute="leading" secondItem="0K2-cw-bhH" secondAttribute="leading" constant="16" id="qxf-hF-xVi"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AeW-kC-Bwn">
+                    <rect key="frame" x="16" y="278" width="382" height="42"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="42" id="Wge-UO-JZh"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                    <state key="normal" title="Registrarme"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fc-kM-rlS">
+                    <rect key="frame" x="16" y="336" width="382" height="42"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="42" id="nLR-Eb-NQ5"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                    <state key="normal" title="¿Ya tienes cuenta? Inicia sesión"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="2fc-kM-rlS" firstAttribute="top" secondItem="AeW-kC-Bwn" secondAttribute="bottom" constant="16" id="182-vm-Pho"/>
+                <constraint firstItem="0K2-cw-bhH" firstAttribute="top" secondItem="r3F-FE-T73" secondAttribute="bottom" constant="42" id="By7-AV-wEW"/>
+                <constraint firstItem="b2N-JZ-rTp" firstAttribute="trailing" secondItem="AeW-kC-Bwn" secondAttribute="trailing" constant="16" id="Gbd-sc-B08"/>
+                <constraint firstItem="0K2-cw-bhH" firstAttribute="leading" secondItem="b2N-JZ-rTp" secondAttribute="leading" constant="16" id="U9v-We-wTv"/>
+                <constraint firstItem="AeW-kC-Bwn" firstAttribute="top" secondItem="0K2-cw-bhH" secondAttribute="bottom" constant="16" id="WP7-pJ-O40"/>
+                <constraint firstItem="b2N-JZ-rTp" firstAttribute="trailing" secondItem="2fc-kM-rlS" secondAttribute="trailing" constant="16" id="aB9-ZH-20P"/>
+                <constraint firstItem="AeW-kC-Bwn" firstAttribute="leading" secondItem="b2N-JZ-rTp" secondAttribute="leading" constant="16" id="dcP-Cg-Nui"/>
+                <constraint firstItem="r3F-FE-T73" firstAttribute="trailing" secondItem="b2N-JZ-rTp" secondAttribute="trailing" id="kYu-J0-Z4b"/>
+                <constraint firstItem="b2N-JZ-rTp" firstAttribute="trailing" secondItem="0K2-cw-bhH" secondAttribute="trailing" constant="16" id="nYT-AS-bpy"/>
+                <constraint firstItem="r3F-FE-T73" firstAttribute="leading" secondItem="b2N-JZ-rTp" secondAttribute="leading" id="nxd-gQ-0xq"/>
+                <constraint firstItem="r3F-FE-T73" firstAttribute="top" secondItem="GIL-Kf-QWL" secondAttribute="top" id="tUu-2e-Cat"/>
+                <constraint firstItem="2fc-kM-rlS" firstAttribute="leading" secondItem="b2N-JZ-rTp" secondAttribute="leading" constant="16" id="wdb-qL-5SH"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="b2N-JZ-rTp"/>
+            <connections>
+                <outlet property="alreadyHasAccountButton" destination="2fc-kM-rlS" id="4gh-Oo-1V7"/>
+                <outlet property="passwordTextField" destination="MBR-sJ-lIZ" id="nEX-eb-YPV"/>
+                <outlet property="signupButton" destination="AeW-kC-Bwn" id="YY7-n3-4sz"/>
+                <outlet property="signupDataLineView" destination="WdW-yI-j0Q" id="QZX-aN-YFT"/>
+                <outlet property="signupDataView" destination="0K2-cw-bhH" id="fha-M1-1Y4"/>
+                <outlet property="userTextField" destination="9LJ-8k-XJx" id="eq2-ZY-x8U"/>
+            </connections>
+            <point key="canvasLocation" x="57.971014492753625" y="-239.0625"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="gradient-bg" width="1920" height="1080"/>
+    </resources>
+</document>

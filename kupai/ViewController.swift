@@ -24,7 +24,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }()
     
     let cellId = "cellId"
-    let loginCellId = "loginCellId"
+    let signupCellId = "signupCellId"
     
     let pages: [Page] = {
         let firstPage = Page(title: "Agita tu celular", message: "Con este simple gesto descubre diariamente un cupón nuevo personalizado", imageName: "shakePhone")
@@ -106,7 +106,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func registerCells(){
         collectionView.register(PageCell.self, forCellWithReuseIdentifier: cellId)
-        collectionView.register(LoginCell.self, forCellWithReuseIdentifier: loginCellId)
+        collectionView.register(UINib(nibName: "SignupCell", bundle: nil), forCellWithReuseIdentifier: signupCellId)
+//        collectionView.register(SignupCell.self, forCellWithReuseIdentifier: signupCellId)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -116,8 +117,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if(indexPath.item == pages.count){
-            let loginCell = collectionView.dequeueReusableCell(withReuseIdentifier: loginCellId, for: indexPath)
-            return loginCell
+            let signupCell = collectionView.dequeueReusableCell(withReuseIdentifier: signupCellId, for: indexPath)
+            return signupCell
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! PageCell
         let page = pages[indexPath.item]
