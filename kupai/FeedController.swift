@@ -22,7 +22,8 @@ class FeedController: UIViewController {
             promotionsFeedTableView.reloadData()
         }
     }
-
+    @IBOutlet weak var promotiosFeeedTableView: UITableView!
+    
     var promotions: [Promotion] = [
         Promotion(createdAt: "2019-09-10 07:20:10"),
         Promotion(createdAt: "2019-09-11 12:45:00"),
