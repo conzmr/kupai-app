@@ -247,14 +247,84 @@
         <!--Perfil-->
         <scene sceneID="kcf-np-6KW">
             <objects>
-                <viewController id="IPR-fR-IGk" sceneMemberID="viewController">
+                <viewController id="IPR-fR-IGk" customClass="ProfileController" customModule="kupai" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TVF-Bw-EGo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Xd0-ZC-zVO">
+                                <rect key="frame" x="20" y="175" width="374" height="45.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxa-jz-DMx">
+                                        <rect key="frame" x="0.0" y="0.0" width="52" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Constanza Madrigal Reyes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gx-5J-GQC">
+                                        <rect key="frame" x="0.0" y="25" width="202.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OYd-IJ-ruF">
+                                <rect key="frame" x="60" y="741" width="294" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="eag-Ff-J8Y"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <state key="normal" title="Cerrar sesión"/>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8BQ-DU-lV8">
+                                <rect key="frame" x="40" y="718" width="334" height="1"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="dDa-hv-76A"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0cm-yb-iHa">
+                                <rect key="frame" x="20" y="250.5" width="374" height="45.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Correo electrónico" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chC-qt-Wgn">
+                                        <rect key="frame" x="0.0" y="0.0" width="120.5" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="madrigalreyes.c@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETa-wh-hDN">
+                                        <rect key="frame" x="0.0" y="25" width="215" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8BQ-DU-lV8" firstAttribute="leading" secondItem="TVF-Bw-EGo" secondAttribute="leadingMargin" constant="20" id="Eig-To-BPm"/>
+                            <constraint firstItem="OYd-IJ-ruF" firstAttribute="leading" secondItem="dfc-VO-0JY" secondAttribute="leading" constant="60" id="IgY-3b-Lm2"/>
+                            <constraint firstItem="Xd0-ZC-zVO" firstAttribute="top" secondItem="dfc-VO-0JY" secondAttribute="top" constant="35" id="KOD-Jz-ulv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8BQ-DU-lV8" secondAttribute="trailing" constant="20" id="LNw-B2-Szq"/>
+                            <constraint firstItem="OYd-IJ-ruF" firstAttribute="centerX" secondItem="TVF-Bw-EGo" secondAttribute="centerX" id="PV9-Dj-Rk3"/>
+                            <constraint firstItem="0cm-yb-iHa" firstAttribute="top" secondItem="Xd0-ZC-zVO" secondAttribute="bottom" constant="30" id="QXE-Zd-Bdj"/>
+                            <constraint firstItem="dfc-VO-0JY" firstAttribute="trailing" secondItem="0cm-yb-iHa" secondAttribute="trailing" constant="20" id="SwJ-wX-Y36"/>
+                            <constraint firstItem="dfc-VO-0JY" firstAttribute="trailing" secondItem="OYd-IJ-ruF" secondAttribute="trailing" constant="60" id="TNL-q0-Klj"/>
+                            <constraint firstItem="0cm-yb-iHa" firstAttribute="leading" secondItem="dfc-VO-0JY" secondAttribute="leading" constant="20" id="VKa-eI-0Uz"/>
+                            <constraint firstItem="dfc-VO-0JY" firstAttribute="trailing" secondItem="Xd0-ZC-zVO" secondAttribute="trailing" constant="20" id="g5d-rz-M72"/>
+                            <constraint firstItem="dfc-VO-0JY" firstAttribute="bottom" secondItem="OYd-IJ-ruF" secondAttribute="bottom" constant="30" id="gJr-Di-DtP"/>
+                            <constraint firstItem="Xd0-ZC-zVO" firstAttribute="leading" secondItem="dfc-VO-0JY" secondAttribute="leading" constant="20" id="mSo-ki-eVs"/>
+                            <constraint firstItem="OYd-IJ-ruF" firstAttribute="top" secondItem="8BQ-DU-lV8" secondAttribute="bottom" constant="22" id="rUg-0w-aw4"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="dfc-VO-0JY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Perfil" id="CEy-S0-dAy"/>
+                    <connections>
+                        <outlet property="bottomLineSeparator" destination="8BQ-DU-lV8" id="BER-fJ-G5J"/>
+                        <outlet property="logoutButton" destination="OYd-IJ-ruF" id="yuA-Uq-DbG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ma9-lx-GLM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

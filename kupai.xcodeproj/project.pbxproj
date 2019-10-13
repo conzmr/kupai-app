@@ -23,6 +23,7 @@
 		99D871E6234B2627005B9B41 /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D871E5234B2627005B9B41 /* FeedController.swift */; };
 		99D871E9234B2773005B9B41 /* FeedPromoCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D871E7234B2773005B9B41 /* FeedPromoCellTableViewCell.swift */; };
 		99D871EA234B2773005B9B41 /* FeedPromoCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99D871E8234B2773005B9B41 /* FeedPromoCellTableViewCell.xib */; };
+		99E8DE8123530B7C004DE2B6 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E8DE8023530B7C004DE2B6 /* ProfileController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		99D871E5234B2627005B9B41 /* FeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
 		99D871E7234B2773005B9B41 /* FeedPromoCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPromoCellTableViewCell.swift; sourceTree = "<group>"; };
 		99D871E8234B2773005B9B41 /* FeedPromoCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedPromoCellTableViewCell.xib; sourceTree = "<group>"; };
+		99E8DE8023530B7C004DE2B6 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				99D871E5234B2627005B9B41 /* FeedController.swift */,
 				99D871E7234B2773005B9B41 /* FeedPromoCellTableViewCell.swift */,
 				99D871E8234B2773005B9B41 /* FeedPromoCellTableViewCell.xib */,
+				99E8DE8023530B7C004DE2B6 /* ProfileController.swift */,
 			);
 			path = kupai;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 				994DBC30233C8C70004A24CF /* PageCell.swift in Sources */,
 				99D871E9234B2773005B9B41 /* FeedPromoCellTableViewCell.swift in Sources */,
 				99D871DA234AA900005B9B41 /* Constants.swift in Sources */,
+				99E8DE8123530B7C004DE2B6 /* ProfileController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
