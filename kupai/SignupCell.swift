@@ -16,7 +16,7 @@ class SignupCell: UICollectionViewCell {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signupButton: UIButton!
     @IBOutlet weak var alreadyHasAccountButton: UIButton!
-    
+    weak var delegate: ViewControllerDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,4 +38,13 @@ class SignupCell: UICollectionViewCell {
         self.contentView.isUserInteractionEnabled = false
         
     }
+    
+    @IBAction func signUp(_ sender: Any) {
+        delegate?.finishSigningIn()
+    }
+    @IBAction func redirectToLogin(_ sender: Any) {
+        delegate?.backToLogin()
+    }
+    
+    
 }

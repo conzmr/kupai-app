@@ -21,7 +21,7 @@
         <!--Login View Controller-->
         <scene sceneID="2p3-TF-4GZ">
             <objects>
-                <viewController id="6xl-zB-iup" customClass="LoginViewController" customModule="kupai" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewControllerId" id="6xl-zB-iup" customClass="LoginViewController" customModule="kupai" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lhD-jV-MFB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -87,6 +87,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <state key="normal" title="Iniciar sesión"/>
+                                <connections>
+                                    <segue destination="H9B-U6-zE2" kind="show" id="abS-45-6UX"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tg7-i5-VRc">
                                 <rect key="frame" x="16" y="462" width="382" height="42"/>
@@ -155,6 +158,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5o7-ML-pUQ"/>
                     </view>
+                    <navigationItem key="navigationItem" id="akE-DI-b33"/>
                     <connections>
                         <outlet property="bottomLineView" destination="HYG-kY-zVh" id="WVf-JV-3ja"/>
                         <outlet property="headerImageView" destination="QwJ-D8-yLe" id="9y2-yy-ycX"/>
@@ -216,7 +220,19 @@
                     <view key="view" contentMode="scaleToFill" id="xd2-25-pOZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="97d-7y-jqw">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="97d-7y-jqw" firstAttribute="leading" secondItem="VCr-4L-445" secondAttribute="leading" id="9vp-M3-rPD"/>
+                            <constraint firstItem="VCr-4L-445" firstAttribute="trailing" secondItem="97d-7y-jqw" secondAttribute="trailing" id="Alb-bZ-64M"/>
+                            <constraint firstItem="97d-7y-jqw" firstAttribute="top" secondItem="VCr-4L-445" secondAttribute="top" id="LUZ-9S-DQM"/>
+                            <constraint firstItem="VCr-4L-445" firstAttribute="bottom" secondItem="97d-7y-jqw" secondAttribute="bottom" id="PcX-eO-uvG"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="VCr-4L-445"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Cuponera" image="coupons-tab" id="8Uz-Xw-GFW"/>
@@ -228,7 +244,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="r1z-Nb-VNI">
             <objects>
-                <tabBarController id="H9B-U6-zE2" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabControllerId" id="H9B-U6-zE2" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="A3F-R8-Qts">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -376,4 +392,7 @@
         <image name="gradient-bg" width="1920" height="1080"/>
         <image name="profile" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="qu2-JY-B5s"/>
+    </inferredMetricsTieBreakers>
 </document>

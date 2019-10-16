@@ -68,6 +68,9 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                     <state key="normal" title="Registrarme"/>
+                    <connections>
+                        <action selector="signUp:" destination="GIL-Kf-QWL" eventType="touchUpInside" id="3Ux-yu-5N4"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fc-kM-rlS">
                     <rect key="frame" x="16" y="336" width="382" height="42"/>
@@ -76,6 +79,9 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                     <state key="normal" title="¿Ya tienes cuenta? Inicia sesión"/>
+                    <connections>
+                        <action selector="redirectToLogin:" destination="GIL-Kf-QWL" eventType="touchUpInside" id="U6y-ZP-aje"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -32,9 +32,30 @@ class FeedController: UIViewController {
         Promotion(createdAt: "2019-09-16 08:09:50"),
         Promotion(createdAt: "2019-09-17 17:29:50"),
     ]
+    
+    var couponsList = [Coupon](){
+        didSet {
+            DispatchQueue.main.async {
+                self.promotionsFeedTableView.reloadData()
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let couponsRequest = CouponsRequest()
+        couponsRequest.getCoupons{
+            [weak self] result in
+            switch result {
+            case .failure(let error):
+                print("no yuhus")
+                print(error)
+            case .success(let coupons):
+                print("yuhus", coupons)
+                self?.couponsList = coupons
+            }
+        }
+        
     }
 
 

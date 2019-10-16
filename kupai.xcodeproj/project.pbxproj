@@ -24,6 +24,11 @@
 		99D871E9234B2773005B9B41 /* FeedPromoCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D871E7234B2773005B9B41 /* FeedPromoCellTableViewCell.swift */; };
 		99D871EA234B2773005B9B41 /* FeedPromoCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99D871E8234B2773005B9B41 /* FeedPromoCellTableViewCell.xib */; };
 		99E8DE8123530B7C004DE2B6 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E8DE8023530B7C004DE2B6 /* ProfileController.swift */; };
+		99E8DE832353124B004DE2B6 /* UserCouponsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E8DE822353124B004DE2B6 /* UserCouponsController.swift */; };
+		99E8DE8523542B65004DE2B6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E8DE8423542B65004DE2B6 /* User.swift */; };
+		99E8DE8723542BAC004DE2B6 /* Coupons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E8DE8623542BAC004DE2B6 /* Coupons.swift */; };
+		99E8DE8923542DAC004DE2B6 /* CouponsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E8DE8823542DAC004DE2B6 /* CouponsRequest.swift */; };
+		99E8DE8B23542DDA004DE2B6 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E8DE8A23542DDA004DE2B6 /* LoginRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +51,11 @@
 		99D871E7234B2773005B9B41 /* FeedPromoCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPromoCellTableViewCell.swift; sourceTree = "<group>"; };
 		99D871E8234B2773005B9B41 /* FeedPromoCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedPromoCellTableViewCell.xib; sourceTree = "<group>"; };
 		99E8DE8023530B7C004DE2B6 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		99E8DE822353124B004DE2B6 /* UserCouponsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCouponsController.swift; sourceTree = "<group>"; };
+		99E8DE8423542B65004DE2B6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		99E8DE8623542BAC004DE2B6 /* Coupons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coupons.swift; sourceTree = "<group>"; };
+		99E8DE8823542DAC004DE2B6 /* CouponsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponsRequest.swift; sourceTree = "<group>"; };
+		99E8DE8A23542DDA004DE2B6 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +106,11 @@
 				99D871E7234B2773005B9B41 /* FeedPromoCellTableViewCell.swift */,
 				99D871E8234B2773005B9B41 /* FeedPromoCellTableViewCell.xib */,
 				99E8DE8023530B7C004DE2B6 /* ProfileController.swift */,
+				99E8DE822353124B004DE2B6 /* UserCouponsController.swift */,
+				99E8DE8423542B65004DE2B6 /* User.swift */,
+				99E8DE8623542BAC004DE2B6 /* Coupons.swift */,
+				99E8DE8823542DAC004DE2B6 /* CouponsRequest.swift */,
+				99E8DE8A23542DDA004DE2B6 /* LoginRequest.swift */,
 			);
 			path = kupai;
 			sourceTree = "<group>";
@@ -174,17 +189,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				99D871D8234A91F0005B9B41 /* Extensions.swift in Sources */,
+				99E8DE8B23542DDA004DE2B6 /* LoginRequest.swift in Sources */,
 				99D871E4234B145F005B9B41 /* SignupCell.swift in Sources */,
 				99D871DC234AD5F2005B9B41 /* LoginCell.swift in Sources */,
 				994DBC20233C7740004A24CF /* ViewController.swift in Sources */,
+				99E8DE8723542BAC004DE2B6 /* Coupons.swift in Sources */,
 				994DBC1E233C7740004A24CF /* AppDelegate.swift in Sources */,
 				99D871DE234AE2BE005B9B41 /* LoginViewController.swift in Sources */,
+				99E8DE8523542B65004DE2B6 /* User.swift in Sources */,
+				99E8DE832353124B004DE2B6 /* UserCouponsController.swift in Sources */,
 				994DBC32233DA0FA004A24CF /* Page.swift in Sources */,
 				99D871E6234B2627005B9B41 /* FeedController.swift in Sources */,
 				994DBC30233C8C70004A24CF /* PageCell.swift in Sources */,
 				99D871E9234B2773005B9B41 /* FeedPromoCellTableViewCell.swift in Sources */,
 				99D871DA234AA900005B9B41 /* Constants.swift in Sources */,
 				99E8DE8123530B7C004DE2B6 /* ProfileController.swift in Sources */,
+				99E8DE8923542DAC004DE2B6 /* CouponsRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

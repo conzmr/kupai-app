@@ -8,7 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+protocol ViewControllerDelegate: class {
+    func finishSigningIn()
+    func backToLogin()
+}
+
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,
+    ViewControllerDelegate{
     
     //lazy var to access self
     lazy var collectionView: UICollectionView = {
@@ -45,15 +51,44 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let button = UIButton(type: .system)
         button.setTitle("Omitir", for: .normal)
         button.setTitleColor( mainColor, for: .normal)
+        button.addTarget(self, action: #selector(skip), for: .touchUpInside)
         return button
     }()
+    
+    @objc func skip() {
+        pageControl.currentPage = pages.count - 1
+        nextPage()
+        //dismiss(animated: true, completion: nil)
+    }
     
     let nextButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Siguiente", for: .normal)
         button.setTitleColor( mainColor, for: .normal)
+        button.addTarget(self, action: #selector(nextPage), for: .touchUpInside)
         return button
     }()
+    
+    @objc func nextPage() {
+        //we are on the last page
+        if pageControl.currentPage == pages.count {
+            //dismiss(animated: true, completion: nil)
+            return
+        }
+        
+        //second last page
+        if pageControl.currentPage == pages.count - 1 {
+            moveControlConstraintsOffScreen()
+            
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                self.view.layoutIfNeeded()
+            }, completion: nil)
+        }
+        
+        let indexPath = IndexPath(item: pageControl.currentPage + 1, section: 0)
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        pageControl.currentPage += 1
+    }
     
     var pageControlBottomAnchor: NSLayoutConstraint?
     var skipButtonTopAnchor: NSLayoutConstraint?
@@ -110,6 +145,19 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 //        collectionView.register(SignupCell.self, forCellWithReuseIdentifier: signupCellId)
     }
     
+    func finishSigningIn() {
+        let appDelegate = UIApplication.shared.delegate! as! AppDelegate
+        let initialViewController = self.storyboard!.instantiateViewController(withIdentifier: "MainTabControllerId")
+        appDelegate.window?.rootViewController = initialViewController
+        appDelegate.window?.makeKeyAndVisible()
+//        UserDefaults.standard.setIsLoggedIn(value: true)
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func backToLogin() {
+        dismiss(animated: true, completion: nil)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return pages.count + 1
     }
@@ -117,7 +165,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if(indexPath.item == pages.count){
-            let signupCell = collectionView.dequeueReusableCell(withReuseIdentifier: signupCellId, for: indexPath)
+            let signupCell = collectionView.dequeueReusableCell(withReuseIdentifier: signupCellId, for: indexPath) as! SignupCell
+            signupCell.delegate = self
             return signupCell
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! PageCell
