@@ -43,18 +43,18 @@ class FeedController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let couponsRequest = CouponsRequest()
-        couponsRequest.getCoupons{
-            [weak self] result in
-            switch result {
-            case .failure(let error):
-                print("no yuhus")
-                print(error)
-            case .success(let coupons):
-                print("yuhus", coupons)
-                self?.couponsList = coupons
-            }
-        }
+//        let couponsRequest = CouponsRequest()
+//        couponsRequest.getCoupons{
+//            [weak self] result in
+//            switch result {
+//            case .failure(let error):
+//                print("no yuhus")
+//                print(error)
+//            case .success(let coupons):
+//                print("yuhus", coupons)
+//                self?.couponsList = coupons
+//            }
+//        }
         
     }
 

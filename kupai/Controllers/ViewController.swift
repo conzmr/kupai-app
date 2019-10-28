@@ -9,8 +9,8 @@
 import UIKit
 
 protocol ViewControllerDelegate: class {
-    func finishSigningIn()
     func backToLogin()
+    func createUser(email: String, password: String)
 }
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,
@@ -143,6 +143,39 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionView.register(PageCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.register(UINib(nibName: "SignupCell", bundle: nil), forCellWithReuseIdentifier: signupCellId)
 //        collectionView.register(SignupCell.self, forCellWithReuseIdentifier: signupCellId)
+    }
+    
+    func createUser(email: String, password: String){
+        guard let url = URL(string: "https://kupai.herokuapp.com/api/AppUsers") else { return }
+        var request = URLRequest(url: url)
+        let parameters = ["email": email, "password": password]
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
+        request.httpBody = httpBody
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("error: \(error)")
+            } else {
+                if let response = response as? HTTPURLResponse {
+                    if(response.statusCode == 200){
+                        DispatchQueue.main.async {
+                            self.finishSigningIn()
+                        }
+                    }
+                    else if(response.statusCode == 422){
+                        DispatchQueue.main.async {
+                            self.showAlert(title: "Correo inválido", message: "El formato de tu correo es incorrecto o ya está siendo utilizado por otro usuario. Intenta con otro.")
+                        }
+                    }
+                    print("statusCode: \(response.statusCode)")
+                }
+                if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                    print("data: \(dataString)")
+                }
+            }
+        }
+        task.resume()
     }
     
     func finishSigningIn() {

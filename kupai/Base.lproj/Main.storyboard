@@ -55,13 +55,19 @@
                                         <rect key="frame" x="16" y="8" width="350" height="28.5"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" keyboardAppearance="alert" textContentType="email"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="6xl-zB-iup" id="IY7-9c-ggT"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="efI-Qh-xlE">
                                         <rect key="frame" x="16" y="53.5" width="350" height="28.5"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" keyboardAppearance="alert" secureTextEntry="YES" textContentType="password"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="6xl-zB-iup" id="m1c-jZ-6gW"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -88,7 +94,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <state key="normal" title="Iniciar sesión"/>
                                 <connections>
-                                    <segue destination="H9B-U6-zE2" kind="show" id="abS-45-6UX"/>
+                                    <action selector="doLogin:" destination="6xl-zB-iup" eventType="touchUpInside" id="ahp-WW-wn0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tg7-i5-VRc">
@@ -171,6 +177,7 @@
                         <outlet property="redirectToAdminLoginButton" destination="tg7-i5-VRc" id="kU7-AG-cUi"/>
                         <outlet property="signupButton" destination="2Jl-0i-vFU" id="BM2-VM-41s"/>
                         <outlet property="userTextField" destination="upI-1Z-5zw" id="BFQ-j9-Tax"/>
+                        <segue destination="H9B-U6-zE2" kind="show" identifier="loginToFeed" id="vSU-wf-zlX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aUl-7R-olF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -393,6 +400,6 @@
         <image name="profile" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qu2-JY-B5s"/>
+        <segue reference="vSU-wf-zlX"/>
     </inferredMetricsTieBreakers>
 </document>

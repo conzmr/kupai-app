@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		993B1DFF2366AE6100DDD7AD /* Promotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993B1DFE2366AE6100DDD7AD /* Promotion.swift */; };
+		993B1E052366B64700DDD7AD /* RestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993B1E042366B64700DDD7AD /* RestManager.swift */; };
 		994DBC1E233C7740004A24CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994DBC1D233C7740004A24CF /* AppDelegate.swift */; };
 		994DBC20233C7740004A24CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994DBC1F233C7740004A24CF /* ViewController.swift */; };
 		994DBC23233C7740004A24CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 994DBC21233C7740004A24CF /* Main.storyboard */; };
@@ -23,6 +25,8 @@
 		99D871E6234B2627005B9B41 /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D871E5234B2627005B9B41 /* FeedController.swift */; };
 		99D871E9234B2773005B9B41 /* FeedPromoCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D871E7234B2773005B9B41 /* FeedPromoCellTableViewCell.swift */; };
 		99D871EA234B2773005B9B41 /* FeedPromoCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99D871E8234B2773005B9B41 /* FeedPromoCellTableViewCell.xib */; };
+		99E226F52356E01000BA0390 /* UserCouponTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E226F32356E01000BA0390 /* UserCouponTableViewCell.swift */; };
+		99E226F62356E01000BA0390 /* UserCouponTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99E226F42356E01000BA0390 /* UserCouponTableViewCell.xib */; };
 		99E8DE8123530B7C004DE2B6 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E8DE8023530B7C004DE2B6 /* ProfileController.swift */; };
 		99E8DE832353124B004DE2B6 /* UserCouponsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E8DE822353124B004DE2B6 /* UserCouponsController.swift */; };
 		99E8DE8523542B65004DE2B6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E8DE8423542B65004DE2B6 /* User.swift */; };
@@ -32,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		993B1DFE2366AE6100DDD7AD /* Promotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Promotion.swift; sourceTree = "<group>"; };
+		993B1E042366B64700DDD7AD /* RestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestManager.swift; sourceTree = "<group>"; };
 		994DBC1A233C7740004A24CF /* kupai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kupai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		994DBC1D233C7740004A24CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		994DBC1F233C7740004A24CF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -50,6 +56,8 @@
 		99D871E5234B2627005B9B41 /* FeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
 		99D871E7234B2773005B9B41 /* FeedPromoCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPromoCellTableViewCell.swift; sourceTree = "<group>"; };
 		99D871E8234B2773005B9B41 /* FeedPromoCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedPromoCellTableViewCell.xib; sourceTree = "<group>"; };
+		99E226F32356E01000BA0390 /* UserCouponTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCouponTableViewCell.swift; sourceTree = "<group>"; };
+		99E226F42356E01000BA0390 /* UserCouponTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCouponTableViewCell.xib; sourceTree = "<group>"; };
 		99E8DE8023530B7C004DE2B6 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		99E8DE822353124B004DE2B6 /* UserCouponsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCouponsController.swift; sourceTree = "<group>"; };
 		99E8DE8423542B65004DE2B6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -69,6 +77,64 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		993B1DFD2366AE2200DDD7AD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				99E8DE8423542B65004DE2B6 /* User.swift */,
+				994DBC31233DA0FA004A24CF /* Page.swift */,
+				99E8DE8623542BAC004DE2B6 /* Coupons.swift */,
+				99E8DE8A23542DDA004DE2B6 /* LoginRequest.swift */,
+				993B1DFE2366AE6100DDD7AD /* Promotion.swift */,
+				99E8DE8823542DAC004DE2B6 /* CouponsRequest.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		993B1E002366B4B800DDD7AD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				993B1E012366B4C600DDD7AD /* Cells */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		993B1E012366B4C600DDD7AD /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				99D871E8234B2773005B9B41 /* FeedPromoCellTableViewCell.xib */,
+				99D871E7234B2773005B9B41 /* FeedPromoCellTableViewCell.swift */,
+				99D871DB234AD5F2005B9B41 /* LoginCell.swift */,
+				994DBC2F233C8C70004A24CF /* PageCell.swift */,
+				99D871E3234B145F005B9B41 /* SignupCell.swift */,
+				99D871E1234B1343005B9B41 /* SignupCell.xib */,
+				99E226F32356E01000BA0390 /* UserCouponTableViewCell.swift */,
+				99E226F42356E01000BA0390 /* UserCouponTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		993B1E022366B55D00DDD7AD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				99D871DD234AE2BE005B9B41 /* LoginViewController.swift */,
+				994DBC1F233C7740004A24CF /* ViewController.swift */,
+				99E8DE822353124B004DE2B6 /* UserCouponsController.swift */,
+				99D871E5234B2627005B9B41 /* FeedController.swift */,
+				99E8DE8023530B7C004DE2B6 /* ProfileController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		993B1E032366B58800DDD7AD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				99D871D7234A91F0005B9B41 /* Extensions.swift */,
+				99D871D9234AA900005B9B41 /* Constants.swift */,
+				993B1E042366B64700DDD7AD /* RestManager.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		994DBC11233C7740004A24CF = {
 			isa = PBXGroup;
 			children = (
@@ -88,29 +154,15 @@
 		994DBC1C233C7740004A24CF /* kupai */ = {
 			isa = PBXGroup;
 			children = (
-				994DBC2F233C8C70004A24CF /* PageCell.swift */,
+				993B1E032366B58800DDD7AD /* Resources */,
+				993B1E022366B55D00DDD7AD /* Controllers */,
+				993B1E002366B4B800DDD7AD /* View */,
+				993B1DFD2366AE2200DDD7AD /* Model */,
 				994DBC1D233C7740004A24CF /* AppDelegate.swift */,
-				994DBC1F233C7740004A24CF /* ViewController.swift */,
 				994DBC21233C7740004A24CF /* Main.storyboard */,
 				994DBC26233C7742004A24CF /* LaunchScreen.storyboard */,
 				994DBC29233C7742004A24CF /* Info.plist */,
-				994DBC31233DA0FA004A24CF /* Page.swift */,
-				99D871D7234A91F0005B9B41 /* Extensions.swift */,
-				99D871D9234AA900005B9B41 /* Constants.swift */,
-				99D871DB234AD5F2005B9B41 /* LoginCell.swift */,
-				99D871DD234AE2BE005B9B41 /* LoginViewController.swift */,
 				99D871DF234B0A19005B9B41 /* Images.xcassets */,
-				99D871E1234B1343005B9B41 /* SignupCell.xib */,
-				99D871E3234B145F005B9B41 /* SignupCell.swift */,
-				99D871E5234B2627005B9B41 /* FeedController.swift */,
-				99D871E7234B2773005B9B41 /* FeedPromoCellTableViewCell.swift */,
-				99D871E8234B2773005B9B41 /* FeedPromoCellTableViewCell.xib */,
-				99E8DE8023530B7C004DE2B6 /* ProfileController.swift */,
-				99E8DE822353124B004DE2B6 /* UserCouponsController.swift */,
-				99E8DE8423542B65004DE2B6 /* User.swift */,
-				99E8DE8623542BAC004DE2B6 /* Coupons.swift */,
-				99E8DE8823542DAC004DE2B6 /* CouponsRequest.swift */,
-				99E8DE8A23542DDA004DE2B6 /* LoginRequest.swift */,
 			);
 			path = kupai;
 			sourceTree = "<group>";
@@ -177,6 +229,7 @@
 				99D871EA234B2773005B9B41 /* FeedPromoCellTableViewCell.xib in Resources */,
 				99D871E2234B1343005B9B41 /* SignupCell.xib in Resources */,
 				994DBC28233C7742004A24CF /* LaunchScreen.storyboard in Resources */,
+				99E226F62356E01000BA0390 /* UserCouponTableViewCell.xib in Resources */,
 				994DBC23233C7740004A24CF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,7 +255,10 @@
 				99D871E6234B2627005B9B41 /* FeedController.swift in Sources */,
 				994DBC30233C8C70004A24CF /* PageCell.swift in Sources */,
 				99D871E9234B2773005B9B41 /* FeedPromoCellTableViewCell.swift in Sources */,
+				99E226F52356E01000BA0390 /* UserCouponTableViewCell.swift in Sources */,
+				993B1E052366B64700DDD7AD /* RestManager.swift in Sources */,
 				99D871DA234AA900005B9B41 /* Constants.swift in Sources */,
+				993B1DFF2366AE6100DDD7AD /* Promotion.swift in Sources */,
 				99E8DE8123530B7C004DE2B6 /* ProfileController.swift in Sources */,
 				99E8DE8923542DAC004DE2B6 /* CouponsRequest.swift in Sources */,
 			);

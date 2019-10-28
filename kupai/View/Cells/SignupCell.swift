@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignupCell: UICollectionViewCell {
+class SignupCell: UICollectionViewCell, UITextFieldDelegate {
     
     @IBOutlet weak var signupDataView: UIView!
     @IBOutlet weak var signupDataLineView: UIView!
@@ -20,6 +20,7 @@ class SignupCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupAddTargetIsNotEmptyTextFields()
         signupDataView.layer.borderColor = tertiaryColor.cgColor
         signupDataView.layer.borderWidth = 1
         signupDataView.layer.cornerRadius = 3
@@ -34,14 +35,46 @@ class SignupCell: UICollectionViewCell {
         
         alreadyHasAccountButton.setTitleColor(primaryColor, for: .normal)
         
+        userTextField.delegate = self
+        passwordTextField.delegate = self
+        
         //Without this, cannot interact with content
         self.contentView.isUserInteractionEnabled = false
         
     }
     
-    @IBAction func signUp(_ sender: Any) {
-        delegate?.finishSigningIn()
+    func setupAddTargetIsNotEmptyTextFields() {
+        signupButton.isEnabled = false
+        signupButton.alpha = 0.5
+        userTextField.addTarget(self, action: #selector(textFieldsIsNotEmpty),
+                                    for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textFieldsIsNotEmpty),
+                                     for: .editingChanged)
     }
+    
+    @objc func textFieldsIsNotEmpty(sender: UITextField) {
+        sender.text = sender.text?.trimmingCharacters(in: .whitespaces)
+        guard
+            let email = userTextField.text, !email.isEmpty,
+            let password = passwordTextField.text, !password.isEmpty
+//            let confirmPassword = confimPasswordUserTextField.text,
+//            password == confirmPassword
+            else
+        {
+            self.signupButton.isEnabled = false
+            self.signupButton.alpha = 0.5
+            return
+        }
+        // enable okButton if all conditions are met
+        signupButton.isEnabled = true
+        signupButton.alpha = 1.0
+    }
+    
+    @IBAction func signUp(_ sender: Any) {
+        print("holis")
+        delegate?.createUser(email: userTextField.text!, password: passwordTextField.text!)
+    }
+    
     @IBAction func redirectToLogin(_ sender: Any) {
         delegate?.backToLogin()
     }

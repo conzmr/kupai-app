@@ -19,3 +19,8 @@ let primaryColor = UIColor(red: 255/255, green: 94/255, blue: 97/255, alpha: 1)
 let secondaryColor = UIColor(red: 255/255, green: 94/255, blue: 97/255, alpha: 0.2)
 let tertiaryColor = UIColor(red: 210/255, green: 210/255, blue: 210/255, alpha: 1)
 let quaternaryColor = UIColor(red: 210/255, green: 210/255, blue: 210/255, alpha: 0.2)
+
+
+
+//API
+let apiURL = "https://kupai.herokuapp.com/api/"

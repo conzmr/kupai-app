@@ -12,8 +12,8 @@ struct Coupon:Decodable {
     var title: String
     var description: String
     var expirationDate: Date
-    var quantity: Int
-    var promoType: String //monetary - percentage
+    var value: Int
+    var discountType: String //monetary - percentage
     var used: Bool
 }
 
