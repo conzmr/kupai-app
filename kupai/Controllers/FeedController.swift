@@ -6,13 +6,9 @@
 //  Copyright © 2019 Constanza Madrigal Reyes. All rights reserved.
 //
 
-import UIKit
+import SwiftUI
 
 class FeedController: UIViewController {
-
-    struct Promotion {
-        var createdAt: String
-    }
     @IBOutlet weak var promotionsFeedTableView: UITableView!{
         didSet {
             let nib = UINib(nibName: "FeedPromoCellTableViewCell", bundle: nil)
@@ -22,49 +18,27 @@ class FeedController: UIViewController {
             promotionsFeedTableView.reloadData()
         }
     }
-    @IBOutlet weak var promotiosFeeedTableView: UITableView!
+    @IBOutlet weak var promotionsFeeedTableView: UITableView!
     
-    var promotions: [Promotion] = [
-        Promotion(createdAt: "2019-09-10 07:20:10"),
-        Promotion(createdAt: "2019-09-11 12:45:00"),
-        Promotion(createdAt: "2019-09-16 14:28:00"),
-        Promotion(createdAt: "2019-09-16 22:19:50"),
-        Promotion(createdAt: "2019-09-16 08:09:50"),
-        Promotion(createdAt: "2019-09-17 17:29:50"),
-    ]
-    
-    var couponsList = [Coupon](){
-        didSet {
-            DispatchQueue.main.async {
-                self.promotionsFeedTableView.reloadData()
-            }
-        }
-    }
+    @ObservedObject var promotionVM = PromotionViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let couponsRequest = CouponsRequest()
-//        couponsRequest.getCoupons{
-//            [weak self] result in
-//            switch result {
-//            case .failure(let error):
-//                print("no yuhus")
-//                print(error)
-//            case .success(let coupons):
-//                print("yuhus", coupons)
-//                self?.couponsList = coupons
-//            }
-//        }
-        
+        self.promotionVM.getPromotions()
     }
-
-
 }
 
 extension FeedController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return promotions.count
+        let numberOfRows = self.promotionVM.promotions.count
+        if numberOfRows == 0 {
+            tableView.setEmptyView(title: "No hay ninguna promoción", message: "Las promociones disponibles se mostrarán aquí")
+        }
+        else {
+            tableView.restore()
+        }
+        return numberOfRows
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -10,11 +10,12 @@
 		993B1DFF2366AE6100DDD7AD /* Promotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993B1DFE2366AE6100DDD7AD /* Promotion.swift */; };
 		993B1E052366B64700DDD7AD /* RestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993B1E042366B64700DDD7AD /* RestManager.swift */; };
 		994DBC1E233C7740004A24CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994DBC1D233C7740004A24CF /* AppDelegate.swift */; };
-		994DBC20233C7740004A24CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994DBC1F233C7740004A24CF /* ViewController.swift */; };
+		994DBC20233C7740004A24CF /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994DBC1F233C7740004A24CF /* GuideViewController.swift */; };
 		994DBC23233C7740004A24CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 994DBC21233C7740004A24CF /* Main.storyboard */; };
 		994DBC28233C7742004A24CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 994DBC26233C7742004A24CF /* LaunchScreen.storyboard */; };
 		994DBC30233C8C70004A24CF /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994DBC2F233C8C70004A24CF /* PageCell.swift */; };
 		994DBC32233DA0FA004A24CF /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994DBC31233DA0FA004A24CF /* Page.swift */; };
+		99CFFC77236FF07B005B31CC /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CFFC76236FF07B005B31CC /* UserViewModel.swift */; };
 		99D871D8234A91F0005B9B41 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D871D7234A91F0005B9B41 /* Extensions.swift */; };
 		99D871DA234AA900005B9B41 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D871D9234AA900005B9B41 /* Constants.swift */; };
 		99D871DC234AD5F2005B9B41 /* LoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D871DB234AD5F2005B9B41 /* LoginCell.swift */; };
@@ -31,8 +32,7 @@
 		99E8DE832353124B004DE2B6 /* UserCouponsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E8DE822353124B004DE2B6 /* UserCouponsController.swift */; };
 		99E8DE8523542B65004DE2B6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E8DE8423542B65004DE2B6 /* User.swift */; };
 		99E8DE8723542BAC004DE2B6 /* Coupons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E8DE8623542BAC004DE2B6 /* Coupons.swift */; };
-		99E8DE8923542DAC004DE2B6 /* CouponsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E8DE8823542DAC004DE2B6 /* CouponsRequest.swift */; };
-		99E8DE8B23542DDA004DE2B6 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E8DE8A23542DDA004DE2B6 /* LoginRequest.swift */; };
+		99F11EB3236E9B8A005385A4 /* PromotionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F11EB2236E9B8A005385A4 /* PromotionViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,12 +40,13 @@
 		993B1E042366B64700DDD7AD /* RestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestManager.swift; sourceTree = "<group>"; };
 		994DBC1A233C7740004A24CF /* kupai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kupai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		994DBC1D233C7740004A24CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		994DBC1F233C7740004A24CF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		994DBC1F233C7740004A24CF /* GuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
 		994DBC22233C7740004A24CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		994DBC27233C7742004A24CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		994DBC29233C7742004A24CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		994DBC2F233C8C70004A24CF /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
 		994DBC31233DA0FA004A24CF /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		99CFFC76236FF07B005B31CC /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		99D871D7234A91F0005B9B41 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		99D871D9234AA900005B9B41 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		99D871DB234AD5F2005B9B41 /* LoginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCell.swift; sourceTree = "<group>"; };
@@ -62,8 +63,7 @@
 		99E8DE822353124B004DE2B6 /* UserCouponsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCouponsController.swift; sourceTree = "<group>"; };
 		99E8DE8423542B65004DE2B6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		99E8DE8623542BAC004DE2B6 /* Coupons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coupons.swift; sourceTree = "<group>"; };
-		99E8DE8823542DAC004DE2B6 /* CouponsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponsRequest.swift; sourceTree = "<group>"; };
-		99E8DE8A23542DDA004DE2B6 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		99F11EB2236E9B8A005385A4 /* PromotionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,9 +83,7 @@
 				99E8DE8423542B65004DE2B6 /* User.swift */,
 				994DBC31233DA0FA004A24CF /* Page.swift */,
 				99E8DE8623542BAC004DE2B6 /* Coupons.swift */,
-				99E8DE8A23542DDA004DE2B6 /* LoginRequest.swift */,
 				993B1DFE2366AE6100DDD7AD /* Promotion.swift */,
-				99E8DE8823542DAC004DE2B6 /* CouponsRequest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -117,7 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				99D871DD234AE2BE005B9B41 /* LoginViewController.swift */,
-				994DBC1F233C7740004A24CF /* ViewController.swift */,
+				994DBC1F233C7740004A24CF /* GuideViewController.swift */,
 				99E8DE822353124B004DE2B6 /* UserCouponsController.swift */,
 				99D871E5234B2627005B9B41 /* FeedController.swift */,
 				99E8DE8023530B7C004DE2B6 /* ProfileController.swift */,
@@ -154,6 +152,7 @@
 		994DBC1C233C7740004A24CF /* kupai */ = {
 			isa = PBXGroup;
 			children = (
+				99F11EB1236E9B3D005385A4 /* ViewModel */,
 				993B1E032366B58800DDD7AD /* Resources */,
 				993B1E022366B55D00DDD7AD /* Controllers */,
 				993B1E002366B4B800DDD7AD /* View */,
@@ -165,6 +164,15 @@
 				99D871DF234B0A19005B9B41 /* Images.xcassets */,
 			);
 			path = kupai;
+			sourceTree = "<group>";
+		};
+		99F11EB1236E9B3D005385A4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				99F11EB2236E9B8A005385A4 /* PromotionViewModel.swift */,
+				99CFFC76236FF07B005B31CC /* UserViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,10 +250,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				99D871D8234A91F0005B9B41 /* Extensions.swift in Sources */,
-				99E8DE8B23542DDA004DE2B6 /* LoginRequest.swift in Sources */,
+				99CFFC77236FF07B005B31CC /* UserViewModel.swift in Sources */,
+				99F11EB3236E9B8A005385A4 /* PromotionViewModel.swift in Sources */,
 				99D871E4234B145F005B9B41 /* SignupCell.swift in Sources */,
 				99D871DC234AD5F2005B9B41 /* LoginCell.swift in Sources */,
-				994DBC20233C7740004A24CF /* ViewController.swift in Sources */,
+				994DBC20233C7740004A24CF /* GuideViewController.swift in Sources */,
 				99E8DE8723542BAC004DE2B6 /* Coupons.swift in Sources */,
 				994DBC1E233C7740004A24CF /* AppDelegate.swift in Sources */,
 				99D871DE234AE2BE005B9B41 /* LoginViewController.swift in Sources */,
@@ -260,7 +269,6 @@
 				99D871DA234AA900005B9B41 /* Constants.swift in Sources */,
 				993B1DFF2366AE6100DDD7AD /* Promotion.swift in Sources */,
 				99E8DE8123530B7C004DE2B6 /* ProfileController.swift in Sources */,
-				99E8DE8923542DAC004DE2B6 /* CouponsRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +417,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 768VCFK6DD;
 				INFOPLIST_FILE = kupai/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -427,6 +436,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 768VCFK6DD;
 				INFOPLIST_FILE = kupai/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

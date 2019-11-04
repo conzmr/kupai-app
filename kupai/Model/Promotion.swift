@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+struct Promotion:Identifiable,Decodable {
+    var id: String
+    var title: String
+    var description: String
+    var image: String
+    var expirationDate: Date
+    var active: Bool
+}

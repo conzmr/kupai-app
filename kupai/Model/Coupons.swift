@@ -17,12 +17,4 @@ struct Coupon:Decodable {
     var used: Bool
 }
 
-struct Coupons:Decodable{
-    var coupons:[Coupon]
-}
-
-struct CouponsResponse:Decodable {
-    var response:Coupons
-}
-
 

@@ -21,6 +21,15 @@ let tertiaryColor = UIColor(red: 210/255, green: 210/255, blue: 210/255, alpha: 
 let quaternaryColor = UIColor(red: 210/255, green: 210/255, blue: 210/255, alpha: 0.2)
 
 
-
 //API
-let apiURL = "https://kupai.herokuapp.com/api/"
+let baseApiURL = "https://kupai.herokuapp.com/api/"
+
+
+//ROUTES
+
+//USER
+let authenticateURL = baseApiURL+"AppUsers/login"
+let createUserURL = baseApiURL+"AppUsers"
+
+//PROMOTIONS
+let getPromotionsURL = baseApiURL+"Promotions"

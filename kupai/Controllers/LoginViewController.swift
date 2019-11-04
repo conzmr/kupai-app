@@ -6,7 +6,7 @@
 //  Copyright © 2019 Constanza Madrigal Reyes. All rights reserved.
 //
 
-import UIKit
+import SwiftUI
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
@@ -22,6 +22,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var bottomLineView: UIView!
     @IBOutlet weak var orLabel: UILabel!
     
+    @ObservedObject var userVM = UserViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //KEYBOARD SET UP
@@ -35,7 +37,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         //dividing height between two allow us to have perfect circle
         logoImageView.layer.cornerRadius = logoImageView.bounds.height / 2
         logoImageView.clipsToBounds = true
-        
         
         loginDataView.layer.borderColor = tertiaryColor.cgColor
         loginDataView.layer.borderWidth = 1
@@ -56,8 +57,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         loginDataLineView.backgroundColor = tertiaryColor
         bottomLineView.backgroundColor = tertiaryColor
-        
-        
     }
     
     @IBAction func doLogin(_ sender: Any) {
@@ -79,14 +78,27 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             self.showAlert(title: "Empty password", message: "Please enter your password")
             return
         }
-        performSegue(withIdentifier: "loginToFeed", sender: self)
-        
-//        if(email.count > 0  && password.count > 0){
-//            redirectInsideApp()
-//            //performSegue(withIdentifier: "loginToFeed", sender: self)
-//        }
-        //DO LOGIN REQUEST LOGIC
-        //if error showAlert(title: "Incorrect password", message: "Please try again entering your password")
+        if(email.count > 0  && password.count > 0){
+            userVM.authenticateUser(email: email, password: password, completion: { (res) in
+                switch res {
+                case .success(_):
+                    self.redirectInsideApp()
+                case .failure(let err):
+                    print("LOGGIN FAILED", err)
+                    self.showAlert(title: "Error de autenticación", message: "Correo o contraseña incorrectos")
+                }
+            })
+        }
+    }
+    
+    func redirectInsideApp() {
+        DispatchQueue.main.async {
+            let appDelegate = UIApplication.shared.delegate! as! AppDelegate
+            let initialViewController = self.storyboard!.instantiateViewController(withIdentifier: "MainTabControllerId")
+            appDelegate.window?.rootViewController = initialViewController
+            appDelegate.window?.makeKeyAndVisible()
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

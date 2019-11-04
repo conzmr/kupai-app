@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6xl-zB-iup">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6xl-zB-iup">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Guide View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="kupai" customModuleProvider="target" sceneMemberID="viewController"/>
+                <viewController id="BYZ-38-t0r" customClass="GuideViewController" customModule="kupai" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="665" y="21"/>
@@ -53,7 +50,6 @@
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Correo electrónico" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="upI-1Z-5zw">
                                         <rect key="frame" x="16" y="8" width="350" height="28.5"/>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" keyboardAppearance="alert" textContentType="email"/>
                                         <connections>
@@ -62,7 +58,6 @@
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="efI-Qh-xlE">
                                         <rect key="frame" x="16" y="53.5" width="350" height="28.5"/>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" keyboardAppearance="alert" secureTextEntry="YES" textContentType="password"/>
                                         <connections>
@@ -104,9 +99,6 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <state key="normal" title="¿Eres administrador? Presiona aquí"/>
-                                <connections>
-                                    <segue destination="H9B-U6-zE2" kind="show" id="qu2-JY-B5s"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Jl-0i-vFU">
                                 <rect key="frame" x="16" y="804" width="382" height="42"/>
@@ -177,7 +169,6 @@
                         <outlet property="redirectToAdminLoginButton" destination="tg7-i5-VRc" id="kU7-AG-cUi"/>
                         <outlet property="signupButton" destination="2Jl-0i-vFU" id="BM2-VM-41s"/>
                         <outlet property="userTextField" destination="upI-1Z-5zw" id="BFQ-j9-Tax"/>
-                        <segue destination="H9B-U6-zE2" kind="show" identifier="loginToFeed" id="vSU-wf-zlX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aUl-7R-olF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -252,6 +243,7 @@
         <scene sceneID="r1z-Nb-VNI">
             <objects>
                 <tabBarController storyboardIdentifier="MainTabControllerId" id="H9B-U6-zE2" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="MCE-ht-SML"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="A3F-R8-Qts">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -399,7 +391,4 @@
         <image name="gradient-bg" width="1920" height="1080"/>
         <image name="profile" width="25" height="25"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="vSU-wf-zlX"/>
-    </inferredMetricsTieBreakers>
 </document>
