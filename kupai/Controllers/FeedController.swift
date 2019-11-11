@@ -25,20 +25,22 @@ class FeedController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.promotionVM.getPromotions()
+        promotionsFeedTableView.reloadData()
     }
 }
 
 extension FeedController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let numberOfRows = self.promotionVM.promotions.count
-        if numberOfRows == 0 {
-            tableView.setEmptyView(title: "No hay ninguna promoción", message: "Las promociones disponibles se mostrarán aquí")
+        
+        if self.promotionVM.promotions.count == 0 {
+            tableView.setEmptyView(title: "No hay ninguna promoción", message: "Las promociones disponibles se mostrarán aquí", messageImage: .actions)
         }
         else {
             tableView.restore()
         }
-        return numberOfRows
+        print("number", self.promotionVM.promotions.count)
+        return self.promotionVM.promotions.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

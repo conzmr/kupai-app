@@ -26,9 +26,10 @@ class UserViewModel: ObservableObject {
                 return
             }
             do{
-                self.user = try JSONDecoder().decode(User.self, from: data!)
-                self.user!.email = email
-                completion(.success(self.user!))
+                let user = try JSONDecoder().decode(User.self, from: data!)
+                self.user = user
+                self.saveUserSession()
+                completion(.success(user))
             }catch let jsonError {
                 completion(.failure(jsonError))
             }
@@ -54,6 +55,7 @@ class UserViewModel: ObservableObject {
             do{
                 let user = try JSONDecoder().decode(User.self, from: data!)
                 self.user = user
+                self.saveUserSession()
                 completion(.success(user))
             }catch let jsonError {
                 completion(.failure(jsonError))
@@ -61,7 +63,36 @@ class UserViewModel: ObservableObject {
         }.resume()
     }
     
-    //FUNCTION TO SET DATA IN USER DEFAULTS
+    func logoutUser(completion: @escaping (Result<Bool, Error>) -> ()) {
+        guard let url = URL(string: logoutURL) else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        URLSession.shared.dataTask(with: request) { (data, resp, err) in
+            if let err = err {
+                completion(.failure(err))
+                return
+            }
+            completion(.success(true))
+            self.removeUserSession()
+        }.resume()
+    }
+    
+    func removeUserSession(){
+        UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+        UserDefaults.standard.synchronize()
+    }
+    
+    func saveUserSession() {
+        UserDefaults.standard.set(user?.id, forKey: "token")
+        UserDefaults.standard.set(user?.email, forKey: "email")
+        UserDefaults.standard.set("Carlos Santana", forKey: "name")
+        UserDefaults.standard.synchronize()
+    }
+    
+    func isUserLoggedIn() -> Bool {
+        return UserDefaults.standard.object(forKey: "token") != nil
+    }
     
 }
 

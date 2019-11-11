@@ -16,6 +16,9 @@ class PromotionViewModel: ObservableObject {
         guard let url = URL(string: getPromotionsURL) else { return }
         URLSession.shared.dataTask(with: url) { (data, resp, err) in
             DispatchQueue.main.async {
+                if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                    print("data: \(dataString)")
+                }
                 do {
                     self.promotions = try JSONDecoder().decode([Promotion].self, from: data!)
                 } catch {

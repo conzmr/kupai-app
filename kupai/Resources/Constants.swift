@@ -30,6 +30,7 @@ let baseApiURL = "https://kupai.herokuapp.com/api/"
 //USER
 let authenticateURL = baseApiURL+"AppUsers/login"
 let createUserURL = baseApiURL+"AppUsers"
+let logoutURL = baseApiURL+"AppUsers/logout"
 
 //PROMOTIONS
 let getPromotionsURL = baseApiURL+"Promotions"

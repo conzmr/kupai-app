@@ -291,6 +291,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <state key="normal" title="Cerrar sesión"/>
+                                <connections>
+                                    <action selector="logout:" destination="IPR-fR-IGk" eventType="touchUpInside" id="5jo-hB-QoD"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8BQ-DU-lV8">
                                 <rect key="frame" x="40" y="718" width="334" height="1"/>
@@ -338,7 +341,9 @@
                     <navigationItem key="navigationItem" title="Perfil" id="CEy-S0-dAy"/>
                     <connections>
                         <outlet property="bottomLineSeparator" destination="8BQ-DU-lV8" id="BER-fJ-G5J"/>
+                        <outlet property="emailLabel" destination="ETa-wh-hDN" id="YEE-7P-Mt1"/>
                         <outlet property="logoutButton" destination="OYd-IJ-ruF" id="yuA-Uq-DbG"/>
+                        <outlet property="nameLabel" destination="4gx-5J-GQC" id="L2o-Nc-lZi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ma9-lx-GLM" userLabel="First Responder" sceneMemberID="firstResponder"/>

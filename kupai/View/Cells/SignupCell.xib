@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,10 +13,10 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="gradient-bg" translatesAutoresizingMaskIntoConstraints="NO" id="r3F-FE-T73">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradient-bg" translatesAutoresizingMaskIntoConstraints="NO" id="r3F-FE-T73">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="146"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="130" id="Mnk-SY-wRO"/>
+                        <constraint firstAttribute="height" constant="146" id="Lbb-En-Qvm"/>
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0K2-cw-bhH">
@@ -34,13 +31,11 @@
                         </view>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Correo electrónico" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9LJ-8k-XJx">
                             <rect key="frame" x="16" y="8" width="350" height="28.5"/>
-                            <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <textInputTraits key="textInputTraits" keyboardType="emailAddress" keyboardAppearance="alert" textContentType="email"/>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MBR-sJ-lIZ">
                             <rect key="frame" x="16" y="53.5" width="350" height="28.5"/>
-                            <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <textInputTraits key="textInputTraits" keyboardAppearance="alert" secureTextEntry="YES" textContentType="new-password"/>
                         </textField>
@@ -87,16 +82,16 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="2fc-kM-rlS" firstAttribute="top" secondItem="AeW-kC-Bwn" secondAttribute="bottom" constant="16" id="182-vm-Pho"/>
-                <constraint firstItem="0K2-cw-bhH" firstAttribute="top" secondItem="r3F-FE-T73" secondAttribute="bottom" constant="42" id="By7-AV-wEW"/>
+                <constraint firstItem="r3F-FE-T73" firstAttribute="leading" secondItem="b2N-JZ-rTp" secondAttribute="leading" id="7Ru-2g-Uvi"/>
                 <constraint firstItem="b2N-JZ-rTp" firstAttribute="trailing" secondItem="AeW-kC-Bwn" secondAttribute="trailing" constant="16" id="Gbd-sc-B08"/>
+                <constraint firstItem="r3F-FE-T73" firstAttribute="top" secondItem="GIL-Kf-QWL" secondAttribute="top" id="L1N-Db-BIe"/>
+                <constraint firstItem="r3F-FE-T73" firstAttribute="centerX" secondItem="0K2-cw-bhH" secondAttribute="centerX" id="PJZ-BC-vnd"/>
                 <constraint firstItem="0K2-cw-bhH" firstAttribute="leading" secondItem="b2N-JZ-rTp" secondAttribute="leading" constant="16" id="U9v-We-wTv"/>
                 <constraint firstItem="AeW-kC-Bwn" firstAttribute="top" secondItem="0K2-cw-bhH" secondAttribute="bottom" constant="16" id="WP7-pJ-O40"/>
                 <constraint firstItem="b2N-JZ-rTp" firstAttribute="trailing" secondItem="2fc-kM-rlS" secondAttribute="trailing" constant="16" id="aB9-ZH-20P"/>
                 <constraint firstItem="AeW-kC-Bwn" firstAttribute="leading" secondItem="b2N-JZ-rTp" secondAttribute="leading" constant="16" id="dcP-Cg-Nui"/>
-                <constraint firstItem="r3F-FE-T73" firstAttribute="trailing" secondItem="b2N-JZ-rTp" secondAttribute="trailing" id="kYu-J0-Z4b"/>
                 <constraint firstItem="b2N-JZ-rTp" firstAttribute="trailing" secondItem="0K2-cw-bhH" secondAttribute="trailing" constant="16" id="nYT-AS-bpy"/>
-                <constraint firstItem="r3F-FE-T73" firstAttribute="leading" secondItem="b2N-JZ-rTp" secondAttribute="leading" id="nxd-gQ-0xq"/>
-                <constraint firstItem="r3F-FE-T73" firstAttribute="top" secondItem="GIL-Kf-QWL" secondAttribute="top" id="tUu-2e-Cat"/>
+                <constraint firstItem="0K2-cw-bhH" firstAttribute="top" secondItem="r3F-FE-T73" secondAttribute="bottom" constant="26" id="wPQ-1D-dYW"/>
                 <constraint firstItem="2fc-kM-rlS" firstAttribute="leading" secondItem="b2N-JZ-rTp" secondAttribute="leading" constant="16" id="wdb-qL-5SH"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="b2N-JZ-rTp"/>

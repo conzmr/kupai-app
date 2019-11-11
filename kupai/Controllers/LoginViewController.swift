@@ -26,6 +26,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        if(userVM.isUserLoggedIn()){
+            redirectInsideApp()
+        }
         //KEYBOARD SET UP
         //Looks for single or multiple taps.
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
@@ -57,6 +61,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         loginDataLineView.backgroundColor = tertiaryColor
         bottomLineView.backgroundColor = tertiaryColor
+
     }
     
     @IBAction func doLogin(_ sender: Any) {
@@ -79,7 +84,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             return
         }
         if(email.count > 0  && password.count > 0){
+            loginButton.loadingIndicator(true)
             userVM.authenticateUser(email: email, password: password, completion: { (res) in
+                self.loginButton.loadingIndicator(false)
                 switch res {
                 case .success(_):
                     self.redirectInsideApp()

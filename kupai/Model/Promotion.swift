@@ -13,6 +13,6 @@ struct Promotion:Identifiable,Decodable {
     var title: String
     var description: String
     var image: String
-    var expirationDate: Date
+    var expirationDate: String
     var active: Bool
 }
