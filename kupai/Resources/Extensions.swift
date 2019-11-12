@@ -124,6 +124,26 @@ extension UITableView {
 
 }
 
+extension UITableViewCell {
+    func getImage(url: String, cellImage: UIImageView){
+        let url = URL(string: url)
+        let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
+//            if let response = response {
+//                print("RESPONSE: \(response)")
+//            }
+            if let data = data {
+                DispatchQueue.main.async {
+                  cellImage.image = UIImage(data: data)
+                }
+            }
+            if let error = error {
+                print("ERROR GETTING CELL IMAGE", error)
+            }
+        }
+        task.resume()
+    }
+}
+
 extension UIView {
     
     func anchorToTop(_ top: NSLayoutYAxisAnchor? = nil, left: NSLayoutXAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, right: NSLayoutXAxisAnchor? = nil) {

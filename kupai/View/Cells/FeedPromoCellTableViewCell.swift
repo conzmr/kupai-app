@@ -10,7 +10,12 @@ import UIKit
 
 class FeedPromoCellTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var promoImage: UIImageView!
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var restaurantName: UILabel!
+    @IBOutlet weak var restaurantLogo: UIImageView!
     @IBOutlet weak var cellContainer: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

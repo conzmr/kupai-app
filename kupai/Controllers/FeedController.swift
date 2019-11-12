@@ -21,7 +21,7 @@ class FeedController: UIViewController {
     }
     @IBOutlet weak var promotionsFeeedTableView: UITableView!
     
-    @ObservedObject var promotionVM = PromotionViewModel()
+    var promotionVM = PromotionViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,11 +62,17 @@ extension FeedController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FeedPromoCellTableViewCellId", for: indexPath) as! FeedPromoCellTableViewCell
+        let promotion: Promotion
+        promotion = self.promotionVM.promotions[indexPath.row]
+        cell.title.text = promotion.title
+        cell.getImage(url: promotion.image, cellImage: cell.promoImage)
+        cell.restaurantName.text = promotion.restaurant.name
+        cell.getImage(url: promotion.restaurant.logo, cellImage: cell.restaurantLogo)
         return cell
     }
 
 //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 80
+//        return 170
 //    }
 //
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

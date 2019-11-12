@@ -8,25 +8,9 @@
 
 import SwiftUI
 
-class PromotionViewModel: ObservableObject {
+class PromotionViewModel {
     
-    @Published var promotions = [Promotion]()
-    
-//    func getPromotions() {
-//        guard let url = URL(string: getPromotionsURL) else { return }
-//        URLSession.shared.dataTask(with: url) { (data, resp, err) in
-//            DispatchQueue.main.async {
-//                if let data = data, let dataString = String(data: data, encoding: .utf8) {
-//                    print("data: \(dataString)")
-//                }
-//                do {
-//                    self.promotions = try JSONDecoder().decode([Promotion].self, from: data!)
-//                } catch {
-//                    print("Failed to decode JSON:", error)
-//                }
-//            }
-//        }.resume()
-//    }
+    var promotions = [Promotion]()
     
     func getPromotions(completion: @escaping (Result<[Promotion], Error>) -> ()) {
         guard let url = URL(string: getPromotionsURL) else { return }
