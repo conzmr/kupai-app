@@ -6,13 +6,13 @@
 //  Copyright © 2019 Constanza Madrigal Reyes. All rights reserved.
 //
 
-import Foundation
+import SwiftUI
 
-struct Promotion:Identifiable,Decodable {
-    var id: String
-    var title: String
-    var description: String
-    var image: String
-    var expirationDate: String
-    var active: Bool
+struct Promotion: Identifiable, Decodable {
+    let id = UUID()
+    let title: String
+    let description: String
+    let image: String
+    let expirationDate: String
+    let active: Bool
 }

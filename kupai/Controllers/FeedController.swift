@@ -9,30 +9,47 @@
 import SwiftUI
 
 class FeedController: UIViewController {
+    private let refreshControl = UIRefreshControl()
     @IBOutlet weak var promotionsFeedTableView: UITableView!{
         didSet {
             let nib = UINib(nibName: "FeedPromoCellTableViewCell", bundle: nil)
             promotionsFeedTableView.register(nib, forCellReuseIdentifier: "FeedPromoCellTableViewCellId")
             promotionsFeedTableView.dataSource = self
             promotionsFeedTableView.delegate = self
-            promotionsFeedTableView.reloadData()
+            promotionsFeedTableView.addSubview(refreshControl)
         }
     }
     @IBOutlet weak var promotionsFeeedTableView: UITableView!
     
     @ObservedObject var promotionVM = PromotionViewModel()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.promotionVM.getPromotions()
-        promotionsFeedTableView.reloadData()
+        self.refreshControl.beginRefreshing()
+        getPromotions()
+        refreshControl.addTarget(self, action: #selector(refreshPromotionsData(_:)), for: UIControl.Event.valueChanged)
+    }
+    
+    @objc private func refreshPromotionsData(_ sender: Any) {
+        getPromotions()
+    }
+    
+    func getPromotions() {
+        promotionVM.getPromotions(completion: { (res) in
+            self.refreshControl.endRefreshing()
+            switch res {
+            case .success(_):
+                self.promotionsFeedTableView.reloadData()
+            case .failure(let err):
+                print("ERROR OCURRED GETTING PROMOTIONS", err)
+            }
+        })
     }
 }
 
 extension FeedController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         if self.promotionVM.promotions.count == 0 {
             tableView.setEmptyView(title: "No hay ninguna promoción", message: "Las promociones disponibles se mostrarán aquí", messageImage: .actions)
         }

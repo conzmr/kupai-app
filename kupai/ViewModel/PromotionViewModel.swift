@@ -12,7 +12,23 @@ class PromotionViewModel: ObservableObject {
     
     @Published var promotions = [Promotion]()
     
-    func getPromotions() {
+//    func getPromotions() {
+//        guard let url = URL(string: getPromotionsURL) else { return }
+//        URLSession.shared.dataTask(with: url) { (data, resp, err) in
+//            DispatchQueue.main.async {
+//                if let data = data, let dataString = String(data: data, encoding: .utf8) {
+//                    print("data: \(dataString)")
+//                }
+//                do {
+//                    self.promotions = try JSONDecoder().decode([Promotion].self, from: data!)
+//                } catch {
+//                    print("Failed to decode JSON:", error)
+//                }
+//            }
+//        }.resume()
+//    }
+    
+    func getPromotions(completion: @escaping (Result<[Promotion], Error>) -> ()) {
         guard let url = URL(string: getPromotionsURL) else { return }
         URLSession.shared.dataTask(with: url) { (data, resp, err) in
             DispatchQueue.main.async {
@@ -21,8 +37,10 @@ class PromotionViewModel: ObservableObject {
                 }
                 do {
                     self.promotions = try JSONDecoder().decode([Promotion].self, from: data!)
-                } catch {
-                    print("Failed to decode JSON:", error)
+                    completion(.success(self.promotions))
+                } catch let jsonError {
+                    print("Failed to decode JSON:", jsonError)
+                    completion(.failure(jsonError))
                 }
             }
         }.resume()
