@@ -33,5 +33,5 @@ let createUserURL = baseApiURL+"AppUsers"
 let logoutURL = baseApiURL+"AppUsers/logout"
 
 //PROMOTIONS
-let getPromotionsURL = baseApiURL+"Promotions?filter=%7B%22include%22%3A%20%22restaurant%22%7D"
+let getPromotionsURL = baseApiURL+"Promotions?filter=%7B%22include%22%3A%20%5B%7B%22relation%22%3A%20%22branch%22%7D%2C%20%7B%22relation%22%3A%20%22restaurant%22%7D%5D%7D"
 

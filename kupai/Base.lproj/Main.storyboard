@@ -183,7 +183,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kDk-MO-h1v">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kDk-MO-h1v">
                                 <rect key="frame" x="0.0" y="140" width="414" height="756"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -210,6 +210,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nbw-BA-f4C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3223.1884057971015" y="20.758928571428569"/>
+        </scene>
+        <!--Promotion Detail Controller-->
+        <scene sceneID="Apn-WS-e5T">
+            <objects>
+                <viewController storyboardIdentifier="PromotionDetailControllerId" id="fDE-eV-hcm" customClass="PromotionDetailController" customModule="kupai" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qOU-P4-2Jx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="corp-cumpleanos" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I79-Oe-pZZ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="400"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Klu-Bw-bMz">
+                                <rect key="frame" x="0.0" y="444" width="414" height="418"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Klu-Bw-bMz" firstAttribute="top" secondItem="I79-Oe-pZZ" secondAttribute="bottom" id="9hJ-ei-llu"/>
+                            <constraint firstItem="I79-Oe-pZZ" firstAttribute="trailing" secondItem="X4i-N5-KTV" secondAttribute="trailing" id="Abn-bi-SxF"/>
+                            <constraint firstItem="I79-Oe-pZZ" firstAttribute="leading" secondItem="X4i-N5-KTV" secondAttribute="leading" id="BMs-SR-CXa"/>
+                            <constraint firstItem="X4i-N5-KTV" firstAttribute="trailing" secondItem="Klu-Bw-bMz" secondAttribute="trailing" id="J2l-fR-NUN"/>
+                            <constraint firstItem="I79-Oe-pZZ" firstAttribute="trailing" secondItem="X4i-N5-KTV" secondAttribute="trailing" id="JEB-2o-2ve"/>
+                            <constraint firstItem="I79-Oe-pZZ" firstAttribute="leading" secondItem="X4i-N5-KTV" secondAttribute="leading" id="Kfc-63-quc"/>
+                            <constraint firstItem="Klu-Bw-bMz" firstAttribute="leading" secondItem="X4i-N5-KTV" secondAttribute="leading" id="a8R-fa-rZH"/>
+                            <constraint firstItem="X4i-N5-KTV" firstAttribute="bottom" secondItem="Klu-Bw-bMz" secondAttribute="bottom" id="ab8-cP-SgX"/>
+                            <constraint firstItem="I79-Oe-pZZ" firstAttribute="top" secondItem="X4i-N5-KTV" secondAttribute="top" id="bhl-uh-Dmg"/>
+                            <constraint firstItem="I79-Oe-pZZ" firstAttribute="top" secondItem="X4i-N5-KTV" secondAttribute="top" id="rhI-M9-gzb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="X4i-N5-KTV"/>
+                    </view>
+                    <connections>
+                        <outlet property="promotionImage" destination="I79-Oe-pZZ" id="hxg-7d-Bax"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="296-PM-Mmz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4021.739130434783" y="19.419642857142858"/>
         </scene>
         <!--Cuponera-->
         <scene sceneID="aMk-6C-Z56">
@@ -390,6 +430,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="corp-cumpleanos" width="800" height="400"/>
         <image name="coupons-tab" width="25" height="25"/>
         <image name="discount" width="25" height="25"/>
         <image name="fire-logo-png" width="250" height="358"/>

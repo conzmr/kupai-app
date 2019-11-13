@@ -56,7 +56,6 @@ extension FeedController: UITableViewDataSource, UITableViewDelegate {
         else {
             tableView.restore()
         }
-        print("number", self.promotionVM.promotions.count)
         return self.promotionVM.promotions.count
     }
 
@@ -75,10 +74,10 @@ extension FeedController: UITableViewDataSource, UITableViewDelegate {
 //        return 170
 //    }
 //
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let vc = storyboard?.instantiateViewController(withIdentifier: "EventDetailViewController") as? EventDetailViewController
-//        vc!.navigationTitle = events[indexPath.section][indexPath.row].eventTransport.rawValue
-//        self.navigationController?.pushViewController(vc!, animated: true)
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "PromotionDetailControllerId") as? PromotionDetailController
+//        vc!.navigationTitle = self.promotionVM.promotions[indexPath.row].title
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
 
 }
