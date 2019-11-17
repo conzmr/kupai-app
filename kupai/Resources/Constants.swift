@@ -28,7 +28,7 @@ let baseApiURL = "https://kupai.herokuapp.com/api/"
 //ROUTES
 
 //USER
-let authenticateURL = baseApiURL+"AppUsers/login"
+let authenticateURL = baseApiURL+"AppUsers/login?include=User"
 let createUserURL = baseApiURL+"AppUsers"
 let logoutURL = baseApiURL+"AppUsers/logout"
 

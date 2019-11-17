@@ -10,8 +10,8 @@ import Foundation
 
 struct User: Identifiable,Codable {
     var id: String
-    var userId: String
-    var email: String?
+    var email: String
+    var type: String
     var name: String?
-    var created: String
+    var createdAt: String
 }

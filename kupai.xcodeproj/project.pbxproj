@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5DE170C1673A3B1E7EA2D4CC /* libPods-kupai.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4896D8A2A10485EC82288B8 /* libPods-kupai.a */; };
 		993B1DFF2366AE6100DDD7AD /* Promotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993B1DFE2366AE6100DDD7AD /* Promotion.swift */; };
 		994DBC1E233C7740004A24CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994DBC1D233C7740004A24CF /* AppDelegate.swift */; };
 		994DBC20233C7740004A24CF /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994DBC1F233C7740004A24CF /* GuideViewController.swift */; };
@@ -14,8 +15,11 @@
 		994DBC28233C7742004A24CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 994DBC26233C7742004A24CF /* LaunchScreen.storyboard */; };
 		994DBC30233C8C70004A24CF /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994DBC2F233C8C70004A24CF /* PageCell.swift */; };
 		994DBC32233DA0FA004A24CF /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994DBC31233DA0FA004A24CF /* Page.swift */; };
+		9967A687237F923300336C5A /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9967A686237F923300336C5A /* AccessToken.swift */; };
+		9967A689237F936900336C5A /* Branch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9967A688237F936900336C5A /* Branch.swift */; };
 		9970B139237B64EA009BD17E /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9970B138237B64EA009BD17E /* Restaurant.swift */; };
 		9970B13B237B68F9009BD17E /* PromotionDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9970B13A237B68F9009BD17E /* PromotionDetailController.swift */; };
+		9970B13F237BAB92009BD17E /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 9970B13E237BAB92009BD17E /* Podfile */; };
 		99CFFC77236FF07B005B31CC /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CFFC76236FF07B005B31CC /* UserViewModel.swift */; };
 		99D871D8234A91F0005B9B41 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D871D7234A91F0005B9B41 /* Extensions.swift */; };
 		99D871DA234AA900005B9B41 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D871D9234AA900005B9B41 /* Constants.swift */; };
@@ -37,6 +41,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		10F51631D8C8B27B49A40788 /* Pods-kupai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kupai.debug.xcconfig"; path = "Target Support Files/Pods-kupai/Pods-kupai.debug.xcconfig"; sourceTree = "<group>"; };
+		8A168C3734140E670715D046 /* Pods-kupai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kupai.release.xcconfig"; path = "Target Support Files/Pods-kupai/Pods-kupai.release.xcconfig"; sourceTree = "<group>"; };
 		993B1DFE2366AE6100DDD7AD /* Promotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Promotion.swift; sourceTree = "<group>"; };
 		994DBC1A233C7740004A24CF /* kupai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kupai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		994DBC1D233C7740004A24CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,8 +52,11 @@
 		994DBC29233C7742004A24CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		994DBC2F233C8C70004A24CF /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
 		994DBC31233DA0FA004A24CF /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		9967A686237F923300336C5A /* AccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
+		9967A688237F936900336C5A /* Branch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Branch.swift; sourceTree = "<group>"; };
 		9970B138237B64EA009BD17E /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		9970B13A237B68F9009BD17E /* PromotionDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionDetailController.swift; sourceTree = "<group>"; };
+		9970B13E237BAB92009BD17E /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		99CFFC76236FF07B005B31CC /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		99D871D7234A91F0005B9B41 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		99D871D9234AA900005B9B41 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -66,6 +75,7 @@
 		99E8DE8423542B65004DE2B6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		99E8DE8623542BAC004DE2B6 /* Coupons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coupons.swift; sourceTree = "<group>"; };
 		99F11EB2236E9B8A005385A4 /* PromotionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionViewModel.swift; sourceTree = "<group>"; };
+		E4896D8A2A10485EC82288B8 /* libPods-kupai.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kupai.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,12 +83,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DE170C1673A3B1E7EA2D4CC /* libPods-kupai.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30477028EB7192C34FC57044 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				10F51631D8C8B27B49A40788 /* Pods-kupai.debug.xcconfig */,
+				8A168C3734140E670715D046 /* Pods-kupai.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		89B69034EBD09F9AC4CDE476 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E4896D8A2A10485EC82288B8 /* libPods-kupai.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		993B1DFD2366AE2200DDD7AD /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +115,8 @@
 				99E8DE8623542BAC004DE2B6 /* Coupons.swift */,
 				993B1DFE2366AE6100DDD7AD /* Promotion.swift */,
 				9970B138237B64EA009BD17E /* Restaurant.swift */,
+				9967A686237F923300336C5A /* AccessToken.swift */,
+				9967A688237F936900336C5A /* Branch.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -139,8 +169,11 @@
 		994DBC11233C7740004A24CF = {
 			isa = PBXGroup;
 			children = (
+				9970B13E237BAB92009BD17E /* Podfile */,
 				994DBC1C233C7740004A24CF /* kupai */,
 				994DBC1B233C7740004A24CF /* Products */,
+				30477028EB7192C34FC57044 /* Pods */,
+				89B69034EBD09F9AC4CDE476 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -185,9 +218,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 994DBC2C233C7742004A24CF /* Build configuration list for PBXNativeTarget "kupai" */;
 			buildPhases = (
+				C7FA7FBBAE6E8A1267389B3D /* [CP] Check Pods Manifest.lock */,
 				994DBC16233C7740004A24CF /* Sources */,
 				994DBC17233C7740004A24CF /* Frameworks */,
 				994DBC18233C7740004A24CF /* Resources */,
+				48048747C6F0FFD339FB28A8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -241,11 +276,54 @@
 				99D871E2234B1343005B9B41 /* SignupCell.xib in Resources */,
 				994DBC28233C7742004A24CF /* LaunchScreen.storyboard in Resources */,
 				99E226F62356E01000BA0390 /* UserCouponTableViewCell.xib in Resources */,
+				9970B13F237BAB92009BD17E /* Podfile in Resources */,
 				994DBC23233C7740004A24CF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		48048747C6F0FFD339FB28A8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-kupai/Pods-kupai-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-kupai/Pods-kupai-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kupai/Pods-kupai-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7FA7FBBAE6E8A1267389B3D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-kupai-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		994DBC16233C7740004A24CF /* Sources */ = {
@@ -271,8 +349,10 @@
 				99D871E9234B2773005B9B41 /* FeedPromoCellTableViewCell.swift in Sources */,
 				99E226F52356E01000BA0390 /* UserCouponTableViewCell.swift in Sources */,
 				99D871DA234AA900005B9B41 /* Constants.swift in Sources */,
+				9967A689237F936900336C5A /* Branch.swift in Sources */,
 				993B1DFF2366AE6100DDD7AD /* Promotion.swift in Sources */,
 				99E8DE8123530B7C004DE2B6 /* ProfileController.swift in Sources */,
+				9967A687237F923300336C5A /* AccessToken.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +496,7 @@
 		};
 		994DBC2D233C7742004A24CF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10F51631D8C8B27B49A40788 /* Pods-kupai.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -435,6 +516,7 @@
 		};
 		994DBC2E233C7742004A24CF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A168C3734140E670715D046 /* Pods-kupai.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

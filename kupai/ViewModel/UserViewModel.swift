@@ -10,7 +10,8 @@ import SwiftUI
 
 class UserViewModel: ObservableObject {
     
-    @Published var user:User?
+    var user:User?
+    var accessToken:AccessToken?
     
     func authenticateUser(email: String, password: String, completion: @escaping (Result<User, Error>) -> ()) {
         guard let url = URL(string: authenticateURL) else { return }
@@ -26,10 +27,10 @@ class UserViewModel: ObservableObject {
                 return
             }
             do{
-                let user = try JSONDecoder().decode(User.self, from: data!)
-                self.user = user
+                let accessToken = try JSONDecoder().decode(AccessToken.self, from: data!)
+                self.user = accessToken.user
                 self.saveUserSession()
-                completion(.success(user))
+                completion(.success(self.user!))
             }catch let jsonError {
                 completion(.failure(jsonError))
             }
@@ -84,8 +85,9 @@ class UserViewModel: ObservableObject {
     }
     
     func saveUserSession() {
-        UserDefaults.standard.set(user?.id, forKey: "token")
+        UserDefaults.standard.set(accessToken?.id, forKey: "token")
         UserDefaults.standard.set(user?.email, forKey: "email")
+        UserDefaults.standard.set(user?.type, forKey: "userType")
         UserDefaults.standard.set("Carlos Santana", forKey: "name")
         UserDefaults.standard.synchronize()
     }

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import GoogleMaps
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,7 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         UITabBar.appearance().barTintColor = .black
          UITabBar.appearance().tintColor = primaryColor
+        
+        GMSServices.provideAPIKey("AIzaSyCYdHyG2YGRb30FLEbgN7x7cYa0KpGM9GA")
+        GMSPlacesClient.provideAPIKey("AIzaSyCYdHyG2YGRb30FLEbgN7x7cYa0KpGM9GA")
+        
+//        GMSPlacesClient.provideAPIKey("AIzaSyBWo9iARcCvUgHXtrWv6ndpVPGyerL7-NA")
+//        GMSServices.provideAPIKey("AIzaSyBWo9iARcCvUgHXtrWv6ndpVPGyerL7-NA")
         // Override point for customization after application launch.
+        
+        
         return true
     }
 
