@@ -16,4 +16,5 @@ struct Promotion: Identifiable, Decodable {
     let expirationDate: String
     let active: Bool
     let restaurant: Restaurant
+    let branch: Branch
 }

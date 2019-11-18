@@ -11,15 +11,19 @@ import MapKit
 
 class PromotionDetailController: UIViewController, MKMapViewDelegate {
     
-//    var branchLatitude = 0.0
-//    var branchLongitude = 0.0
-//    var branchAlias = ""
-//
-//    var eventName = ""
-//    var eventDate = Date()
-//    var event : NSManagedObject!
-//    @IBOutlet weak var eventDetailMap: MKMapView!
+    var promotion:Promotion?
+    var branch:Branch?
+    @IBOutlet weak var promotionTitle: UILabel!
     
+    @IBOutlet weak var promotionDescription: UILabel!
+    
+    @IBOutlet weak var promotionExpirationDate: UILabel!
+    @IBOutlet weak var detailContainer: UIView!
+    
+    @IBOutlet weak var branchMap: MKMapView!
+    
+    var restaurantName = ""
+
     @IBOutlet weak var promotionImage: UIImageView!
     
     internal var aspectConstraint : NSLayoutConstraint? {
@@ -34,61 +38,99 @@ class PromotionDetailController: UIViewController, MKMapViewDelegate {
     }
     
     @IBOutlet weak var imageConstraintHeight: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         aspectConstraint = nil
-        self.setCustomImage(image: promotionImage.image!)
-    //    self.navigationItem.title = title
-//        updateMap()
+        self.navigationItem.largeTitleDisplayMode = .never
+        
+        setPromotionData()
+        setDetailContainer()
     }
+    
+    func setDetailContainer(){
+        
+        detailContainer.clipsToBounds = true
+        detailContainer.layer.cornerRadius = 20
+        detailContainer.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner] // Top right corner, Top left corner respectively
+
+        // border
+        detailContainer.layer.borderWidth = 1.0
+        detailContainer.layer.borderColor = tertiaryColor.cgColor
+
+        // shadow
+        detailContainer.layer.shadowColor = tertiaryColor.cgColor
+        detailContainer.layer.shadowOffset = CGSize(width: 4, height: 4)
+        detailContainer.layer.shadowOpacity = 0.8
+        detailContainer.layer.shadowRadius = 6.0
+    }
+    
+    func setPromotionData(){
+        restaurantName = promotion!.restaurant.name
+        self.navigationItem.title = restaurantName
+        branch = promotion!.branch
+        promotionTitle.text = promotion!.title
+        promotionDescription.text = promotion!.description
+        if let expirationDate = promotion?.expirationDate {
+            promotionExpirationDate.text = "Válido hasta "+expirationDate.toDateString(withFormat: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", targetFormat: "dd/MM/yyyy")
+        }
+        getImage(url: promotion!.image)
+        updateMap()
+    }
+    
+    func getImage(url: String) {
+           let url = URL(string: url)
+           DispatchQueue.global().async { [weak self] in
+               if let data = try? Data(contentsOf: url!) {
+                   if let image = UIImage(data: data) {
+                       DispatchQueue.main.async {
+                        self!.promotionImage.image = image
+                        self!.setCustomImage(image: image)
+                       }
+                   }
+               }
+           }
+       }
     
     func setCustomImage(image : UIImage) {
         
         let aspect = image.size.width / image.size.height
         
-        let constraint = NSLayoutConstraint(item: promotionImage, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: promotionImage, attribute: NSLayoutConstraint.Attribute.height, multiplier: aspect, constant: 0.0)
+        let constraint = NSLayoutConstraint(item: promotionImage as Any, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: promotionImage, attribute: NSLayoutConstraint.Attribute.height, multiplier: aspect, constant: 0.0)
         constraint.priority = UILayoutPriority(rawValue: 999)
         
         aspectConstraint = constraint
         
         promotionImage.image = image
     }
-    
-//    func getEventProperties(){
-//        eventName = event.value(forKey: "name") as! String
-//        eventLatitude = event.value(forKey: "latitude") as! Double
-//        eventLongitude = event.value(forKey: "longitude") as! Double
-//        eventDate = event.value(forKey: "date") as! Date
-//    }
-//
-//
-//    func updateMap() {
-//        if (eventLatitude == 0.0 && eventLongitude == 0.0){
-//            return
-//        }
-//        var mapRegion = MKCoordinateRegion()
-//        let mapRegionSpan = 0.02
-//        mapRegion.center = CLLocationCoordinate2D(latitude: eventLatitude, longitude: eventLongitude)
-//        mapRegion.span.latitudeDelta = mapRegionSpan
-//        mapRegion.span.longitudeDelta = mapRegionSpan
-//        guard CLLocationCoordinate2DIsValid(mapRegion.center) else {
-//            return
-//        }
-//        eventDetailMap.setRegion(mapRegion, animated: true)
-//        addAnnotationToMap(latitude: eventLatitude, longitude: eventLongitude)
-//    }
-//
-//    func addAnnotationToMap(latitude: Double, longitude: Double) {
-//        if eventDetailMap.annotations.count > 0 {
-//            eventDetailMap.removeAnnotations(eventDetailMap.annotations)
-//        }
-//        let annotation = MKPointAnnotation()
-//        annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-//        annotation.title = eventName
-//        let subtitle = "Fecha: \(eventDate.toString(withFormat: "E MMM d, yyyy")) \n" + "Hora: \(eventDate.toString(withFormat: "h:mm a"))"
-//        annotation.subtitle = subtitle
-//        eventDetailMap.addAnnotation(annotation)
-//    }
+
+    func updateMap() {
+        if let geopoint = branch?.geolocation {
+            var mapRegion = MKCoordinateRegion()
+            let mapRegionSpan = 0.02
+            mapRegion.center = CLLocationCoordinate2D(latitude: geopoint.lat, longitude: geopoint.lng)
+            mapRegion.span.latitudeDelta = mapRegionSpan
+            mapRegion.span.longitudeDelta = mapRegionSpan
+            guard CLLocationCoordinate2DIsValid(mapRegion.center) else {
+                return
+            }
+            branchMap.setRegion(mapRegion, animated: true)
+            addAnnotationToMap(latitude: geopoint.lat, longitude: geopoint.lng)
+        }
+        
+    }
+
+    func addAnnotationToMap(latitude: Double, longitude: Double) {
+        if branchMap.annotations.count > 0 {
+            branchMap.removeAnnotations(branchMap.annotations)
+        }
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        annotation.title = restaurantName
+        let subtitle = "Sucursal  \(branch!.alias) \n" + "Dirección: \(branch!.address)"
+        annotation.subtitle = subtitle
+        branchMap.addAnnotation(annotation)
+    }
 
     
     

@@ -7,6 +7,8 @@
 //
 
 import SwiftUI
+import MapKit
+import CoreLocation
 
 class FeedController: UIViewController {
     private let refreshControl = UIRefreshControl()
@@ -23,8 +25,18 @@ class FeedController: UIViewController {
     
     var promotionVM = PromotionViewModel()
     
+    let locationManager = CLLocationManager()
+    var currentLocation = CLLocation()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Location manager set up
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        getCurrentLocation()
+//        locationManager.requestWhenInUseAuthorization()
+//        locationManager.requestLocation()
+        
         self.refreshControl.beginRefreshing()
         getPromotions()
         refreshControl.addTarget(self, action: #selector(refreshPromotionsData(_:)), for: UIControl.Event.valueChanged)
@@ -45,6 +57,20 @@ class FeedController: UIViewController {
             }
         })
     }
+    
+    func getCurrentLocation() {
+           let status = CLLocationManager.authorizationStatus()
+        
+           if(status == .denied || status == .restricted || !CLLocationManager.locationServicesEnabled()){
+               return
+           }
+
+           if(status == .notDetermined){
+               locationManager.requestWhenInUseAuthorization()
+           }
+           
+           locationManager.requestLocation()
+       }
 }
 
 extension FeedController: UITableViewDataSource, UITableViewDelegate {
@@ -76,8 +102,39 @@ extension FeedController: UITableViewDataSource, UITableViewDelegate {
 //
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "PromotionDetailControllerId") as? PromotionDetailController
-//        vc!.navigationTitle = self.promotionVM.promotions[indexPath.row].title
+        vc!.promotion = promotionVM.promotions[indexPath.row]
         self.navigationController?.pushViewController(vc!, animated: true)
     }
+}
 
+extension FeedController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let current = locations.first {
+            currentLocation = current
+            print("location:: \(current)")
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+//        if status == .authorizedWhenInUse {
+//            locationManager.requestLocation()
+//        }
+        switch status {
+        case .authorizedAlways:
+            print("Always")
+        case .authorizedWhenInUse:
+            //do this ?locationManager.requestLocation()
+            print("When in use")
+        case .denied:
+            print("Denied")
+        case .notDetermined:
+            print("Not determined")
+        default:
+            print("Other case")
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("error:: \(error.localizedDescription)")
+    }
 }
