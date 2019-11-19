@@ -16,6 +16,9 @@ class PromotionViewModel {
         guard let url = URL(string: getPromotionsURL) else { return }
         URLSession.shared.dataTask(with: url) { (data, resp, err) in
             DispatchQueue.main.async {
+                if  let error = err {
+                    return completion(.failure(error))
+                }
                 if let data = data, let dataString = String(data: data, encoding: .utf8) {
                     print("data: \(dataString)")
                 }
