@@ -77,7 +77,7 @@ extension FeedController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.promotionVM.promotions.count == 0 {
-            tableView.setEmptyView(title: "No hay ninguna promoción", message: "Las promociones disponibles se mostrarán aquí", messageImage: .actions)
+            tableView.setEmptyView(title: "No hay ninguna promoción", message: "Las promociones disponibles se mostrarán aquí", messageImage: UIImage(named: "discountNoun") ?? .actions)
         }
         else {
             tableView.restore()
