@@ -232,7 +232,7 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="corp-cumpleanos" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I79-Oe-pZZ">
                                 <rect key="frame" x="0.0" y="44" width="414" height="400"/>
-                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Klu-Bw-bMz">
                                 <rect key="frame" x="0.0" y="424" width="414" height="438"/>
@@ -308,17 +308,44 @@
             </objects>
             <point key="canvasLocation" x="4021.739130434783" y="19.419642857142858"/>
         </scene>
-        <!--Cuponera-->
+        <!--Mi cuponera-->
         <scene sceneID="aMk-6C-Z56">
             <objects>
-                <viewController id="0y7-PA-BN7" sceneMemberID="viewController">
+                <viewController id="0y7-PA-BN7" customClass="UserCouponsController" customModule="kupai" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xd2-25-pOZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="97d-7y-jqw">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="97d-7y-jqw">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="suy-fg-zog">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="suy-fg-zog" id="ZP1-Wk-JhT">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ko5-86-pyO">
+                                        <rect key="frame" x="0.0" y="72" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ko5-86-pyO" id="bDu-v6-tZK">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="VLb-ql-YfH">
+                                        <rect key="frame" x="0.0" y="116" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VLb-ql-YfH" id="JPg-XI-FzM">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -330,11 +357,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VCr-4L-445"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Cuponera" image="coupons-tab" id="8Uz-Xw-GFW"/>
+                    <navigationItem key="navigationItem" title="Mi cuponera" largeTitleDisplayMode="always" id="CRB-Jq-9m3"/>
+                    <connections>
+                        <outlet property="couponsTableView" destination="97d-7y-jqw" id="Fp6-g4-OeA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lbb-gj-F6N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2912" y="-1766"/>
+            <point key="canvasLocation" x="3821.739130434783" y="-1766.5178571428571"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="r1z-Nb-VNI">
@@ -348,7 +378,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="COh-fd-BSY" kind="relationship" relationship="viewControllers" id="3dZ-8A-ZVz"/>
-                        <segue destination="0y7-PA-BN7" kind="relationship" relationship="viewControllers" id="aD8-82-Z9V"/>
+                        <segue destination="c1c-fc-yk2" kind="relationship" relationship="viewControllers" id="aD8-82-Z9V"/>
                         <segue destination="Mol-ov-e9N" kind="relationship" relationship="viewControllers" id="NHW-DN-CVA"/>
                     </connections>
                 </tabBarController>
@@ -534,6 +564,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uVs-zG-SU2" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3223" y="794"/>
+        </scene>
+        <!--Cuponera-->
+        <scene sceneID="coE-M4-bsC">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="c1c-fc-yk2" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Cuponera" image="coupons-tab" id="8Uz-Xw-GFW"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="TNg-73-Yii">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0y7-PA-BN7" kind="relationship" relationship="rootViewController" id="LUB-aw-hl0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xhk-pQ-Wu8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2911.594202898551" y="-1766.5178571428571"/>
         </scene>
     </scenes>
     <resources>

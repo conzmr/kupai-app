@@ -11,7 +11,7 @@ import Foundation
 struct Coupon:Decodable {
     var title: String
     var description: String
-    var expirationDate: Date
+    var expirationDate: String
     var value: Int
     var discountType: String //monetary - percentage
     var used: Bool

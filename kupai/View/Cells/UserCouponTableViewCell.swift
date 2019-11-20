@@ -2,7 +2,7 @@
 //  UserCouponTableViewCell.swift
 //  kupai
 //
-//  Created by Constanza Madrigal Reyes on 10/16/19.
+//  Created by Constanza Madrigal Reyes on 11/19/19.
 //  Copyright © 2019 Constanza Madrigal Reyes. All rights reserved.
 //
 
