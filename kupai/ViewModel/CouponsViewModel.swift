@@ -11,12 +11,15 @@ import SwiftUI
 class CouponsViewModel {
     
     //var coupons = [Coupon]()
-    var coupons:[Coupon] = [Coupon(title: "Descuento en tu próxima visita",
-        description: "Consumo mínimo $300",
-        expirationDate: "2019-11-18 16:57:29",
-        value: 150,
-        discountType: "monetary", //percentage
-        used: false
-    )]
+//    var coupons:[Coupon] = [Coupon(
+//        details: <#T##String#>, expirationDate: <#T##String#>, value: <#T##Int#>, discountType: <#T##String#>, active: <#T##Bool#>, restaurant: <#T##Restaurant#>, branch: <#T##Branch#>, available: <#T##Int#>: "Consumo mínimo $300",
+//        expirationDate: "2019-11-18 16:57:29",
+//        value: 150,
+//        discountType: "monetary", //percentage
+//        used: false,
+//        available: 100
+//    )]
+    
+    var userCoupons = [UserCoupon]()
     
 }

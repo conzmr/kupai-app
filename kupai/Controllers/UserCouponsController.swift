@@ -52,19 +52,19 @@ class UserCouponsController: UIViewController {
 extension UserCouponsController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.couponsVM.coupons.count == 0 {
-            tableView.setEmptyView(title: "No tienes cupones", message: "Agita tu celular para obtener tu primer cupón", messageImage: .actions)
+        if self.couponsVM.userCoupons.count == 0 {
+            tableView.setEmptyView(title: "No tienes cupones", message: "Agita tu celular para obtener tu primer cupón", messageImage: UIImage(named: "nounCoupon") ?? .actions)
         }
         else {
             tableView.restore()
         }
-        return self.couponsVM.coupons.count
+        return self.couponsVM.userCoupons.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserCouponTableViewCellId", for: indexPath) as! UserCouponTableViewCell
-        let coupon: Coupon
-        coupon = self.couponsVM.coupons[indexPath.row]
+        let coupon: UserCoupon
+        coupon = self.couponsVM.userCoupons[indexPath.row]
         //cell.title.text = coupon.title
         //cell.restaurantName.text = promotion.restaurant.name
 //        cell.getImage(url: promotion.restaurant.logo, cellImage: cell.restaurantLogo)
