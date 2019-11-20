@@ -28,10 +28,14 @@ let baseApiURL = "https://kupai.herokuapp.com/api/"
 //ROUTES
 
 //USER
-let authenticateURL = baseApiURL+"AppUsers/login"
+let authenticateURL = baseApiURL+"AppUsers/login?include=User"
 let createUserURL = baseApiURL+"AppUsers"
 let logoutURL = baseApiURL+"AppUsers/logout"
 
 //PROMOTIONS
 let getPromotionsURL = baseApiURL+"Promotions?filter=%7B%22include%22%3A%20%5B%7B%22relation%22%3A%20%22branch%22%7D%2C%20%7B%22relation%22%3A%20%22restaurant%22%7D%5D%7D"
 
+//COUPONS
+func getUserCouponsURL(userId: String, token: String) -> String {
+    return baseApiURL+"AppUsers/\(userId)/coupons?filter=%7B%22order%22%3A%20%22createdAt%20DESC%22%2C%20%22include%22%3A%20%5B%20%7B%22relation%22%3A%20%22coupon%22%7D%2C%20%7B%22relation%22%3A%20%22branch%22%7D%2C%20%7B%22relation%22%3A%20%22restaurant%22%7D%5D%7D&access_token=\(token)"
+}

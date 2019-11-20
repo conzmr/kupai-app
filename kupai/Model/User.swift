@@ -10,8 +10,16 @@ import Foundation
 
 struct User: Identifiable,Codable {
     var id: String
-    var userId: String
-    var email: String?
+    var type: String
+    var email: String
     var name: String?
+    var createdAt: String
+}
+
+struct Token: Codable {
+    var id: String
+    var ttl: Int
+    var userId: String
     var created: String
+    var user: User
 }

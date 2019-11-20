@@ -14,8 +14,8 @@ struct Coupon:Decodable {
     var value: Int
     var discountType: String //monetary - percentage
     var active: Bool
-    var restaurant: Restaurant
-    var branch: Branch
+    var restaurant: Restaurant?
+    var branch: Branch?
     var available: Int
 }
 

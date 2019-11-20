@@ -16,7 +16,19 @@ class UserCouponTableViewCell: UITableViewCell {
     
     @IBOutlet weak var couponCroppedContainer: CouponContainerView!
     @IBOutlet weak var couponMainContainer: UIView!
+
     @IBOutlet weak var redeemButton: UIButton!
+    
+    @IBOutlet weak var uCouponDetails: UILabel!
+    
+    @IBOutlet weak var uCouponDiscount: UILabel!
+    @IBOutlet weak var uCouponRestaurantName: UILabel!
+    
+    @IBOutlet weak var uCouponBranchName: UILabel!
+    
+    @IBOutlet weak var uCouponDateLabel: UILabel!
+    @IBOutlet weak var uCouponDate: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,14 +50,11 @@ class UserCouponTableViewCell: UITableViewCell {
         redeemButton.setTitleColor(.white, for: .normal)
         redeemButton.layer.cornerRadius = 3
         redeemButton.clipsToBounds = true
-  
+        
     }
-    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         //super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }

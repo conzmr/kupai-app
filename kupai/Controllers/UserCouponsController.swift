@@ -33,17 +33,15 @@ class UserCouponsController: UIViewController {
     }
     
     func getCoupons() {
-        print("Get coupons")
-        self.refreshControl.endRefreshing()
-//        couponsVM.getUserCoupons(completion: { (res) in
-//               self.refreshControl.endRefreshing()
-//               switch res {
-//               case .success(_):
-//                   self.promotionsFeedTableView.reloadData()
-//               case .failure(let err):
-//                   print("ERROR OCURRED GETTING PROMOTIONS", err)
-//               }
-//           })
+        couponsVM.getUserCoupons(completion: { (res) in
+               self.refreshControl.endRefreshing()
+               switch res {
+               case .success(_):
+                   self.couponsTableView.reloadData()
+               case .failure(let err):
+                   print("ERROR OCURRED GETTING USER COUPONS", err)
+            }
+        })
     }
     
 }
@@ -63,11 +61,34 @@ extension UserCouponsController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserCouponTableViewCellId", for: indexPath) as! UserCouponTableViewCell
-        let coupon: UserCoupon
-        coupon = self.couponsVM.userCoupons[indexPath.row]
-        //cell.title.text = coupon.title
-        //cell.restaurantName.text = promotion.restaurant.name
-//        cell.getImage(url: promotion.restaurant.logo, cellImage: cell.restaurantLogo)
+        let uCoupon = self.couponsVM.userCoupons[indexPath.row]
+        let coupon = uCoupon.coupon
+        let restaurant = uCoupon.restaurant
+        let branch = uCoupon.branch
+        
+        cell.uCouponDetails.text = coupon.details
+        cell.uCouponRestaurantName.text = restaurant.name
+        cell.uCouponBranchName.text = branch.alias
+        if(coupon.discountType == "PERCENTAGE"){
+            cell.uCouponDiscount.text = String(coupon.value)+"%"
+        }else{
+            cell.uCouponDiscount.text = "$"+String(coupon.value)
+        }
+        
+        if let reedemedAt = uCoupon.redeemedAt {
+            cell.redeemButton.isHidden = true
+            cell.uCouponDateLabel.text = "Redimido"
+            cell.uCouponDate.text = reedemedAt.toDateString(withFormat: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", targetFormat: "dd/MM/yyyy")
+        }
+        else{
+            if coupon.expirationDate.toDate(withFormat: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'") <= Date() {
+                cell.uCouponDateLabel.text = "Expiró"
+                cell.redeemButton.isHidden = true
+            }else{
+                cell.uCouponDateLabel.text = "Expira"
+            }
+            cell.uCouponDate.text = coupon.expirationDate.toDateString(withFormat: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", targetFormat: "dd/MM/yyyy")
+        }
         return cell
     }
 

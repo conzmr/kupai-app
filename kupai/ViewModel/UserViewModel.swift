@@ -11,6 +11,7 @@ import SwiftUI
 class UserViewModel: ObservableObject {
     
     @Published var user:User?
+    var token:Token?
     
     func authenticateUser(email: String, password: String, completion: @escaping (Result<User, Error>) -> ()) {
         guard let url = URL(string: authenticateURL) else { return }
@@ -26,10 +27,11 @@ class UserViewModel: ObservableObject {
                 return
             }
             do{
-                let user = try JSONDecoder().decode(User.self, from: data!)
-                self.user = user
+                let token = try JSONDecoder().decode(Token.self, from: data!)
+                self.token = token
+                self.user = token.user
                 self.saveUserSession()
-                completion(.success(user))
+                completion(.success(token.user))
             }catch let jsonError {
                 completion(.failure(jsonError))
             }
@@ -53,10 +55,11 @@ class UserViewModel: ObservableObject {
                 print("data: \(dataString)")
             }
             do{
-                let user = try JSONDecoder().decode(User.self, from: data!)
-                self.user = user
+                let token = try JSONDecoder().decode(Token.self, from: data!)
+                self.token = token
+                self.user = token.user
                 self.saveUserSession()
-                completion(.success(user))
+                completion(.success(token.user))
             }catch let jsonError {
                 completion(.failure(jsonError))
             }
@@ -84,9 +87,11 @@ class UserViewModel: ObservableObject {
     }
     
     func saveUserSession() {
-        UserDefaults.standard.set(user?.id, forKey: "token")
+        UserDefaults.standard.set(token?.id, forKey: "token")
+        UserDefaults.standard.set(user?.id, forKey: "userId")
         UserDefaults.standard.set(user?.email, forKey: "email")
-        UserDefaults.standard.set("Carlos Santana", forKey: "name")
+        //hacer un if let de user.name si no viene no se settea
+        UserDefaults.standard.set(user?.name ?? "Carlos Santana", forKey: "name")
         UserDefaults.standard.synchronize()
     }
     

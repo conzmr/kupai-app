@@ -10,16 +10,34 @@ import SwiftUI
 
 class CouponsViewModel {
     
-    //var coupons = [Coupon]()
-//    var coupons:[Coupon] = [Coupon(
-//        details: <#T##String#>, expirationDate: <#T##String#>, value: <#T##Int#>, discountType: <#T##String#>, active: <#T##Bool#>, restaurant: <#T##Restaurant#>, branch: <#T##Branch#>, available: <#T##Int#>: "Consumo mínimo $300",
-//        expirationDate: "2019-11-18 16:57:29",
-//        value: 150,
-//        discountType: "monetary", //percentage
-//        used: false,
-//        available: 100
-//    )]
-    
     var userCoupons = [UserCoupon]()
+    
+    func getUserCoupons(completion: @escaping (Result<[UserCoupon], Error>) -> ()) {
+        if let userId = UserDefaults.standard.string(forKey: "userId"),
+            let token = UserDefaults.standard.string(forKey: "token") {
+            guard let url = URL(string: getUserCouponsURL(userId: userId, token: token)) else { return }
+            URLSession.shared.dataTask(with: url) { (data, resp, err) in
+                DispatchQueue.main.async {
+                    if  let error = err {
+                        return completion(.failure(error))
+                    }
+                    if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                        print("data: \(dataString)")
+                    }
+                    do {
+                        self.userCoupons = try JSONDecoder().decode([UserCoupon].self, from: data!)
+                        completion(.success(self.userCoupons))
+                    } catch let jsonError {
+                        print("Failed to decode JSON:", jsonError)
+                        completion(.failure(jsonError))
+                    }
+                }
+            }.resume()
+        }else{
+            //Implement custom error here
+           print("NO USERID OR TOKEN")
+        }
+        
+    }
     
 }
