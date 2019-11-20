@@ -12,6 +12,7 @@
 		992BD8FF2383A2790025D87F /* CouponsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992BD8FE2383A2790025D87F /* CouponsViewModel.swift */; };
 		992BD90223849F9C0025D87F /* UserCouponTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992BD90023849F9C0025D87F /* UserCouponTableViewCell.swift */; };
 		992BD90323849F9C0025D87F /* UserCouponTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 992BD90123849F9C0025D87F /* UserCouponTableViewCell.xib */; };
+		992BD9052384C5A70025D87F /* CouponContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992BD9042384C5A70025D87F /* CouponContainerView.swift */; };
 		993B1DFF2366AE6100DDD7AD /* Promotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993B1DFE2366AE6100DDD7AD /* Promotion.swift */; };
 		994DBC1E233C7740004A24CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994DBC1D233C7740004A24CF /* AppDelegate.swift */; };
 		994DBC20233C7740004A24CF /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994DBC1F233C7740004A24CF /* GuideViewController.swift */; };
@@ -32,7 +33,6 @@
 		99D871E6234B2627005B9B41 /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D871E5234B2627005B9B41 /* FeedController.swift */; };
 		99D871E9234B2773005B9B41 /* FeedPromoCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D871E7234B2773005B9B41 /* FeedPromoCellTableViewCell.swift */; };
 		99D871EA234B2773005B9B41 /* FeedPromoCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99D871E8234B2773005B9B41 /* FeedPromoCellTableViewCell.xib */; };
-		99E226F62356E01000BA0390 /* UserCouponTableViewCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99E226F42356E01000BA0390 /* UserCouponTableViewCell1.xib */; };
 		99E8DE8123530B7C004DE2B6 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E8DE8023530B7C004DE2B6 /* ProfileController.swift */; };
 		99E8DE832353124B004DE2B6 /* UserCouponsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E8DE822353124B004DE2B6 /* UserCouponsController.swift */; };
 		99E8DE8523542B65004DE2B6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E8DE8423542B65004DE2B6 /* User.swift */; };
@@ -46,6 +46,7 @@
 		992BD8FE2383A2790025D87F /* CouponsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponsViewModel.swift; sourceTree = "<group>"; };
 		992BD90023849F9C0025D87F /* UserCouponTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCouponTableViewCell.swift; sourceTree = "<group>"; };
 		992BD90123849F9C0025D87F /* UserCouponTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCouponTableViewCell.xib; sourceTree = "<group>"; };
+		992BD9042384C5A70025D87F /* CouponContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponContainerView.swift; sourceTree = "<group>"; };
 		993B1DFE2366AE6100DDD7AD /* Promotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Promotion.swift; sourceTree = "<group>"; };
 		994DBC1A233C7740004A24CF /* kupai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kupai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		994DBC1D233C7740004A24CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -68,7 +69,6 @@
 		99D871E5234B2627005B9B41 /* FeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
 		99D871E7234B2773005B9B41 /* FeedPromoCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPromoCellTableViewCell.swift; sourceTree = "<group>"; };
 		99D871E8234B2773005B9B41 /* FeedPromoCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedPromoCellTableViewCell.xib; sourceTree = "<group>"; };
-		99E226F42356E01000BA0390 /* UserCouponTableViewCell1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCouponTableViewCell1.xib; sourceTree = "<group>"; };
 		99E8DE8023530B7C004DE2B6 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		99E8DE822353124B004DE2B6 /* UserCouponsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCouponsController.swift; sourceTree = "<group>"; };
 		99E8DE8423542B65004DE2B6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -104,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				993B1E012366B4C600DDD7AD /* Cells */,
+				992BD9042384C5A70025D87F /* CouponContainerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -117,7 +118,6 @@
 				994DBC2F233C8C70004A24CF /* PageCell.swift */,
 				99D871E3234B145F005B9B41 /* SignupCell.swift */,
 				99D871E1234B1343005B9B41 /* SignupCell.xib */,
-				99E226F42356E01000BA0390 /* UserCouponTableViewCell1.xib */,
 				992BD90023849F9C0025D87F /* UserCouponTableViewCell.swift */,
 				992BD90123849F9C0025D87F /* UserCouponTableViewCell.xib */,
 			);
@@ -252,7 +252,6 @@
 				99D871EA234B2773005B9B41 /* FeedPromoCellTableViewCell.xib in Resources */,
 				99D871E2234B1343005B9B41 /* SignupCell.xib in Resources */,
 				994DBC28233C7742004A24CF /* LaunchScreen.storyboard in Resources */,
-				99E226F62356E01000BA0390 /* UserCouponTableViewCell1.xib in Resources */,
 				994DBC23233C7740004A24CF /* Main.storyboard in Resources */,
 				992BD90323849F9C0025D87F /* UserCouponTableViewCell.xib in Resources */,
 			);
@@ -276,6 +275,7 @@
 				994DBC1E233C7740004A24CF /* AppDelegate.swift in Sources */,
 				99D871DE234AE2BE005B9B41 /* LoginViewController.swift in Sources */,
 				99E8DE8523542B65004DE2B6 /* User.swift in Sources */,
+				992BD9052384C5A70025D87F /* CouponContainerView.swift in Sources */,
 				99E8DE832353124B004DE2B6 /* UserCouponsController.swift in Sources */,
 				994DBC32233DA0FA004A24CF /* Page.swift in Sources */,
 				99D871E6234B2627005B9B41 /* FeedController.swift in Sources */,
