@@ -15,7 +15,7 @@ class ProfileController: UIViewController {
     @IBOutlet weak var bottomLineSeparator: UIView!
     @IBOutlet weak var logoutButton: UIButton!
     
-    @ObservedObject var userVM = UserViewModel()
+    var userVM = UserViewModel()
     
     override func viewDidLoad() {
         bottomLineSeparator.backgroundColor = tertiaryColor

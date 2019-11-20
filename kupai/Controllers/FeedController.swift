@@ -69,7 +69,7 @@ class FeedController: UIViewController {
 
         
         let titleLabel = UILabel(frame: CGRect(x: 0, y: 100, width: view.frame.width , height: view.frame.height))
-        titleLabel.text = "Mi ubicación actual"
+        titleLabel.text = "Usar mi ubicación actual"
         titleLabel.textColor = UIColor.black
         titleLabel.font = UIFont.systemFont(ofSize: 17)
         navigationItem.titleView = titleLabel
@@ -121,7 +121,7 @@ extension FeedController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.promotionVM.promotions.count == 0 {
-            tableView.setEmptyView(title: "No hay ninguna promoción", message: "Las promociones disponibles se mostrarán aquí", messageImage: UIImage(named: "discountNoun") ?? .actions)
+            tableView.setEmptyView(title: "No hay ninguna promoción", message: "Las promociones disponibles se mostrarán aquí", messageImage: UIImage(named: "discountNoun")!)
         }
         else {
             tableView.restore()

@@ -8,9 +8,9 @@
 
 import SwiftUI
 
-class UserViewModel: ObservableObject {
+class UserViewModel{
     
-    @Published var user:User?
+    var user:User?
     var token:Token?
     
     func authenticateUser(email: String, password: String, completion: @escaping (Result<User, Error>) -> ()) {

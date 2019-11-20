@@ -22,7 +22,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var bottomLineView: UIView!
     @IBOutlet weak var orLabel: UILabel!
     
-    @ObservedObject var userVM = UserViewModel()
+    var userVM = UserViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -51,7 +51,7 @@ extension UserCouponsController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.couponsVM.userCoupons.count == 0 {
-            tableView.setEmptyView(title: "No tienes cupones", message: "Agita tu celular para obtener tu primer cupón", messageImage: UIImage(named: "nounCoupon") ?? .actions)
+            tableView.setEmptyView(title: "No tienes cupones", message: "Agita tu celular para obtener tu primer cupón", messageImage: UIImage(named: "nounCoupon")!)
         }
         else {
             tableView.restore()
