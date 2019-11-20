@@ -23,6 +23,13 @@ class FeedPromoCellTableViewCell: UITableViewCell {
         cellContainer.layer.borderWidth = 1
         cellContainer.layer.cornerRadius = 5
         cellContainer.clipsToBounds = true
+        
+        restaurantLogo.layer.masksToBounds = false
+        restaurantLogo.layer.cornerRadius = restaurantLogo.frame.height/2
+        restaurantLogo.layer.borderWidth = 1
+        restaurantLogo.layer.borderColor = UIColor.clear.cgColor
+        restaurantLogo.clipsToBounds = true
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

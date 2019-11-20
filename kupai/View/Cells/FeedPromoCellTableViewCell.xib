@@ -19,7 +19,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZgT-ja-4bY">
                         <rect key="frame" x="20" y="15" width="280" height="170"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="corp-cumpleanos" translatesAutoresizingMaskIntoConstraints="NO" id="j44-VT-q5Z">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="j44-VT-q5Z">
                                 <rect key="frame" x="0.0" y="0.0" width="280" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Seh-KK-30E"/>
@@ -28,7 +28,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lV1-cw-qRE">
                                 <rect key="frame" x="10" y="115" width="260" height="45"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ihop" translatesAutoresizingMaskIntoConstraints="NO" id="E7i-Ap-DAk">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="E7i-Ap-DAk">
                                         <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="45" id="GTP-pv-ysW"/>
@@ -100,7 +100,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="corp-cumpleanos" width="800" height="400"/>
-        <image name="ihop" width="1000" height="747"/>
+        <image name="defaultImage" width="400" height="255"/>
     </resources>
 </document>

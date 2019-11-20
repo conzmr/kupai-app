@@ -214,7 +214,7 @@
                 <navigationItem id="vZn-RX-O7D">
                     <barButtonItem key="rightBarButtonItem" systemItem="search" id="lbu-Rv-pXZ">
                         <connections>
-                            <segue destination="5Ch-qU-Ang" kind="showDetail" id="jl3-hb-dh7"/>
+                            <segue destination="5Ch-qU-Ang" kind="show" id="jl3-hb-dh7"/>
                         </connections>
                     </barButtonItem>
                 </navigationItem>
@@ -230,12 +230,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="corp-cumpleanos" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I79-Oe-pZZ">
-                                <rect key="frame" x="0.0" y="44" width="414" height="400"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImage" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I79-Oe-pZZ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="255"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Klu-Bw-bMz">
-                                <rect key="frame" x="0.0" y="424" width="414" height="438"/>
+                                <rect key="frame" x="0.0" y="279" width="414" height="583"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¡Cumpleañeros comen gratis! " lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGE-P8-Ci2">
                                         <rect key="frame" x="20" y="25" width="374" height="24"/>
@@ -259,7 +259,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aNF-VZ-gGq">
-                                        <rect key="frame" x="0.0" y="144.5" width="414" height="293.5"/>
+                                        <rect key="frame" x="0.0" y="144.5" width="414" height="438.5"/>
                                     </mapView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -524,11 +524,11 @@
                         <viewControllerLayoutGuide type="bottom" id="ndi-YS-H1z"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Kgu-HD-Ynv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DHO-6S-4CU">
-                                <rect key="frame" x="0.0" y="56" width="414" height="752"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="669"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="5Ch-qU-Ang" id="LYh-Pu-P5V"/>
@@ -536,7 +536,7 @@
                                 </connections>
                             </tableView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="y6c-AM-vSO">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="5Ch-qU-Ang" id="jxt-g4-kRU"/>
@@ -586,8 +586,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="corp-cumpleanos" width="800" height="400"/>
         <image name="coupons-tab" width="25" height="25"/>
+        <image name="defaultImage" width="400" height="255"/>
         <image name="discount" width="25" height="25"/>
         <image name="fire-logo-png" width="250" height="358"/>
         <image name="gradient-bg" width="1920" height="1080"/>
