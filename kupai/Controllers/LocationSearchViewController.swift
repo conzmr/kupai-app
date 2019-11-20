@@ -67,16 +67,30 @@ extension LocationSearchViewController: UITableViewDataSource {
 extension LocationSearchViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("ROW SELECTED")
+        
         tableView.deselectRow(at: indexPath, animated: true)
         
         let completion = searchResults[indexPath.row]
         
+        
         let searchRequest = MKLocalSearch.Request(completion: completion)
         let search = MKLocalSearch(request: searchRequest)
         search.start { (response, error) in
-            let coordinate = response?.mapItems[0].placemark.coordinate
-            print(String(describing: coordinate))
+      //      let coordinate = response?.mapItems[0].placemark.coordinate
+//            print(String(describing: coordinate))
+//            print("SEARCH RESPONSE", response?.mapItems)
+            if let clickedItem  = response?.mapItems[0] {
+//                saveLocalSearchResults(address: clickedItem.name, latitude: clickedItem.placemark.coordinate.latitude, longitude: clickedItem.placemark.coordinate.longitude)
+                print("CLICKED ITEM", clickedItem.name ?? "No Address")
+                print("COORDINATE LATITUDE", clickedItem.placemark.coordinate.latitude)
+            }
         }
+    }
+    
+    func saveLocalSearchResults(address: String, latitude: Double, longitude: Double) {
+        UserDefaults.standard.set(address, forKey: "address")
+        UserDefaults.standard.set(latitude, forKey: "latitude")
+        UserDefaults.standard.set(longitude, forKey: "longitude")
+        UserDefaults.standard.synchronize()
     }
 }

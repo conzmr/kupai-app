@@ -202,7 +202,7 @@
                         <viewLayoutGuide key="safeArea" id="p8t-13-7ki"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="0JZ-Xi-cja"/>
-                    <navigationItem key="navigationItem" title="Inicio" id="Xzd-Sw-Vg0">
+                    <navigationItem key="navigationItem" title="Inicio" leftItemsSupplementBackButton="YES" id="Xzd-Sw-Vg0">
                         <connections>
                             <outlet property="rightBarButtonItem" destination="lbu-Rv-pXZ" id="aMo-UH-Jxy"/>
                         </connections>
