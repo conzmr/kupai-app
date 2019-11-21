@@ -15,6 +15,12 @@ class UserCouponDetailController: UIViewController, MKMapViewDelegate {
     var coupon:UserCoupon?
     var branch:Branch?
     
+    @IBOutlet weak var discountValue: UILabel!
+    @IBOutlet weak var restaurantName: UILabel!
+    @IBOutlet weak var branchAlias: UILabel!
+    @IBOutlet weak var couponDescription: UILabel!
+    @IBOutlet weak var restaurantLogo: UIImageView!
+    @IBOutlet weak var couponCode: UILabel!
     
     public var circleY: CGFloat = 0
     public var circleRadius: CGFloat = 0
@@ -70,52 +76,50 @@ class UserCouponDetailController: UIViewController, MKMapViewDelegate {
         couponContainer.borderColor = (view?.backgroundColor!.cgColor)!
            
         
-       // setPromotionData()
-       // setDetailContainer()
+       setCouponData()
     }
     
-//    func setDetailContainer(){
-//
-//        detailContainer.clipsToBounds = true
-//        detailContainer.layer.cornerRadius = 20
-//        detailContainer.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner] // Top right corner, Top left corner respectively
-//
-//        // border
-//        detailContainer.layer.borderWidth = 1.0
-//        detailContainer.layer.borderColor = tertiaryColor.cgColor
-//
-//        // shadow
-//        detailContainer.layer.shadowColor = tertiaryColor.cgColor
-//        detailContainer.layer.shadowOffset = CGSize(width: 4, height: 4)
-//        detailContainer.layer.shadowOpacity = 0.8
-//        detailContainer.layer.shadowRadius = 6.0
-//    }
+    func setLogoContainer() {
+        restaurantLogo.layer.masksToBounds = false
+        restaurantLogo.layer.cornerRadius = restaurantLogo.frame.height/2
+        restaurantLogo.layer.borderWidth = 1
+        restaurantLogo.layer.borderColor = UIColor.clear.cgColor
+        restaurantLogo.clipsToBounds = true
+    }
     
-//    func setPromotionData(){
-//        restaurantName = promotion!.restaurant.name
-//        self.navigationItem.title = restaurantName
-//        branch = promotion!.branch
-//        promotionTitle.text = promotion!.title
-//        promotionDescription.text = promotion!.description
+    
+    func setCouponData(){
+        
+        restaurantName.text = coupon!.restaurant.name
+        branchAlias.text = coupon!.branch.alias
+        branch = coupon!.branch
+        couponCode.text = coupon!.code
+        couponDescription.text = coupon!.coupon.details
+        
+        if coupon!.coupon.discountType == "PERCENTAGE" {
+            discountValue.text = String(coupon!.coupon.value)+"%"
+        }else{
+            discountValue.text = "$"+String(coupon!.coupon.value)
+        }
 //        if let expirationDate = promotion?.expirationDate {
 //            promotionExpirationDate.text = "Válido hasta "+expirationDate.toDateString(withFormat: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", targetFormat: "dd/MM/yyyy")
 //        }
-//        getImage(url: promotion!.image)
-//        updateMap()
-//    }
-//    
-//    func getImage(url: String) {
-//           let url = URL(string: url)
-//           DispatchQueue.global().async { [weak self] in
-//               if let data = try? Data(contentsOf: url!) {
-//                   if let image = UIImage(data: data) {
-//                       DispatchQueue.main.async {
-//                        self!.promotionImage.image = image
-//                       }
-//                   }
-//               }
-//           }
-//       }
+        getImage(url: coupon!.restaurant.logo)
+    }
+    
+    func getImage(url: String) {
+           let url = URL(string: url)
+           DispatchQueue.global().async { [weak self] in
+               if let data = try? Data(contentsOf: url!) {
+                   if let image = UIImage(data: data) {
+                       DispatchQueue.main.async {
+                        self!.restaurantLogo.image = image
+                        self!.setLogoContainer()
+                       }
+                   }
+               }
+           }
+       }
 //
 //    func updateMap() {
 //        if let geopoint = branch?.geolocation {

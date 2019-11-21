@@ -21,6 +21,7 @@ struct Coupon:Decodable {
 
 struct UserCoupon:Decodable {
     var redeemedAt: String?
+    var code: String
     var coupon: Coupon
     var restaurant: Restaurant
     var branch: Branch

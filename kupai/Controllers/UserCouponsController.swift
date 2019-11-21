@@ -94,20 +94,9 @@ extension UserCouponsController: UITableViewDataSource, UITableViewDelegate {
         cell.delegate = self
         return cell
     }
-
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 170
-//    }
-//
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let vc = storyboard?.instantiateViewController(withIdentifier: "PromotionDetailControllerId") as? PromotionDetailController
-//        vc!.coupon = couponsVM.coupons[indexPath.row]
-//        self.navigationController?.pushViewController(vc!, animated: true)
-//    }
 }
 
 extension UserCouponsController:UserCouponTableViewCellDelegate {
-
 
     func didRedeemButtonPressed(userCoupon:UserCoupon) {
           print("AQUÍ EN EL DELEGATE")
