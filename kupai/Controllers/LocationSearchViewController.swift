@@ -81,21 +81,22 @@ extension LocationSearchViewController: UITableViewDataSource {
 extension LocationSearchViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        let completion = searchResults[indexPath.row]
-        
-        
-        let searchRequest = MKLocalSearch.Request(completion: completion)
-        let search = MKLocalSearch(request: searchRequest)
-        search.start { (response, error) in
-            if let clickedItem  = response?.mapItems[0] {
-                let coordinate = clickedItem.placemark.coordinate
-                print("CLICKED ITEM", clickedItem.name ?? "No Address")
-                print("COORDINATE LATITUDE", clickedItem.placemark.coordinate.latitude)
-                self.saveLocalSearchResults(address: clickedItem.name!, latitude: coordinate.latitude, longitude: coordinate.longitude)
-                _ = self.navigationController?.popViewController(animated: true)
+        if indexPath.row == 0 {
+            UserDefaults.standard.removeObject(forKey: "address")
+             _ = self.navigationController?.popViewController(animated: true)
+        }else{
+            let completion = searchResults[indexPath.row-1]
+            let searchRequest = MKLocalSearch.Request(completion: completion)
+            let search = MKLocalSearch(request: searchRequest)
+            search.start { (response, error) in
+                if let clickedItem  = response?.mapItems[0] {
+                    let coordinate = clickedItem.placemark.coordinate
+                    print("CLICKED ITEM", clickedItem.name ?? "No Address")
+                    print("COORDINATE LATITUDE", clickedItem.placemark.coordinate.latitude)
+                    self.saveLocalSearchResults(address: clickedItem.name!, latitude: coordinate.latitude, longitude: coordinate.longitude)
+                    _ = self.navigationController?.popViewController(animated: true)
+                }
             }
         }
     }
