@@ -17,7 +17,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var userTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var redirectToAdminLoginButton: UIButton!
     @IBOutlet weak var signupButton: UIButton!
     @IBOutlet weak var bottomLineView: UIView!
     @IBOutlet weak var orLabel: UILabel!
@@ -51,8 +50,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         loginButton.setTitleColor(.white, for: .normal)
         loginButton.layer.cornerRadius = 3
         loginButton.clipsToBounds = true
-        
-        redirectToAdminLoginButton.setTitleColor(primaryColor, for: .normal)
         
         signupButton.backgroundColor = secondaryColor
         signupButton.setTitleColor(primaryColor, for: .normal)

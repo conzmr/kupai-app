@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6xl-zB-iup">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -92,14 +93,6 @@
                                     <action selector="doLogin:" destination="6xl-zB-iup" eventType="touchUpInside" id="ahp-WW-wn0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tg7-i5-VRc">
-                                <rect key="frame" x="16" y="462" width="382" height="42"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="42" id="m2B-3G-1n2"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                <state key="normal" title="¿Eres administrador? Presiona aquí"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Jl-0i-vFU">
                                 <rect key="frame" x="16" y="804" width="382" height="42"/>
                                 <constraints>
@@ -136,10 +129,8 @@
                             <constraint firstItem="C7T-TH-Brq" firstAttribute="centerY" secondItem="QwJ-D8-yLe" secondAttribute="centerY" constant="12" id="F1r-aW-BXK"/>
                             <constraint firstItem="5o7-ML-pUQ" firstAttribute="trailing" secondItem="NnX-Hg-wAK" secondAttribute="trailing" constant="16" id="JFy-gq-oNH"/>
                             <constraint firstItem="C7T-TH-Brq" firstAttribute="centerX" secondItem="QwJ-D8-yLe" secondAttribute="centerX" id="LTs-x8-dAW"/>
-                            <constraint firstItem="tg7-i5-VRc" firstAttribute="leading" secondItem="5o7-ML-pUQ" secondAttribute="leading" constant="16" id="OdA-X3-anD"/>
                             <constraint firstItem="HYG-kY-zVh" firstAttribute="leading" secondItem="5o7-ML-pUQ" secondAttribute="leading" constant="80" id="Qaf-ym-K4d"/>
                             <constraint firstItem="5o7-ML-pUQ" firstAttribute="bottom" secondItem="2Jl-0i-vFU" secondAttribute="bottom" constant="16" id="RVE-e9-XFE"/>
-                            <constraint firstItem="tg7-i5-VRc" firstAttribute="top" secondItem="NnX-Hg-wAK" secondAttribute="bottom" constant="16" id="Vug-pt-aQ5"/>
                             <constraint firstItem="QwJ-D8-yLe" firstAttribute="leading" secondItem="5o7-ML-pUQ" secondAttribute="leading" id="Xfw-K2-Dzx"/>
                             <constraint firstItem="56Q-1Y-fBX" firstAttribute="leading" secondItem="5o7-ML-pUQ" secondAttribute="leading" constant="16" id="ZPZ-O2-B3O"/>
                             <constraint firstItem="56Q-1Y-fBX" firstAttribute="top" secondItem="QwJ-D8-yLe" secondAttribute="bottom" constant="42" id="guO-ad-hJb"/>
@@ -150,7 +141,6 @@
                             <constraint firstItem="2Jl-0i-vFU" firstAttribute="leading" secondItem="5o7-ML-pUQ" secondAttribute="leading" constant="16" id="rlo-5L-hPP"/>
                             <constraint firstItem="5o7-ML-pUQ" firstAttribute="trailing" secondItem="56Q-1Y-fBX" secondAttribute="trailing" constant="16" id="roE-oD-3xo"/>
                             <constraint firstItem="5o7-ML-pUQ" firstAttribute="trailing" secondItem="HYG-kY-zVh" secondAttribute="trailing" constant="80" id="vEw-ac-eEC"/>
-                            <constraint firstItem="5o7-ML-pUQ" firstAttribute="trailing" secondItem="tg7-i5-VRc" secondAttribute="trailing" constant="16" id="x7U-I2-hGJ"/>
                             <constraint firstItem="NnX-Hg-wAK" firstAttribute="top" secondItem="56Q-1Y-fBX" secondAttribute="bottom" constant="16" id="xbd-GX-fCF"/>
                             <constraint firstItem="Xac-Fi-bAb" firstAttribute="centerY" secondItem="HYG-kY-zVh" secondAttribute="centerY" constant="-2" id="xl6-R7-6VZ"/>
                         </constraints>
@@ -166,7 +156,6 @@
                         <outlet property="logoImageView" destination="C7T-TH-Brq" id="ET7-da-WJp"/>
                         <outlet property="orLabel" destination="Xac-Fi-bAb" id="Yfi-iw-o5C"/>
                         <outlet property="passwordTextField" destination="efI-Qh-xlE" id="1Ij-PN-D11"/>
-                        <outlet property="redirectToAdminLoginButton" destination="tg7-i5-VRc" id="kU7-AG-cUi"/>
                         <outlet property="signupButton" destination="2Jl-0i-vFU" id="BM2-VM-41s"/>
                         <outlet property="userTextField" destination="upI-1Z-5zw" id="BFQ-j9-Tax"/>
                     </connections>
@@ -175,7 +164,7 @@
             </objects>
             <point key="canvasLocation" x="1478.2608695652175" y="20.758928571428569"/>
         </scene>
-        <!--Inicio-->
+        <!--Promociones-->
         <scene sceneID="LM0-Oh-f9H">
             <objects>
                 <viewController id="HBQ-8A-TWR" customClass="FeedController" customModule="kupai" customModuleProvider="target" sceneMemberID="viewController">
@@ -202,7 +191,7 @@
                         <viewLayoutGuide key="safeArea" id="p8t-13-7ki"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="0JZ-Xi-cja"/>
-                    <navigationItem key="navigationItem" title="Inicio" leftItemsSupplementBackButton="YES" id="Xzd-Sw-Vg0">
+                    <navigationItem key="navigationItem" title="Promociones" leftItemsSupplementBackButton="YES" id="Xzd-Sw-Vg0">
                         <connections>
                             <outlet property="rightBarButtonItem" destination="lbu-Rv-pXZ" id="aMo-UH-Jxy"/>
                         </connections>
