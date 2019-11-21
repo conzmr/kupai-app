@@ -8,11 +8,18 @@
 
 import UIKit
 
+protocol UserCouponTableViewCellDelegate {
+    func didRedeemButtonPressed(userCoupon:UserCoupon)
+}
+
 class UserCouponTableViewCell: UITableViewCell {
 
 
     public var circleY: CGFloat = 0
     public var circleRadius: CGFloat = 0
+    
+    var userCoupon:UserCoupon?
+    var delegate: UserCouponTableViewCellDelegate?
     
     @IBOutlet weak var couponCroppedContainer: CouponContainerView!
     @IBOutlet weak var couponMainContainer: UIView!
@@ -53,6 +60,21 @@ class UserCouponTableViewCell: UITableViewCell {
         
     }
 
+    @IBAction func showUserCouponDetail(_ sender: Any) {
+        print("BUTTON PRESSED")
+        delegate?.didRedeemButtonPressed(userCoupon:userCoupon!)
+//        if userCoupon != nil {
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let navigationController = storyboard.instantiateViewController(withIdentifier: "userCouponsNavigationControllerId") as! UINavigationController
+//        print("jejeje", navigationController)
+//            let vc = storyboard.instantiateViewController(withIdentifier: "UserCouponDetailControllerId") as? UserCouponDetailController
+//            vc!.coupon = userCoupon
+//            navigationController.pushViewController(vc!, animated: true)
+////        }else{
+////            print("NO HAY USER COUPON")
+////        }
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         //super.setSelected(selected, animated: animated)
     }

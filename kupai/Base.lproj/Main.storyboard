@@ -355,6 +355,47 @@
             </objects>
             <point key="canvasLocation" x="3821.739130434783" y="-1766.5178571428571"/>
         </scene>
+        <!--User Coupon Detail Controller-->
+        <scene sceneID="595-2o-9Tv">
+            <objects>
+                <viewController storyboardIdentifier="UserCouponDetailControllerId" id="zPJ-gs-w7r" customClass="UserCouponDetailController" customModule="kupai" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="q7a-ce-cvO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sC7-4t-EpF" customClass="CouponContainerView" customModule="kupai" customModuleProvider="target">
+                                <rect key="frame" x="87" y="167" width="240" height="277"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ZHSD87DS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R14-hv-Bo1">
+                                        <rect key="frame" x="53" y="224" width="135" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="50%  de descuento" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rKV-1d-aVr">
+                                        <rect key="frame" x="53" y="75" width="148" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.91690630764319914" blue="0.9430639045544712" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <viewLayoutGuide key="safeArea" id="swR-mS-k5O"/>
+                    </view>
+                    <connections>
+                        <outlet property="couponContainer" destination="sC7-4t-EpF" id="ivh-ZS-hmA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AOy-Th-fzq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4702.898550724638" y="-1767.1875"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="r1z-Nb-VNI">
             <objects>
@@ -557,7 +598,7 @@
         <!--Cuponera-->
         <scene sceneID="coE-M4-bsC">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="c1c-fc-yk2" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="userCouponsNavigationControllerId" automaticallyAdjustsScrollViewInsets="NO" id="c1c-fc-yk2" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Cuponera" image="coupons-tab" id="8Uz-Xw-GFW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="TNg-73-Yii">

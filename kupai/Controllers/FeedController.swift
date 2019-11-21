@@ -28,6 +28,7 @@ class FeedController: UIViewController {
     @IBOutlet weak var promotionsFeeedTableView: UITableView!
     
     var promotionVM = PromotionViewModel()
+    var couponsVM = CouponsViewModel()
     
     let locationManager = CLLocationManager()
     var currentLocation = CLLocation()
@@ -92,8 +93,19 @@ class FeedController: UIViewController {
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
             print("HUBO UN TAKI SHAKI")
-            //mandar a llamar función que te crea un cupón
-            //hace push a vista de detalle de cupón
+            couponsVM.getDailyCoupon(lat: latitude, lng: longitude, completion: { (res) in
+                //AÑADIR ALGÚN TIPO DE ACTIVITY CONTROL??
+                switch res {
+                    case .success(let userCoupon):
+                        print("SUCCESS GETTING DAILY COUPON", userCoupon)
+                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "UserCouponDetailControllerId") as? UserCouponDetailController
+                        vc!.coupon = userCoupon
+                        self.navigationController?.pushViewController(vc!, animated: true)
+                    case .failure(let err):
+                        self.showAlert(title: "No hay cupones disponibles", message: "Por favor intenta más tarde")
+                        print("ERROR OCURRED GETTING DAILY COUPON", err)
+                    }
+                })
         }
     }
     

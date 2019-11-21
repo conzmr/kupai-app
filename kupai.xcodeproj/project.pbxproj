@@ -13,6 +13,7 @@
 		992BD90223849F9C0025D87F /* UserCouponTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992BD90023849F9C0025D87F /* UserCouponTableViewCell.swift */; };
 		992BD90323849F9C0025D87F /* UserCouponTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 992BD90123849F9C0025D87F /* UserCouponTableViewCell.xib */; };
 		992BD9052384C5A70025D87F /* CouponContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992BD9042384C5A70025D87F /* CouponContainerView.swift */; };
+		9936962F2386C68F00121A01 /* UserCouponDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9936962E2386C68F00121A01 /* UserCouponDetailController.swift */; };
 		993B1DFF2366AE6100DDD7AD /* Promotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993B1DFE2366AE6100DDD7AD /* Promotion.swift */; };
 		993E015B23861B3800AA19A5 /* CurrentLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993E015923861B3800AA19A5 /* CurrentLocationTableViewCell.swift */; };
 		993E015C23861B3800AA19A5 /* CurrentLocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 993E015A23861B3800AA19A5 /* CurrentLocationTableViewCell.xib */; };
@@ -49,6 +50,7 @@
 		992BD90023849F9C0025D87F /* UserCouponTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCouponTableViewCell.swift; sourceTree = "<group>"; };
 		992BD90123849F9C0025D87F /* UserCouponTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCouponTableViewCell.xib; sourceTree = "<group>"; };
 		992BD9042384C5A70025D87F /* CouponContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponContainerView.swift; sourceTree = "<group>"; };
+		9936962E2386C68F00121A01 /* UserCouponDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCouponDetailController.swift; sourceTree = "<group>"; };
 		993B1DFE2366AE6100DDD7AD /* Promotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Promotion.swift; sourceTree = "<group>"; };
 		993E015923861B3800AA19A5 /* CurrentLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationTableViewCell.swift; sourceTree = "<group>"; };
 		993E015A23861B3800AA19A5 /* CurrentLocationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrentLocationTableViewCell.xib; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				99E8DE8023530B7C004DE2B6 /* ProfileController.swift */,
 				9970B13A237B68F9009BD17E /* PromotionDetailController.swift */,
 				991937E42381AC6A0056C964 /* LocationSearchViewController.swift */,
+				9936962E2386C68F00121A01 /* UserCouponDetailController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				992BD8FF2383A2790025D87F /* CouponsViewModel.swift in Sources */,
 				99D871DA234AA900005B9B41 /* Constants.swift in Sources */,
 				993B1DFF2366AE6100DDD7AD /* Promotion.swift in Sources */,
+				9936962F2386C68F00121A01 /* UserCouponDetailController.swift in Sources */,
 				99E8DE8123530B7C004DE2B6 /* ProfileController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

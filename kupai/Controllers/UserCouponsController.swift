@@ -66,6 +66,8 @@ extension UserCouponsController: UITableViewDataSource, UITableViewDelegate {
         let restaurant = uCoupon.restaurant
         let branch = uCoupon.branch
         
+        cell.userCoupon = uCoupon
+        
         cell.uCouponDetails.text = coupon.details
         cell.uCouponRestaurantName.text = restaurant.name
         cell.uCouponBranchName.text = branch.alias
@@ -89,6 +91,7 @@ extension UserCouponsController: UITableViewDataSource, UITableViewDelegate {
             }
             cell.uCouponDate.text = coupon.expirationDate.toDateString(withFormat: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", targetFormat: "dd/MM/yyyy")
         }
+        cell.delegate = self
         return cell
     }
 
@@ -103,3 +106,14 @@ extension UserCouponsController: UITableViewDataSource, UITableViewDelegate {
 //    }
 }
 
+extension UserCouponsController:UserCouponTableViewCellDelegate {
+
+
+    func didRedeemButtonPressed(userCoupon:UserCoupon) {
+          print("AQUÍ EN EL DELEGATE")
+          let vc = self.storyboard?.instantiateViewController(withIdentifier: "UserCouponDetailControllerId") as? UserCouponDetailController
+          vc!.coupon = userCoupon
+          self.navigationController?.pushViewController(vc!, animated: true)
+      }
+
+}
