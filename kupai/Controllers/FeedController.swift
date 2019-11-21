@@ -85,6 +85,18 @@ class FeedController: UIViewController {
         refreshControl.addTarget(self, action: #selector(refreshPromotionsData(_:)), for: UIControl.Event.valueChanged)
     }
     
+    override func becomeFirstResponder() -> Bool {
+        return true
+    }
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            print("HUBO UN TAKI SHAKI")
+            //mandar a llamar función que te crea un cupón
+            //hace push a vista de detalle de cupón
+        }
+    }
+    
     func setNavigationLabelText(){
         let titleLabel = UILabel(frame: CGRect(x: 0, y: 100, width: view.frame.width , height: view.frame.height))
         titleLabel.text = address
@@ -109,7 +121,6 @@ class FeedController: UIViewController {
     
     func reloadPromotionsData(){
         getFeedRequestLocation()
-        self.refreshControl.beginRefreshing()
         getPromotions()
     }
     
@@ -118,8 +129,9 @@ class FeedController: UIViewController {
     }
     
     func getPromotions() {
+        self.refreshControl.beginRefreshing()
         //EN GET PROMOTIONS DEBO PASAR LOS PARÁMETROS
-        promotionVM.getPromotions(completion: { (res) in
+        promotionVM.getPromotions(lat: latitude, lng: longitude, completion: { (res) in
             self.refreshControl.endRefreshing()
             switch res {
             case .success(_):
