@@ -210,6 +210,7 @@ extension FeedController: CLLocationManagerDelegate {
             latitude = currentLocation.coordinate.latitude
             longitude = currentLocation.coordinate.longitude
             address = "Usar mi ubicación actual"
+            saveCurrentLocation(latitude: latitude, longitude: longitude)
             //print("location:: \(current)")
             setNavigationLabelText()
         }
@@ -233,5 +234,11 @@ extension FeedController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("error:: \(error.localizedDescription)")
+    }
+    
+    func saveCurrentLocation(latitude: Double, longitude: Double) {
+        UserDefaults.standard.set(latitude, forKey: "latitude")
+        UserDefaults.standard.set(longitude, forKey: "longitude")
+        UserDefaults.standard.synchronize()
     }
 }
