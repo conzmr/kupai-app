@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,16 +18,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZgT-ja-4bY">
-                        <rect key="frame" x="20" y="15" width="280" height="170"/>
+                        <rect key="frame" x="20" y="15" width="280" height="200"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="j44-VT-q5Z">
-                                <rect key="frame" x="0.0" y="0.0" width="280" height="100"/>
+                                <rect key="frame" x="0.0" y="0.0" width="280" height="130"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="Seh-KK-30E"/>
+                                    <constraint firstAttribute="height" constant="130" id="Seh-KK-30E"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lV1-cw-qRE">
-                                <rect key="frame" x="10" y="115" width="260" height="45"/>
+                                <rect key="frame" x="10" y="145" width="260" height="45"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="E7i-Ap-DAk">
                                         <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
@@ -77,7 +78,7 @@
                             <constraint firstAttribute="trailing" secondItem="j44-VT-q5Z" secondAttribute="trailing" id="fDb-vb-OfL"/>
                             <constraint firstAttribute="bottom" secondItem="lV1-cw-qRE" secondAttribute="bottom" constant="10" id="fVL-hw-fHW"/>
                             <constraint firstAttribute="trailing" secondItem="lV1-cw-qRE" secondAttribute="trailing" constant="10" id="jCV-MP-jQF"/>
-                            <constraint firstAttribute="height" constant="170" id="vld-as-5OF"/>
+                            <constraint firstAttribute="height" constant="200" id="vld-as-5OF"/>
                         </constraints>
                     </view>
                 </subviews>
