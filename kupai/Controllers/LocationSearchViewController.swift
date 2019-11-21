@@ -14,7 +14,14 @@ class LocationSearchViewController: UIViewController {
     var searchCompleter = MKLocalSearchCompleter()
     var searchResults = [MKLocalSearchCompletion]()
     
-    @IBOutlet weak var searchResultsTableView: UITableView!
+    @IBOutlet weak var searchResultsTableView: UITableView!{
+        didSet {
+            let nib = UINib(nibName: "CurrentLocationTableViewCell", bundle: nil)
+            searchResultsTableView.register(nib, forCellReuseIdentifier: "CurrentLocationCellId")
+            searchResultsTableView.dataSource = self
+            searchResultsTableView.delegate = self
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,14 +59,21 @@ extension LocationSearchViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchResults.count
+        return searchResults.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let searchResult = searchResults[indexPath.row]
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
-        cell.textLabel?.text = searchResult.title
-        cell.detailTextLabel?.text = searchResult.subtitle
+        var cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
+        if indexPath.row == 0 {
+            cell = tableView.dequeueReusableCell(withIdentifier: "CurrentLocationCellId", for: indexPath) as! CurrentLocationTableViewCell
+//            cell.textLabel?.text = "Usar mi ubicación actual"
+//            cell.detailTextLabel?.text = ""
+        }
+        else{
+            let searchResult = searchResults[indexPath.row-1]
+            cell.textLabel?.text = searchResult.title
+            cell.detailTextLabel?.text = searchResult.subtitle
+        }
         return cell
     }
 }
@@ -76,13 +90,12 @@ extension LocationSearchViewController: UITableViewDelegate {
         let searchRequest = MKLocalSearch.Request(completion: completion)
         let search = MKLocalSearch(request: searchRequest)
         search.start { (response, error) in
-      //      let coordinate = response?.mapItems[0].placemark.coordinate
-//            print(String(describing: coordinate))
-//            print("SEARCH RESPONSE", response?.mapItems)
             if let clickedItem  = response?.mapItems[0] {
-//                saveLocalSearchResults(address: clickedItem.name, latitude: clickedItem.placemark.coordinate.latitude, longitude: clickedItem.placemark.coordinate.longitude)
+                let coordinate = clickedItem.placemark.coordinate
                 print("CLICKED ITEM", clickedItem.name ?? "No Address")
                 print("COORDINATE LATITUDE", clickedItem.placemark.coordinate.latitude)
+                self.saveLocalSearchResults(address: clickedItem.name!, latitude: coordinate.latitude, longitude: coordinate.longitude)
+                _ = self.navigationController?.popViewController(animated: true)
             }
         }
     }

@@ -12,6 +12,10 @@ import CoreLocation
 
 class FeedController: UIViewController {
     private let refreshControl = UIRefreshControl()
+    var latitude:Double = 0.0
+    var longitude:Double = 0.0
+    var address:String = ""
+    
     @IBOutlet weak var promotionsFeedTableView: UITableView!{
         didSet {
             let nib = UINib(nibName: "FeedPromoCellTableViewCell", bundle: nil)
@@ -28,11 +32,15 @@ class FeedController: UIViewController {
     let locationManager = CLLocationManager()
     var currentLocation = CLLocation()
     
+    override func viewWillAppear(_ animated: Bool) {
+        reloadPromotionsData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Create a navView to add to the navigation bar
-        let navView = UIView()
+       // let navView = UIView()
 //
 //        let label = UILabel()
 //        label.text = "Text fhjdsakl"
@@ -67,23 +75,42 @@ class FeedController: UIViewController {
 //        // Set the navigation bar's navigation item's titleView to the navView/
        // self.navigationItem.titleView = navView
 
-        
-        let titleLabel = UILabel(frame: CGRect(x: 0, y: 100, width: view.frame.width , height: view.frame.height))
-        titleLabel.text = "Usar mi ubicación actual"
-        titleLabel.textColor = UIColor.black
-        titleLabel.font = UIFont.systemFont(ofSize: 17)
-        navigationItem.titleView = titleLabel
-        
         //Location manager set up
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         getCurrentLocation()
 //        locationManager.requestWhenInUseAuthorization()
 //        locationManager.requestLocation()
-        
+        reloadPromotionsData()
+        refreshControl.addTarget(self, action: #selector(refreshPromotionsData(_:)), for: UIControl.Event.valueChanged)
+    }
+    
+    func setNavigationLabelText(){
+        let titleLabel = UILabel(frame: CGRect(x: 0, y: 100, width: view.frame.width , height: view.frame.height))
+        titleLabel.text = address
+        titleLabel.textColor = UIColor.black
+        titleLabel.font = UIFont.systemFont(ofSize: 17)
+        navigationItem.titleView = titleLabel
+    }
+    
+    func getFeedRequestLocation(){
+        let slatitude:Double? = UserDefaults.standard.double(forKey: "latitude")
+        let slongitude:Double? = UserDefaults.standard.double(forKey: "longitude")
+        let saddress:String? = UserDefaults.standard.string(forKey: "address")
+        if(slatitude == 0.0 || slongitude == 0.0 || saddress == nil){
+            getCurrentLocation()
+        }else{
+            latitude = slatitude!
+            longitude = slongitude!
+            address = saddress!
+            setNavigationLabelText()
+        }
+    }
+    
+    func reloadPromotionsData(){
+        getFeedRequestLocation()
         self.refreshControl.beginRefreshing()
         getPromotions()
-        refreshControl.addTarget(self, action: #selector(refreshPromotionsData(_:)), for: UIControl.Event.valueChanged)
     }
     
     @objc private func refreshPromotionsData(_ sender: Any) {
@@ -91,6 +118,7 @@ class FeedController: UIViewController {
     }
     
     func getPromotions() {
+        //EN GET PROMOTIONS DEBO PASAR LOS PARÁMETROS
         promotionVM.getPromotions(completion: { (res) in
             self.refreshControl.endRefreshing()
             switch res {
@@ -155,14 +183,15 @@ extension FeedController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let current = locations.first {
             currentLocation = current
-            print("location:: \(current)")
+            latitude = currentLocation.coordinate.latitude
+            longitude = currentLocation.coordinate.longitude
+            address = "Usar mi ubicación actual"
+            //print("location:: \(current)")
+            setNavigationLabelText()
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-//        if status == .authorizedWhenInUse {
-//            locationManager.requestLocation()
-//        }
         switch status {
         case .authorizedAlways:
             print("Always")
