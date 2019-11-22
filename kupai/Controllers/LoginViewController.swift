@@ -26,8 +26,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if(userVM.isUserLoggedIn()){
-            redirectInsideApp()
+        if(userVM.isUserLoggedIn()) {
+            if (userVM.isUserType("ADMIN")) {
+                redirectAdmin()
+            } else {
+                redirectInsideApp()
+            }
         }
         //KEYBOARD SET UP
         //Looks for single or multiple taps.
