@@ -85,8 +85,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             userVM.authenticateUser(email: email, password: password, completion: { (res) in
                 self.loginButton.loadingIndicator(false)
                 switch res {
-                case .success(_):
-                    self.redirectInsideApp()
+                case .success(let user):
+                    if user.type == "ADMIN" {
+                        self.redirectAdmin()
+                    } else {
+                        self.redirectInsideApp()
+                    }
                 case .failure(let err):
                     print("LOGGIN FAILED", err)
                     self.showAlert(title: "Error de autenticación", message: "Correo o contraseña incorrectos")
@@ -105,6 +109,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    func redirectAdmin() {
+        DispatchQueue.main.async {
+            let appDelegate = UIApplication.shared.delegate! as! AppDelegate
+            let initialViewController = self.storyboard!.instantiateViewController(withIdentifier: "AdminController")
+            appDelegate.window?.rootViewController = initialViewController
+            appDelegate.window?.makeKeyAndVisible()
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == userTextField {
             textField.resignFirstResponder()

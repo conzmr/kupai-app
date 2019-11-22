@@ -40,6 +40,10 @@
 		99E8DE8523542B65004DE2B6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E8DE8423542B65004DE2B6 /* User.swift */; };
 		99E8DE8723542BAC004DE2B6 /* Coupons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E8DE8623542BAC004DE2B6 /* Coupons.swift */; };
 		99F11EB3236E9B8A005385A4 /* PromotionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F11EB2236E9B8A005385A4 /* PromotionViewModel.swift */; };
+		E5199C3523877A820061704A /* RestaurantTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5199C3423877A820061704A /* RestaurantTableViewCell.xib */; };
+		E5199C3723877AFC0061704A /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5199C3623877AFC0061704A /* RestaurantTableViewCell.swift */; };
+		E5B06DE523865C0C0058188D /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B06DE423865C0C0058188D /* AdminViewController.swift */; };
+		E5B06DE723865F4C0058188D /* RestaurantsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B06DE623865F4C0058188D /* RestaurantsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +82,10 @@
 		99E8DE8423542B65004DE2B6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		99E8DE8623542BAC004DE2B6 /* Coupons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coupons.swift; sourceTree = "<group>"; };
 		99F11EB2236E9B8A005385A4 /* PromotionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionViewModel.swift; sourceTree = "<group>"; };
+		E5199C3423877A820061704A /* RestaurantTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestaurantTableViewCell.xib; sourceTree = "<group>"; };
+		E5199C3623877AFC0061704A /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
+		E5B06DE423865C0C0058188D /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
+		E5B06DE623865F4C0058188D /* RestaurantsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +134,8 @@
 				992BD90123849F9C0025D87F /* UserCouponTableViewCell.xib */,
 				993E015923861B3800AA19A5 /* CurrentLocationTableViewCell.swift */,
 				993E015A23861B3800AA19A5 /* CurrentLocationTableViewCell.xib */,
+				E5199C3423877A820061704A /* RestaurantTableViewCell.xib */,
+				E5199C3623877AFC0061704A /* RestaurantTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -140,6 +150,7 @@
 				99E8DE8023530B7C004DE2B6 /* ProfileController.swift */,
 				9970B13A237B68F9009BD17E /* PromotionDetailController.swift */,
 				991937E42381AC6A0056C964 /* LocationSearchViewController.swift */,
+				E5B06DE423865C0C0058188D /* AdminViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -192,6 +203,7 @@
 				99F11EB2236E9B8A005385A4 /* PromotionViewModel.swift */,
 				99CFFC76236FF07B005B31CC /* UserViewModel.swift */,
 				992BD8FE2383A2790025D87F /* CouponsViewModel.swift */,
+				E5B06DE623865F4C0058188D /* RestaurantsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -258,6 +270,7 @@
 				99D871E0234B0A19005B9B41 /* Images.xcassets in Resources */,
 				99D871EA234B2773005B9B41 /* FeedPromoCellTableViewCell.xib in Resources */,
 				99D871E2234B1343005B9B41 /* SignupCell.xib in Resources */,
+				E5199C3523877A820061704A /* RestaurantTableViewCell.xib in Resources */,
 				994DBC28233C7742004A24CF /* LaunchScreen.storyboard in Resources */,
 				994DBC23233C7740004A24CF /* Main.storyboard in Resources */,
 				992BD90323849F9C0025D87F /* UserCouponTableViewCell.xib in Resources */,
@@ -272,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9970B139237B64EA009BD17E /* Restaurant.swift in Sources */,
+				E5B06DE723865F4C0058188D /* RestaurantsViewModel.swift in Sources */,
 				99D871D8234A91F0005B9B41 /* Extensions.swift in Sources */,
 				99CFFC77236FF07B005B31CC /* UserViewModel.swift in Sources */,
 				99F11EB3236E9B8A005385A4 /* PromotionViewModel.swift in Sources */,
@@ -289,6 +303,7 @@
 				992BD90223849F9C0025D87F /* UserCouponTableViewCell.swift in Sources */,
 				993E015B23861B3800AA19A5 /* CurrentLocationTableViewCell.swift in Sources */,
 				991937E52381AC6A0056C964 /* LocationSearchViewController.swift in Sources */,
+				E5B06DE523865C0C0058188D /* AdminViewController.swift in Sources */,
 				994DBC30233C8C70004A24CF /* PageCell.swift in Sources */,
 				9970B13B237B68F9009BD17E /* PromotionDetailController.swift in Sources */,
 				99D871E9234B2773005B9B41 /* FeedPromoCellTableViewCell.swift in Sources */,
@@ -296,6 +311,7 @@
 				992BD8FF2383A2790025D87F /* CouponsViewModel.swift in Sources */,
 				99D871DA234AA900005B9B41 /* Constants.swift in Sources */,
 				993B1DFF2366AE6100DDD7AD /* Promotion.swift in Sources */,
+				E5199C3723877AFC0061704A /* RestaurantTableViewCell.swift in Sources */,
 				99E8DE8123530B7C004DE2B6 /* ProfileController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

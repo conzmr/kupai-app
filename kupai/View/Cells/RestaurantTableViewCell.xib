@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantCellTableViewCellId" rowHeight="77" id="CbC-6T-ev1" customClass="RestaurantTableViewCell" customModule="kupai" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="77"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CbC-6T-ev1" id="yHG-v4-Va7">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="77"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WAo-At-9Ft" userLabel="Cell Container">
+                        <rect key="frame" x="20" y="5" width="280" height="67"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="K9m-MB-K31">
+                                <rect key="frame" x="0.0" y="0.0" width="275" height="67"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="w5q-xH-kaC" userLabel="Restaurant Logo">
+                                        <rect key="frame" x="0.0" y="1" width="65" height="65"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="65" id="VgS-kj-ACX"/>
+                                            <constraint firstAttribute="width" constant="65" id="Ybs-VQ-nf9"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurant Name Restaurant Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Qx-nP-nFe" userLabel="Restaurant Name">
+                                        <rect key="frame" x="75" y="23.5" width="200" height="20.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="Ahh-Oo-ug7"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="w5q-xH-kaC" firstAttribute="centerY" secondItem="K9m-MB-K31" secondAttribute="centerY" id="zMN-6K-F6t"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="K9m-MB-K31" firstAttribute="leading" secondItem="WAo-At-9Ft" secondAttribute="leading" id="4SE-tF-XgF"/>
+                            <constraint firstItem="K9m-MB-K31" firstAttribute="top" secondItem="WAo-At-9Ft" secondAttribute="top" id="DOJ-di-lfn"/>
+                            <constraint firstAttribute="bottom" secondItem="K9m-MB-K31" secondAttribute="bottom" id="rXv-gw-IdG"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="WAo-At-9Ft" firstAttribute="top" secondItem="yHG-v4-Va7" secondAttribute="top" constant="5" id="CE6-xr-8CJ"/>
+                    <constraint firstAttribute="bottom" secondItem="WAo-At-9Ft" secondAttribute="bottom" constant="5" id="PaI-nZ-Ff0"/>
+                    <constraint firstItem="WAo-At-9Ft" firstAttribute="leading" secondItem="yHG-v4-Va7" secondAttribute="leading" constant="20" id="e5Z-6V-Exh"/>
+                    <constraint firstAttribute="trailing" secondItem="WAo-At-9Ft" secondAttribute="trailing" constant="20" id="vGE-0E-gHm"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="uTd-VP-L86"/>
+            <connections>
+                <outlet property="cellContainer" destination="WAo-At-9Ft" id="2O2-Mj-ZYX"/>
+                <outlet property="restaurantLogo" destination="w5q-xH-kaC" id="v0p-pC-OmZ"/>
+                <outlet property="restaurantName" destination="9Qx-nP-nFe" id="yOr-VH-jxR"/>
+            </connections>
+            <point key="canvasLocation" x="66.666666666666671" y="116.18303571428571"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="defaultImage" width="400" height="255"/>
+    </resources>
+</document>
