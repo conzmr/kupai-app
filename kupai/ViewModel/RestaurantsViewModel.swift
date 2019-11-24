@@ -62,6 +62,27 @@ class RestaurantsViewModel {
             }
         }.resume()
     }
-
+    
+    func createRestaurant(name: String, logo: String, completion: @escaping (Result<Restaurant, Error>) -> ()) {
+        guard let url = URL(string: createRestaurantURL) else { print("[createRestaurant] invaild url"); return }
+        var request = URLRequest(url: url)
+        let parameters = ["name": name, "logo": logo]
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
+        request.httpBody = httpBody
+        URLSession.shared.dataTask(with: request) { (data, resp, err) in
+            if let err = err {
+                completion(.failure(err))
+                return
+            }
+            do {
+                let restaurant = try JSONDecoder().decode(Restaurant.self, from: data!)
+                completion(.success(restaurant))
+            } catch let jsonError {
+                completion(.failure(jsonError))
+            }
+        }.resume()
+    }
 }
 

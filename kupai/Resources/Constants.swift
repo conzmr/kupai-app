@@ -41,6 +41,7 @@ func getUserCouponsURL(userId: String, token: String) -> String {
 }
 
 // RESTAURANTS
+let createRestaurantURL = baseApiURL+"Restaurants"
 func getRestaurantsURL(filter: String?) -> String {
     if let filter = filter?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
         return baseApiURL + "Restaurants?filter=\(filter)"

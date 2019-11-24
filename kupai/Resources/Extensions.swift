@@ -10,10 +10,10 @@ import UIKit
 
 extension UIViewController {
     
-    func showAlert(title: String, message: String) {
+    func showAlert(title: String, message: String, handler: ((UIAlertAction) -> Void)? = nil) {
         DispatchQueue.main.async {
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: handler))
             self.present(alert, animated: true)
         }
     }
