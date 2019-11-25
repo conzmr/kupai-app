@@ -14,6 +14,9 @@
 		992BD90323849F9C0025D87F /* UserCouponTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 992BD90123849F9C0025D87F /* UserCouponTableViewCell.xib */; };
 		992BD9052384C5A70025D87F /* CouponContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992BD9042384C5A70025D87F /* CouponContainerView.swift */; };
 		9936962F2386C68F00121A01 /* UserCouponDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9936962E2386C68F00121A01 /* UserCouponDetailController.swift */; };
+		99369631238A4FE600121A01 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99369630238A4FE600121A01 /* Category.swift */; };
+		9936963A238B8F9800121A01 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99369639238B8F9800121A01 /* CategoryView.swift */; };
+		9936963C238B8FA400121A01 /* CategoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9936963B238B8FA400121A01 /* CategoryView.xib */; };
 		993B1DFF2366AE6100DDD7AD /* Promotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993B1DFE2366AE6100DDD7AD /* Promotion.swift */; };
 		993E015B23861B3800AA19A5 /* CurrentLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993E015923861B3800AA19A5 /* CurrentLocationTableViewCell.swift */; };
 		993E015C23861B3800AA19A5 /* CurrentLocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 993E015A23861B3800AA19A5 /* CurrentLocationTableViewCell.xib */; };
@@ -51,6 +54,9 @@
 		992BD90123849F9C0025D87F /* UserCouponTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCouponTableViewCell.xib; sourceTree = "<group>"; };
 		992BD9042384C5A70025D87F /* CouponContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponContainerView.swift; sourceTree = "<group>"; };
 		9936962E2386C68F00121A01 /* UserCouponDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCouponDetailController.swift; sourceTree = "<group>"; };
+		99369630238A4FE600121A01 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		99369639238B8F9800121A01 /* CategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryView.swift; path = "../../../../../../../Downloads/scrolling-in-horizontal-stackview-master/ScrollingInHorizontalStackView/CategoryView.swift"; sourceTree = "<group>"; };
+		9936963B238B8FA400121A01 /* CategoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CategoryView.xib; path = "../../../../../../../Downloads/scrolling-in-horizontal-stackview-master/ScrollingInHorizontalStackView/CategoryView.xib"; sourceTree = "<group>"; };
 		993B1DFE2366AE6100DDD7AD /* Promotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Promotion.swift; sourceTree = "<group>"; };
 		993E015923861B3800AA19A5 /* CurrentLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationTableViewCell.swift; sourceTree = "<group>"; };
 		993E015A23861B3800AA19A5 /* CurrentLocationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrentLocationTableViewCell.xib; sourceTree = "<group>"; };
@@ -102,6 +108,7 @@
 				993B1DFE2366AE6100DDD7AD /* Promotion.swift */,
 				9970B138237B64EA009BD17E /* Restaurant.swift */,
 				992BD8FC2383211A0025D87F /* Branch.swift */,
+				99369630238A4FE600121A01 /* Category.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -109,6 +116,8 @@
 		993B1E002366B4B800DDD7AD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				99369639238B8F9800121A01 /* CategoryView.swift */,
+				9936963B238B8FA400121A01 /* CategoryView.xib */,
 				993B1E012366B4C600DDD7AD /* Cells */,
 				992BD9042384C5A70025D87F /* CouponContainerView.swift */,
 			);
@@ -262,6 +271,7 @@
 				99D871EA234B2773005B9B41 /* FeedPromoCellTableViewCell.xib in Resources */,
 				99D871E2234B1343005B9B41 /* SignupCell.xib in Resources */,
 				994DBC28233C7742004A24CF /* LaunchScreen.storyboard in Resources */,
+				9936963C238B8FA400121A01 /* CategoryView.xib in Resources */,
 				994DBC23233C7740004A24CF /* Main.storyboard in Resources */,
 				992BD90323849F9C0025D87F /* UserCouponTableViewCell.xib in Resources */,
 			);
@@ -275,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9970B139237B64EA009BD17E /* Restaurant.swift in Sources */,
+				9936963A238B8F9800121A01 /* CategoryView.swift in Sources */,
 				99D871D8234A91F0005B9B41 /* Extensions.swift in Sources */,
 				99CFFC77236FF07B005B31CC /* UserViewModel.swift in Sources */,
 				99F11EB3236E9B8A005385A4 /* PromotionViewModel.swift in Sources */,
@@ -301,6 +312,7 @@
 				993B1DFF2366AE6100DDD7AD /* Promotion.swift in Sources */,
 				9936962F2386C68F00121A01 /* UserCouponDetailController.swift in Sources */,
 				99E8DE8123530B7C004DE2B6 /* ProfileController.swift in Sources */,
+				99369631238A4FE600121A01 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

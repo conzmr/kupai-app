@@ -83,6 +83,8 @@ extension LocationSearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.row == 0 {
+            print("REMOVING FOR KEY, pressing 0 indexr")
+            UserDefaults.standard.synchronize()
             UserDefaults.standard.removeObject(forKey: "address")
              _ = self.navigationController?.popViewController(animated: true)
         }else{

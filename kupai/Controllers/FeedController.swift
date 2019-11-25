@@ -16,6 +16,7 @@ class FeedController: UIViewController {
     var longitude:Double = 0.0
     var address:String = ""
     
+    @IBOutlet weak var categoriesHScrollableStackView: UIStackView!
     @IBOutlet weak var promotionsFeedTableView: UITableView!{
         didSet {
             let nib = UINib(nibName: "FeedPromoCellTableViewCell", bundle: nil)
@@ -34,7 +35,21 @@ class FeedController: UIViewController {
     var currentLocation = CLLocation()
     
     override func viewWillAppear(_ animated: Bool) {
+        print("SE RELODEA FEED CONTROLLER")
+        self.refreshControl.beginRefreshing()
         reloadPromotionsData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        for _ in 0...10 {
+            if let dayView = Bundle.main.loadNibNamed("CategoryView", owner: nil, options: nil)!.first as? CategoryView {
+                dayView.translatesAutoresizingMaskIntoConstraints = false
+                dayView.widthAnchor.constraint(equalToConstant: categoriesHScrollableStackView.frame.height).isActive = true
+                dayView.categoryName.text = "Hamburguesas"
+                categoriesHScrollableStackView.addArrangedSubview(dayView)
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -122,18 +137,22 @@ class FeedController: UIViewController {
         let slongitude:Double? = UserDefaults.standard.double(forKey: "longitude")
         let saddress:String? = UserDefaults.standard.string(forKey: "address")
         if(slatitude == 0.0 || slongitude == 0.0 || saddress == nil){
+            address = "Usar mi ubicación actual"
+            setNavigationLabelText()
             getCurrentLocation()
         }else{
             latitude = slatitude!
             longitude = slongitude!
             address = saddress!
             setNavigationLabelText()
+            getPromotions()
         }
     }
     
     func reloadPromotionsData(){
+        self.refreshControl.beginRefreshing()
         getFeedRequestLocation()
-        getPromotions()
+//        getPromotions()
     }
     
     @objc private func refreshPromotionsData(_ sender: Any) {
@@ -141,7 +160,7 @@ class FeedController: UIViewController {
     }
     
     func getPromotions() {
-        self.refreshControl.beginRefreshing()
+        //self.refreshControl.beginRefreshing()
         //EN GET PROMOTIONS DEBO PASAR LOS PARÁMETROS
         promotionVM.getPromotions(lat: latitude, lng: longitude, completion: { (res) in
             self.refreshControl.endRefreshing()
@@ -213,6 +232,7 @@ extension FeedController: CLLocationManagerDelegate {
             saveCurrentLocation(latitude: latitude, longitude: longitude)
             //print("location:: \(current)")
             setNavigationLabelText()
+            getPromotions()
         }
     }
     

@@ -23,7 +23,7 @@ class CouponsViewModel {
                         return completion(.failure(error))
                     }
                     if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                        print("data: \(dataString)")
+//                        print("data: \(dataString)")
                     }
                     do {
                         self.userCoupons = try JSONDecoder().decode([UserCoupon].self, from: data!)
@@ -50,7 +50,7 @@ class CouponsViewModel {
                         return completion(.failure(error))
                     }
                     if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                        print("data: \(dataString)")
+//                        print("data: \(dataString)")
                     }
                     do {
                         self.userCoupon = try JSONDecoder().decode(UserCoupon.self, from: data!)

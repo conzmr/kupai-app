@@ -21,7 +21,7 @@ class PromotionViewModel {
                              return completion(.failure(error))
                          }
                          if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                             print("data: \(dataString)")
+//                             print("data: \(dataString)")
                          }
                          do {
                              self.promotions = try JSONDecoder().decode([Promotion].self, from: data!)

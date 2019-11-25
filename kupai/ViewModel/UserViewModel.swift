@@ -52,7 +52,7 @@ class UserViewModel{
                 return
             }
             if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                print("data: \(dataString)")
+//                print("data: \(dataString)")
             }
             do{
                 let token = try JSONDecoder().decode(Token.self, from: data!)

@@ -16,12 +16,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="kpLogo" translatesAutoresizingMaskIntoConstraints="NO" id="nlb-Vm-TMx">
-                                <rect key="frame" x="87" y="270" width="240" height="381"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ih0-NP-tqZ">
+                                <rect key="frame" x="0.0" y="34" width="414" height="828"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kpLogo" translatesAutoresizingMaskIntoConstraints="NO" id="nlb-Vm-TMx">
+                                        <rect key="frame" x="57" y="-143.5" width="300" height="1115"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="Ytr-Dw-6gK"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="nlb-Vm-TMx" firstAttribute="centerX" secondItem="Ih0-NP-tqZ" secondAttribute="centerX" id="LOf-gd-SgD"/>
+                                    <constraint firstItem="nlb-Vm-TMx" firstAttribute="centerY" secondItem="Ih0-NP-tqZ" secondAttribute="centerY" id="MZG-eK-tby"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.95295017957687378" green="0.95292967557907104" blue="0.95293372869491577" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ih0-NP-tqZ" secondAttribute="bottom" id="3Wv-VL-tXZ"/>
+                            <constraint firstItem="Ih0-NP-tqZ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="58V-Qn-Ck6"/>
+                            <constraint firstItem="Ih0-NP-tqZ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="CnG-s7-y6L"/>
+                            <constraint firstItem="Ih0-NP-tqZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XB1-ja-0jw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ih0-NP-tqZ" secondAttribute="trailing" id="f5j-OB-P22"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
