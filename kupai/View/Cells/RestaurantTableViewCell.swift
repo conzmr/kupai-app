@@ -33,6 +33,5 @@ class RestaurantTableViewCell : UITableViewCell {
     
     @objc func buttonPressed(sender: Any) {
         self.buttonAction?(sender)
-        
     }
 }

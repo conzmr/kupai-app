@@ -401,7 +401,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OYd-IJ-ruF">
-                                <rect key="frame" x="60" y="741" width="294" height="42"/>
+                                <rect key="frame" x="60" y="740" width="294" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="eag-Ff-J8Y"/>
                                 </constraints>
@@ -448,9 +448,9 @@
                             <constraint firstItem="dfc-VO-0JY" firstAttribute="trailing" secondItem="OYd-IJ-ruF" secondAttribute="trailing" constant="60" id="TNL-q0-Klj"/>
                             <constraint firstItem="0cm-yb-iHa" firstAttribute="leading" secondItem="dfc-VO-0JY" secondAttribute="leading" constant="20" id="VKa-eI-0Uz"/>
                             <constraint firstItem="dfc-VO-0JY" firstAttribute="trailing" secondItem="Xd0-ZC-zVO" secondAttribute="trailing" constant="20" id="g5d-rz-M72"/>
-                            <constraint firstItem="dfc-VO-0JY" firstAttribute="bottom" secondItem="OYd-IJ-ruF" secondAttribute="bottom" constant="30" id="gJr-Di-DtP"/>
+                            <constraint firstItem="dfc-VO-0JY" firstAttribute="bottom" secondItem="OYd-IJ-ruF" secondAttribute="bottom" constant="31" id="gJr-Di-DtP"/>
                             <constraint firstItem="Xd0-ZC-zVO" firstAttribute="leading" secondItem="dfc-VO-0JY" secondAttribute="leading" constant="20" id="mSo-ki-eVs"/>
-                            <constraint firstItem="OYd-IJ-ruF" firstAttribute="top" secondItem="8BQ-DU-lV8" secondAttribute="bottom" constant="22" id="rUg-0w-aw4"/>
+                            <constraint firstItem="OYd-IJ-ruF" firstAttribute="top" secondItem="8BQ-DU-lV8" secondAttribute="bottom" constant="21" id="rUg-0w-aw4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dfc-VO-0JY"/>
                     </view>
@@ -643,12 +643,20 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wK3-Gu-scc">
+                                <rect key="frame" x="0.0" y="244" width="414" height="569"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="scq-t6-N8p" firstAttribute="centerX" secondItem="1hT-vt-v0d" secondAttribute="centerX" id="52K-zT-QcA"/>
+                            <constraint firstItem="wK3-Gu-scc" firstAttribute="top" secondItem="scq-t6-N8p" secondAttribute="bottom" constant="20" id="KaH-j1-tGO"/>
                             <constraint firstItem="1hT-vt-v0d" firstAttribute="centerX" secondItem="6VS-UX-t1H" secondAttribute="centerX" id="Mbd-7u-hUl"/>
+                            <constraint firstItem="wK3-Gu-scc" firstAttribute="leading" secondItem="1hT-vt-v0d" secondAttribute="leading" id="OiS-Kv-TzE"/>
+                            <constraint firstItem="wK3-Gu-scc" firstAttribute="bottom" secondItem="6VS-UX-t1H" secondAttribute="bottom" id="SsT-ex-hb2"/>
                             <constraint firstItem="scq-t6-N8p" firstAttribute="top" secondItem="sVf-71-K87" secondAttribute="bottom" constant="8" id="WB0-nY-xuD"/>
+                            <constraint firstItem="wK3-Gu-scc" firstAttribute="trailing" secondItem="1hT-vt-v0d" secondAttribute="trailing" id="hEu-ul-cxH"/>
                             <constraint firstItem="6VS-UX-t1H" firstAttribute="trailing" secondItem="1hT-vt-v0d" secondAttribute="trailing" id="jEL-Lp-UUo"/>
                             <constraint firstItem="sVf-71-K87" firstAttribute="centerY" secondItem="1hT-vt-v0d" secondAttribute="centerY" id="nmT-RN-Ubi"/>
                             <constraint firstItem="sVf-71-K87" firstAttribute="centerX" secondItem="1hT-vt-v0d" secondAttribute="centerX" id="ylh-aJ-iZV"/>
@@ -660,6 +668,7 @@
                         <barButtonItem key="backBarButtonItem" title="Restaurantes" id="HBy-B8-urm"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="branchesTable" destination="wK3-Gu-scc" id="vFr-d5-XLK"/>
                         <outlet property="restaurantLabel" destination="scq-t6-N8p" id="Kqh-db-tct"/>
                         <outlet property="restaurantLogoImage" destination="sVf-71-K87" id="Qcg-kl-YqH"/>
                     </connections>

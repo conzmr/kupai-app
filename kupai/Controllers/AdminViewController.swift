@@ -14,16 +14,15 @@ class AdminViewController : UIViewController {
         didSet {
             let nib = UINib(nibName: "RestaurantTableViewCell", bundle: nil)
             restaurantTable.register(nib, forCellReuseIdentifier: "RestaurantCellTableViewCellId")
+            restaurantTable.addSubview(refreshControl)
             restaurantTable.dataSource = self
             restaurantTable.delegate = self
-            restaurantTable.addSubview(refreshControl)
         }
     }
     let restaurantsVM = RestaurantsViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.refreshControl.beginRefreshing()
         getRestaurants()
         refreshControl.addTarget(self, action: #selector(refreshRestaurantsData(_:)), for: UIControl.Event.valueChanged)
     }
@@ -33,6 +32,7 @@ class AdminViewController : UIViewController {
     }
 
     func getRestaurants() {
+        self.refreshControl.beginRefreshing()
         restaurantsVM.getAllRestaurant() { res in
             self.refreshControl.endRefreshing()
             switch res {
@@ -51,7 +51,7 @@ class AdminViewController : UIViewController {
             let branchList = segue.destination as! BranchesController
 
             // Set restaurant info in branch view
-            branchList.restaurantName = selectedRestaurant.name
+            branchList.restaurant = selectedRestaurant
             let selectedCell = restaurantTable.cellForRow(at: indexPath) as! RestaurantTableViewCell
             branchList.logoRawImage = selectedCell.restaurantLogo.image
         }
