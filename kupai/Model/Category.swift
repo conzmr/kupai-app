@@ -8,14 +8,8 @@
 
 import SwiftUI
 
-struct Category: Identifiable {
-    var id: String = UUID().uuidString
+struct Category: Decodable {
+    let id: String
     let name: String
     let image: String
-    
-    /// Init
-    init(name: String, image: String) {
-        self.name = name
-        self.image = image
-    }
 }

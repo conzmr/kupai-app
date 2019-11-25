@@ -47,3 +47,7 @@ func getDailyCouponURL(lat:Double, lng:Double, token: String) -> String {
     return baseApiURL+"UserCoupons/getDailyCoupon?lat=\(lat)&lng=\(lng)&access_token=\(token)"
 }
 
+//CATEGORIES
+
+let getCategoriesURL = baseApiURL+"Categories"
+
