@@ -10,9 +10,11 @@ import UIKit
 
 class RestaurantTableViewCell : UITableViewCell {
 
-    @IBOutlet weak var restaurantLogo: UIImageView!
+    @IBOutlet public weak var restaurantLogo: UIImageView!
     @IBOutlet weak var restaurantName: UILabel!
     @IBOutlet weak var cellContainer: UIView!
+
+    var buttonAction: ((Any) -> Void)?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,6 +29,10 @@ class RestaurantTableViewCell : UITableViewCell {
         restaurantLogo.layer.borderWidth = 1
         restaurantLogo.layer.borderColor = UIColor.clear.cgColor
         restaurantLogo.clipsToBounds = true
+    }
+    
+    @objc func buttonPressed(sender: Any) {
+        self.buttonAction?(sender)
         
     }
 }

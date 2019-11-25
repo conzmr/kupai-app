@@ -609,11 +609,64 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="restaurantTable" destination="L5u-zV-bdG" id="pee-YQ-j5G"/>
+                        <segue destination="C2j-4k-vvG" kind="show" identifier="goToBranchList" id="a4T-iH-MOS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BEZ-0B-h6G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="663.768115942029" y="793.52678571428567"/>
+        </scene>
+        <!--Branches-->
+        <scene sceneID="hCk-Ab-o2R">
+            <objects>
+                <viewController id="C2j-4k-vvG" customClass="BranchesController" customModule="kupai" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2kC-c3-MXD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradient-bg" translatesAutoresizingMaskIntoConstraints="NO" id="1hT-vt-v0d">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="247"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="247" id="Xsd-A0-Dmk"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coupons" translatesAutoresizingMaskIntoConstraints="NO" id="sVf-71-K87">
+                                <rect key="frame" x="144.5" y="61" width="125" height="125"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="125" id="7DI-p9-nKc"/>
+                                    <constraint firstAttribute="width" constant="125" id="wL8-Vq-clb"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurante" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scq-t6-N8p">
+                                <rect key="frame" x="142" y="194" width="130" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="scq-t6-N8p" firstAttribute="centerX" secondItem="1hT-vt-v0d" secondAttribute="centerX" id="52K-zT-QcA"/>
+                            <constraint firstItem="1hT-vt-v0d" firstAttribute="centerX" secondItem="6VS-UX-t1H" secondAttribute="centerX" id="Mbd-7u-hUl"/>
+                            <constraint firstItem="scq-t6-N8p" firstAttribute="top" secondItem="sVf-71-K87" secondAttribute="bottom" constant="8" id="WB0-nY-xuD"/>
+                            <constraint firstItem="6VS-UX-t1H" firstAttribute="trailing" secondItem="1hT-vt-v0d" secondAttribute="trailing" id="jEL-Lp-UUo"/>
+                            <constraint firstItem="sVf-71-K87" firstAttribute="centerY" secondItem="1hT-vt-v0d" secondAttribute="centerY" id="nmT-RN-Ubi"/>
+                            <constraint firstItem="sVf-71-K87" firstAttribute="centerX" secondItem="1hT-vt-v0d" secondAttribute="centerX" id="ylh-aJ-iZV"/>
+                            <constraint firstItem="1hT-vt-v0d" firstAttribute="top" secondItem="6VS-UX-t1H" secondAttribute="top" constant="-44" id="z6v-gH-mJo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6VS-UX-t1H"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Branches" id="Z5W-uX-vWW">
+                        <barButtonItem key="backBarButtonItem" title="Restaurantes" id="HBy-B8-urm"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="restaurantLabel" destination="scq-t6-N8p" id="Kqh-db-tct"/>
+                        <outlet property="restaurantLogoImage" destination="sVf-71-K87" id="Qcg-kl-YqH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kc9-ZF-Yd6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-157.97101449275362" y="788.83928571428567"/>
         </scene>
         <!--Create Restaurant-->
         <scene sceneID="p3Y-9K-dyN">
@@ -687,10 +740,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dbq-DO-VjT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1595.6521739130435" y="788.83928571428567"/>
+            <point key="canvasLocation" x="1630" y="794"/>
         </scene>
     </scenes>
     <resources>
+        <image name="coupons" width="653" height="655"/>
         <image name="coupons-tab" width="25" height="25"/>
         <image name="defaultImage" width="400" height="255"/>
         <image name="discount" width="25" height="25"/>

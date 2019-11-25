@@ -43,6 +43,19 @@ class AdminViewController : UIViewController {
             }
         }
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToBranchList" {
+            let indexPath = sender as! IndexPath
+            let selectedRestaurant = restaurantsVM.restaurants[indexPath.row]
+            let branchList = segue.destination as! BranchesController
+
+            // Set restaurant info in branch view
+            branchList.restaurantName = selectedRestaurant.name
+            let selectedCell = restaurantTable.cellForRow(at: indexPath) as! RestaurantTableViewCell
+            branchList.logoRawImage = selectedCell.restaurantLogo.image
+        }
+    }
 }
 
 extension AdminViewController : UITableViewDataSource, UITableViewDelegate {
@@ -64,5 +77,9 @@ extension AdminViewController : UITableViewDataSource, UITableViewDelegate {
         cell.getImage(url: restaurant.logo, cellImage: cell.restaurantLogo)
         cell.restaurantName.text = restaurant.name
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "goToBranchList", sender: indexPath)
     }
 }

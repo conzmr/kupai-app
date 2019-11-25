@@ -42,6 +42,7 @@
 		99F11EB3236E9B8A005385A4 /* PromotionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F11EB2236E9B8A005385A4 /* PromotionViewModel.swift */; };
 		E5199C3523877A820061704A /* RestaurantTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5199C3423877A820061704A /* RestaurantTableViewCell.xib */; };
 		E5199C3723877AFC0061704A /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5199C3623877AFC0061704A /* RestaurantTableViewCell.swift */; };
+		E5A867BE238B7F77008A850F /* BranchesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A867BD238B7F77008A850F /* BranchesController.swift */; };
 		E5A9058A238B3DD8004611B3 /* CreateRestaurantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A90589238B3DD8004611B3 /* CreateRestaurantController.swift */; };
 		E5B06DE523865C0C0058188D /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B06DE423865C0C0058188D /* AdminViewController.swift */; };
 		E5B06DE723865F4C0058188D /* RestaurantsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B06DE623865F4C0058188D /* RestaurantsViewModel.swift */; };
@@ -85,6 +86,7 @@
 		99F11EB2236E9B8A005385A4 /* PromotionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionViewModel.swift; sourceTree = "<group>"; };
 		E5199C3423877A820061704A /* RestaurantTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestaurantTableViewCell.xib; sourceTree = "<group>"; };
 		E5199C3623877AFC0061704A /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
+		E5A867BD238B7F77008A850F /* BranchesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchesController.swift; sourceTree = "<group>"; };
 		E5A90589238B3DD8004611B3 /* CreateRestaurantController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRestaurantController.swift; sourceTree = "<group>"; };
 		E5B06DE423865C0C0058188D /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
 		E5B06DE623865F4C0058188D /* RestaurantsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsViewModel.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				991937E42381AC6A0056C964 /* LocationSearchViewController.swift */,
 				E5B06DE423865C0C0058188D /* AdminViewController.swift */,
 				E5A90589238B3DD8004611B3 /* CreateRestaurantController.swift */,
+				E5A867BD238B7F77008A850F /* BranchesController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				99E8DE8723542BAC004DE2B6 /* Coupons.swift in Sources */,
 				994DBC1E233C7740004A24CF /* AppDelegate.swift in Sources */,
 				99D871DE234AE2BE005B9B41 /* LoginViewController.swift in Sources */,
+				E5A867BE238B7F77008A850F /* BranchesController.swift in Sources */,
 				99E8DE8523542B65004DE2B6 /* User.swift in Sources */,
 				992BD9052384C5A70025D87F /* CouponContainerView.swift in Sources */,
 				99E8DE832353124B004DE2B6 /* UserCouponsController.swift in Sources */,
