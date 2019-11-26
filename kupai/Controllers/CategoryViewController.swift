@@ -13,8 +13,6 @@ class CategoryViewController: UIViewController {
     var category:Category?
     var latitude:Double = 0.0
     var longitude:Double = 0.0
-
-    var categoryTitle = "Default"
     
     @IBOutlet weak var promotionsByCategoryTableView: UITableView!{
         didSet {
@@ -28,24 +26,8 @@ class CategoryViewController: UIViewController {
     
     var promotionVM = PromotionViewModel()
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = true
-        self.refreshControl.beginRefreshing()
-        reloadPromotionsData()
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = false
-    }
-    
-    
     override func viewDidLoad() {
+        navigationController?.navigationBar.prefersLargeTitles = false
         super.viewDidLoad()
         self.navigationItem.title = category?.name
         reloadPromotionsData()
@@ -54,18 +36,15 @@ class CategoryViewController: UIViewController {
     
     func reloadPromotionsData(){
         self.refreshControl.beginRefreshing()
-        getPromotions()
+        getPromotionsByCategory(category: category!.name)
     }
     
     @objc private func refreshPromotionsData(_ sender: Any) {
-        getPromotions()
+        getPromotionsByCategory(category: category!.name)
     }
     
-    func getPromotions() {
-        //self.refreshControl.beginRefreshing()
-        //EN GET PROMOTIONS DEBO PASAR LOS PARÁMETROS
-        //IN RELOAD PROMOTIONS DATA ADD OPTIONAL CATEGORY PARAM
-        promotionVM.getPromotions(lat: latitude, lng: longitude, completion: { (res) in
+    func getPromotionsByCategory(category:String) {
+        promotionVM.getPromotionsByCategory(lat: latitude, lng: longitude, category:category, completion: { (res) in
             self.refreshControl.endRefreshing()
             switch res {
             case .success(_):
@@ -80,19 +59,19 @@ class CategoryViewController: UIViewController {
 extension CategoryViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.promotionVM.promotions.count == 0 {
-            tableView.setEmptyView(title: "No hay ninguna promoción para la categoría "+categoryTitle, message: "Las promociones disponibles se mostrarán aquí", messageImage: UIImage(named: "discountNoun")!)
+        if self.promotionVM.promotionsByCategory.count == 0 {
+            tableView.setEmptyView(title: "No hay promociones para "+category!.name, message: "Las promociones disponibles se mostrarán aquí", messageImage: UIImage(named: "discountNoun")!)
         }
         else {
             tableView.restore()
         }
-        return self.promotionVM.promotions.count
+        return self.promotionVM.promotionsByCategory.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FeedPromoCellTableViewCellId", for: indexPath) as! FeedPromoCellTableViewCell
         let promotion: Promotion
-        promotion = self.promotionVM.promotions[indexPath.row]
+        promotion = self.promotionVM.promotionsByCategory[indexPath.row]
         cell.title.text = promotion.title
         cell.getImage(url: promotion.image, cellImage: cell.promoImage)
         cell.restaurantName.text = promotion.restaurant.name
@@ -102,7 +81,7 @@ extension CategoryViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "PromotionDetailControllerId") as? PromotionDetailController
-        vc!.promotion = promotionVM.promotions[indexPath.row]
+        vc!.promotion = promotionVM.promotionsByCategory[indexPath.row]
         self.navigationController?.pushViewController(vc!, animated: true)
     }
 }

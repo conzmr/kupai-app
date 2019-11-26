@@ -61,18 +61,7 @@ class UserCouponTableViewCell: UITableViewCell {
     }
 
     @IBAction func showUserCouponDetail(_ sender: Any) {
-        print("BUTTON PRESSED")
         delegate?.didRedeemButtonPressed(userCoupon:userCoupon!)
-//        if userCoupon != nil {
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let navigationController = storyboard.instantiateViewController(withIdentifier: "userCouponsNavigationControllerId") as! UINavigationController
-//        print("jejeje", navigationController)
-//            let vc = storyboard.instantiateViewController(withIdentifier: "UserCouponDetailControllerId") as? UserCouponDetailController
-//            vc!.coupon = userCoupon
-//            navigationController.pushViewController(vc!, animated: true)
-////        }else{
-////            print("NO HAY USER COUPON")
-////        }
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

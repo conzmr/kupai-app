@@ -19,6 +19,7 @@
 		9936963C238B8FA400121A01 /* CategoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9936963B238B8FA400121A01 /* CategoryView.xib */; };
 		9936963E238BA2D500121A01 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9936963D238BA2D500121A01 /* CategoryViewModel.swift */; };
 		99369640238CD7CC00121A01 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9936963F238CD7CC00121A01 /* CategoryViewController.swift */; };
+		99369642238DB82000121A01 /* DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99369641238DB82000121A01 /* DownloadImage.swift */; };
 		993B1DFF2366AE6100DDD7AD /* Promotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993B1DFE2366AE6100DDD7AD /* Promotion.swift */; };
 		993E015B23861B3800AA19A5 /* CurrentLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993E015923861B3800AA19A5 /* CurrentLocationTableViewCell.swift */; };
 		993E015C23861B3800AA19A5 /* CurrentLocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 993E015A23861B3800AA19A5 /* CurrentLocationTableViewCell.xib */; };
@@ -61,6 +62,7 @@
 		9936963B238B8FA400121A01 /* CategoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CategoryView.xib; path = "../../../../../../../Downloads/scrolling-in-horizontal-stackview-master/ScrollingInHorizontalStackView/CategoryView.xib"; sourceTree = "<group>"; };
 		9936963D238BA2D500121A01 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		9936963F238CD7CC00121A01 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		99369641238DB82000121A01 /* DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImage.swift; sourceTree = "<group>"; };
 		993B1DFE2366AE6100DDD7AD /* Promotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Promotion.swift; sourceTree = "<group>"; };
 		993E015923861B3800AA19A5 /* CurrentLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationTableViewCell.swift; sourceTree = "<group>"; };
 		993E015A23861B3800AA19A5 /* CurrentLocationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrentLocationTableViewCell.xib; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			children = (
 				99D871D7234A91F0005B9B41 /* Extensions.swift */,
 				99D871D9234AA900005B9B41 /* Constants.swift */,
+				99369641238DB82000121A01 /* DownloadImage.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				99D871DC234AD5F2005B9B41 /* LoginCell.swift in Sources */,
 				994DBC20233C7740004A24CF /* GuideViewController.swift in Sources */,
 				99E8DE8723542BAC004DE2B6 /* Coupons.swift in Sources */,
+				99369642238DB82000121A01 /* DownloadImage.swift in Sources */,
 				994DBC1E233C7740004A24CF /* AppDelegate.swift in Sources */,
 				99D871DE234AE2BE005B9B41 /* LoginViewController.swift in Sources */,
 				99E8DE8523542B65004DE2B6 /* User.swift in Sources */,

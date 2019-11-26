@@ -104,53 +104,17 @@ class UserCouponDetailController: UIViewController, MKMapViewDelegate {
 //        if let expirationDate = promotion?.expirationDate {
 //            promotionExpirationDate.text = "Válido hasta "+expirationDate.toDateString(withFormat: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", targetFormat: "dd/MM/yyyy")
 //        }
-        getImage(url: coupon!.restaurant.logo)
-    }
-    
-    func getImage(url: String) {
-           let url = URL(string: url)
-           DispatchQueue.global().async { [weak self] in
-               if let data = try? Data(contentsOf: url!) {
-                   if let image = UIImage(data: data) {
-                       DispatchQueue.main.async {
-                        self!.restaurantLogo.image = image
-                        self!.setLogoContainer()
-                       }
-                   }
-               }
-           }
-       }
-//
-//    func updateMap() {
-//        if let geopoint = branch?.geolocation {
-//            var mapRegion = MKCoordinateRegion()
-//            let mapRegionSpan = 0.02
-//            mapRegion.center = CLLocationCoordinate2D(latitude: geopoint.lat, longitude: geopoint.lng)
-//            mapRegion.span.latitudeDelta = mapRegionSpan
-//            mapRegion.span.longitudeDelta = mapRegionSpan
-//            guard CLLocationCoordinate2DIsValid(mapRegion.center) else {
-//                return
-//            }
-//            branchMap.setRegion(mapRegion, animated: true)
-//            addAnnotationToMap(latitude: geopoint.lat, longitude: geopoint.lng)
-//        }
-//
-//    }
-//
-//    func addAnnotationToMap(latitude: Double, longitude: Double) {
-//        if branchMap.annotations.count > 0 {
-//            branchMap.removeAnnotations(branchMap.annotations)
-//        }
-//        let annotation = MKPointAnnotation()
-//        annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-//        annotation.title = restaurantName
-//        let subtitle = "Sucursal  \(branch!.alias) \n" + "Dirección: \(branch!.address)"
-//        annotation.subtitle = subtitle
-//        branchMap.addAnnotation(annotation)
-//    }
 
-    
-    
+        ImageHandler.downloadImage(url: coupon!.restaurant.logo, completion: { (res) in
+            switch res {
+            case .success(let image):
+                self.restaurantLogo.image = image
+                self.setLogoContainer()
+            case .failure(let err):
+                print("ERROR OCURRED GETTING IMAGE", err)
+            }
+        })
+    }
 
 }
 

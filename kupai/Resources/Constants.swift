@@ -37,6 +37,9 @@ let logoutURL = baseApiURL+"AppUsers/logout"
 func getPromotionsURL(lat:Double, lng:Double, token: String) -> String {
     return baseApiURL+"Promotions/findByLocation?lat=\(lat)&lng=\(lng)&access_token=\(token)"
 }
+func getPromotionsByCategoryURL(lat:Double, lng:Double, category:String, token: String) -> String {
+    return baseApiURL+"Promotions/findByLocation?lat=\(lat)&lng=\(lng)&category=\(category)&access_token=\(token)"
+}
 
 //COUPONS
 func getUserCouponsURL(userId: String, token: String) -> String {

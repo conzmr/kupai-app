@@ -71,7 +71,6 @@ class SignupCell: UICollectionViewCell, UITextFieldDelegate {
     }
     
     @IBAction func signUp(_ sender: Any) {
-        print("holis")
         delegate?.createUser(email: userTextField.text!, password: passwordTextField.text!)
     }
     

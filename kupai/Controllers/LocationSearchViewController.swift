@@ -13,6 +13,7 @@ class LocationSearchViewController: UIViewController {
     
     var searchCompleter = MKLocalSearchCompleter()
     var searchResults = [MKLocalSearchCompletion]()
+    weak var delegate: LocationControllerDelegate?
     
     @IBOutlet weak var searchResultsTableView: UITableView!{
         didSet {
@@ -25,8 +26,6 @@ class LocationSearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
         searchCompleter.delegate = self
     }
     
@@ -48,7 +47,7 @@ extension LocationSearchViewController: MKLocalSearchCompleterDelegate {
     }
     
     func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error) {
-        // handle error
+        self.showAlert(title: "Ocurrió un error buscando tu solicitud", message: "Prueba tu conexión a internet e intenta más tarde")
     }
 }
 
@@ -86,6 +85,7 @@ extension LocationSearchViewController: UITableViewDelegate {
             print("REMOVING FOR KEY, pressing 0 indexr")
             UserDefaults.standard.synchronize()
             UserDefaults.standard.removeObject(forKey: "address")
+            self.delegate?.getCurrentLocation()
              _ = self.navigationController?.popViewController(animated: true)
         }else{
             let completion = searchResults[indexPath.row-1]
@@ -97,6 +97,7 @@ extension LocationSearchViewController: UITableViewDelegate {
                     print("CLICKED ITEM", clickedItem.name ?? "No Address")
                     print("COORDINATE LATITUDE", clickedItem.placemark.coordinate.latitude)
                     self.saveLocalSearchResults(address: clickedItem.name!, latitude: coordinate.latitude, longitude: coordinate.longitude)
+                    self.delegate?.reloadPromotionsData(latitude: coordinate.latitude, longitude: coordinate.longitude, address: clickedItem.name!)
                     _ = self.navigationController?.popViewController(animated: true)
                 }
             }

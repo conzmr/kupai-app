@@ -10,7 +10,7 @@ import SwiftUI
 import MapKit
 import CoreLocation
 
-class FeedController: UIViewController {
+class FeedController: UIViewController, LocationControllerDelegate {
     private let refreshControl = UIRefreshControl()
     var latitude:Double = 0.0
     var longitude:Double = 0.0
@@ -36,16 +36,6 @@ class FeedController: UIViewController {
     let locationManager = CLLocationManager()
     var currentLocation = CLLocation()
     
-    override func viewWillAppear(_ animated: Bool) {
-        print("SE RELODEA FEED CONTROLLER")
-        self.refreshControl.beginRefreshing()
-        reloadPromotionsData()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
     func setCategories() {
         for category in categoryVM.categories {
             if let categoryView = Bundle.main.loadNibNamed("CategoryView", owner: nil, options: nil)!.first as? CategoryView {
@@ -58,6 +48,8 @@ class FeedController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //VER SI TENGO ALGO EN LOCAL STORAGE, ESO USO Y HAGO MI REQUEST, SI NO, BUSCO MI UBICACIÓN ACTUAL POR DEFAULT
         getCategories()
         
         // Create a navView to add to the navigation bar
@@ -99,10 +91,10 @@ class FeedController: UIViewController {
         //Location manager set up
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        getCurrentLocation()
 //        locationManager.requestWhenInUseAuthorization()
 //        locationManager.requestLocation()
-        reloadPromotionsData()
+
+        getFeedRequestLocation()
         refreshControl.addTarget(self, action: #selector(refreshPromotionsData(_:)), for: UIControl.Event.valueChanged)
     }
     
@@ -112,7 +104,6 @@ class FeedController: UIViewController {
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
-            print("HUBO UN TAKI SHAKI")
             couponsVM.getDailyCoupon(lat: latitude, lng: longitude, completion: { (res) in
                 //AÑADIR ALGÚN TIPO DE ACTIVITY CONTROL??
                 switch res {
@@ -129,7 +120,8 @@ class FeedController: UIViewController {
         }
     }
     
-    func setNavigationLabelText(){
+    func setNavigationLabelText(address: String){
+        self.address = address
         let titleLabel = UILabel(frame: CGRect(x: 0, y: 100, width: view.frame.width , height: view.frame.height))
         titleLabel.text = address
         titleLabel.textColor = UIColor.black
@@ -138,34 +130,40 @@ class FeedController: UIViewController {
     }
     
     func getFeedRequestLocation(){
+        self.refreshControl.beginRefreshing()
         let slatitude:Double? = UserDefaults.standard.double(forKey: "latitude")
         let slongitude:Double? = UserDefaults.standard.double(forKey: "longitude")
         let saddress:String? = UserDefaults.standard.string(forKey: "address")
         if(slatitude == 0.0 || slongitude == 0.0 || saddress == nil){
-            address = "Usar mi ubicación actual"
-            setNavigationLabelText()
+            setNavigationLabelText(address: "Usar mi ubicación actual")
             getCurrentLocation()
         }else{
-            latitude = slatitude!
-            longitude = slongitude!
-            address = saddress!
-            setNavigationLabelText()
+            self.latitude = slatitude!
+            self.longitude = slongitude!
+            setNavigationLabelText(address:saddress!)
             getPromotions()
         }
     }
     
-    func reloadPromotionsData(){
+    func reloadPromotionsData(latitude: Double, longitude: Double, address: String){
         self.refreshControl.beginRefreshing()
-        getFeedRequestLocation()
-//        getPromotions()
+        self.latitude = latitude
+        self.longitude = longitude
+        setNavigationLabelText(address:address)
+        getPromotions()
     }
     
     @objc private func refreshPromotionsData(_ sender: Any) {
         getPromotions()
     }
     
+    @IBAction func searchLocation(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "LocationSearchViewControllerId") as? LocationSearchViewController
+        vc!.delegate = self
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
+    
     func getPromotions() {
-        //self.refreshControl.beginRefreshing()
         //EN GET PROMOTIONS DEBO PASAR LOS PARÁMETROS
         promotionVM.getPromotions(lat: latitude, lng: longitude, completion: { (res) in
             self.refreshControl.endRefreshing()
@@ -222,16 +220,29 @@ extension FeedController: UITableViewDataSource, UITableViewDelegate {
         let promotion: Promotion
         promotion = self.promotionVM.promotions[indexPath.row]
         cell.title.text = promotion.title
-        cell.getImage(url: promotion.image, cellImage: cell.promoImage)
+        ImageHandler.downloadImage(url: promotion.image, completion: { (res) in
+            switch res {
+            case .success(let image):
+                cell.promoImage.image = image
+            case .failure(let err):
+                print("ERROR OCURRED GETTING IMAGE", err)
+            }
+        })
+        //cell.getImage(url: promotion.image, cellImage: cell.promoImage)
         cell.restaurantName.text = promotion.restaurant.name
-        cell.getImage(url: promotion.restaurant.logo, cellImage: cell.restaurantLogo)
+        ImageHandler.downloadImage(url: promotion.restaurant.logo, completion: { (res) in
+            switch res {
+            case .success(let image):
+                cell.restaurantLogo.image = image
+            case .failure(let err):
+                print("ERROR OCURRED GETTING IMAGE", err)
+            }
+        })
+        //cell.restaurantLogo.image = ImageHandler.downloadImage(url: promotion.restaurant.logo)
+        //cell.getImage(url: promotion.restaurant.logo, cellImage: cell.restaurantLogo)
         return cell
     }
 
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 170
-//    }
-//
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "PromotionDetailControllerId") as? PromotionDetailController
         vc!.promotion = promotionVM.promotions[indexPath.row]
@@ -245,10 +256,9 @@ extension FeedController: CLLocationManagerDelegate {
             currentLocation = current
             latitude = currentLocation.coordinate.latitude
             longitude = currentLocation.coordinate.longitude
-            address = "Usar mi ubicación actual"
             saveCurrentLocation(latitude: latitude, longitude: longitude)
             //print("location:: \(current)")
-            setNavigationLabelText()
+            setNavigationLabelText(address: "Usar mi ubicación actual")
             getPromotions()
         }
     }
@@ -285,7 +295,13 @@ extension FeedController: CategoryViewDelegate {
     func didCategoryPressed(category:Category) {
           let vc = self.storyboard?.instantiateViewController(withIdentifier: "CategoryViewControllerId") as? CategoryViewController
           vc!.category = category
+          vc!.latitude = latitude
+          vc!.longitude = longitude
           self.navigationController?.pushViewController(vc!, animated: true)
       }
+}
 
+protocol LocationControllerDelegate: class {
+    func reloadPromotionsData(latitude: Double, longitude: Double, address: String)
+    func getCurrentLocation()
 }
