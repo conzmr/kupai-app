@@ -228,6 +228,7 @@
                         </connections>
                     </navigationItem>
                     <connections>
+                        <outlet property="categoriesContainer" destination="KdF-R2-KNe" id="f4i-6r-Bq9"/>
                         <outlet property="categoriesHScrollableStackView" destination="cnJ-1M-a9N" id="rBX-Mw-W5s"/>
                         <outlet property="promotionsFeedTableView" destination="kDk-MO-h1v" id="gwW-Ag-MNX"/>
                     </connections>

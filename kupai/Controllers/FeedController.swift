@@ -16,6 +16,7 @@ class FeedController: UIViewController {
     var longitude:Double = 0.0
     var address:String = ""
     
+    @IBOutlet weak var categoriesContainer: UIScrollView!
     @IBOutlet weak var categoriesHScrollableStackView: UIStackView!
     @IBOutlet weak var promotionsFeedTableView: UITableView!{
         didSet {
@@ -30,6 +31,7 @@ class FeedController: UIViewController {
     
     var promotionVM = PromotionViewModel()
     var couponsVM = CouponsViewModel()
+    var categoryVM = CategoryViewModel()
     
     let locationManager = CLLocationManager()
     var currentLocation = CLLocation()
@@ -42,12 +44,17 @@ class FeedController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        for _ in 0...10 {
-            if let dayView = Bundle.main.loadNibNamed("CategoryView", owner: nil, options: nil)!.first as? CategoryView {
-                dayView.translatesAutoresizingMaskIntoConstraints = false
-                dayView.widthAnchor.constraint(equalToConstant: categoriesHScrollableStackView.frame.height).isActive = true
-                dayView.categoryName.text = "Hamburguesas"
-                categoriesHScrollableStackView.addArrangedSubview(dayView)
+        getCategories()
+    }
+    
+    func setCategories() {
+        for category in categoryVM.categories {
+            if let categoryView = Bundle.main.loadNibNamed("CategoryView", owner: nil, options: nil)!.first as? CategoryView {
+                categoryView.translatesAutoresizingMaskIntoConstraints = false
+                categoryView.widthAnchor.constraint(equalToConstant: 120).isActive = true
+                categoryView.categoryName.text = category.name
+                categoryView.categoryImageView.load(url: category.image)
+                categoriesHScrollableStackView.addArrangedSubview(categoryView)
             }
         }
     }
@@ -169,6 +176,18 @@ class FeedController: UIViewController {
                 self.promotionsFeedTableView.reloadData()
             case .failure(let err):
                 print("ERROR OCURRED GETTING PROMOTIONS", err)
+            }
+        })
+    }
+    
+    func getCategories() {
+        categoryVM.getCategories(completion: { (res) in
+            self.refreshControl.endRefreshing()
+            switch res {
+            case .success(_):
+                self.setCategories()
+            case .failure(let err):
+                print("ERROR OCURRED GETTING CATEGORIES", err)
             }
         })
     }
