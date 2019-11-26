@@ -244,6 +244,49 @@
             </objects>
             <point key="canvasLocation" x="3223.1884057971015" y="20.758928571428569"/>
         </scene>
+        <!--Category-->
+        <scene sceneID="vlv-dt-Z62">
+            <objects>
+                <viewController storyboardIdentifier="CategoryViewControllerId" title="Category" id="8dT-ht-Sfq" customClass="CategoryViewController" customModule="kupai" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bC3-RX-Yp8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DYC-bo-oIk">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="8dT-ht-Sfq" id="fgd-mQ-pmb"/>
+                                    <outlet property="delegate" destination="8dT-ht-Sfq" id="6Sj-Id-CKk"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DYC-bo-oIk" firstAttribute="trailing" secondItem="2Xa-O6-w0B" secondAttribute="trailing" id="IoG-pY-iBy"/>
+                            <constraint firstAttribute="bottom" secondItem="DYC-bo-oIk" secondAttribute="bottom" id="QSw-ev-pnM"/>
+                            <constraint firstItem="DYC-bo-oIk" firstAttribute="leading" secondItem="2Xa-O6-w0B" secondAttribute="leading" id="nik-em-mu0"/>
+                            <constraint firstItem="DYC-bo-oIk" firstAttribute="top" secondItem="2Xa-O6-w0B" secondAttribute="top" id="pW4-Gu-z41"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2Xa-O6-w0B"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="i7H-0W-Enl"/>
+                    <navigationItem key="navigationItem" title="Promociones" leftItemsSupplementBackButton="YES" id="eRm-43-Ufs">
+                        <connections>
+                            <outlet property="rightBarButtonItem" destination="lbu-Rv-pXZ" id="Kw9-Ub-O0f"/>
+                        </connections>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="promotionsByCategoryTableView" destination="DYC-bo-oIk" id="KnD-ig-M6K"/>
+                    </connections>
+                </viewController>
+                <navigationItem id="osi-en-NNm">
+                    <barButtonItem key="rightBarButtonItem" systemItem="search" id="1VC-RD-YTK"/>
+                </navigationItem>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Qr-59-stT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2313" y="794"/>
+        </scene>
         <!--Promotion Detail Controller-->
         <scene sceneID="Apn-WS-e5T">
             <objects>

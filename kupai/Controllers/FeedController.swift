@@ -44,16 +44,13 @@ class FeedController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        getCategories()
     }
     
     func setCategories() {
         for category in categoryVM.categories {
             if let categoryView = Bundle.main.loadNibNamed("CategoryView", owner: nil, options: nil)!.first as? CategoryView {
-                categoryView.translatesAutoresizingMaskIntoConstraints = false
-                categoryView.widthAnchor.constraint(equalToConstant: 120).isActive = true
-                categoryView.categoryName.text = category.name
-                categoryView.categoryImageView.load(url: category.image)
+                categoryView.delegate = self
+                categoryView.category = category
                 categoriesHScrollableStackView.addArrangedSubview(categoryView)
             }
         }
@@ -61,6 +58,7 @@ class FeedController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getCategories()
         
         // Create a navView to add to the navigation bar
        // let navView = UIView()
@@ -280,4 +278,14 @@ extension FeedController: CLLocationManagerDelegate {
         UserDefaults.standard.set(longitude, forKey: "longitude")
         UserDefaults.standard.synchronize()
     }
+}
+
+extension FeedController: CategoryViewDelegate {
+
+    func didCategoryPressed(category:Category) {
+          let vc = self.storyboard?.instantiateViewController(withIdentifier: "CategoryViewControllerId") as? CategoryViewController
+          vc!.category = category
+          self.navigationController?.pushViewController(vc!, animated: true)
+      }
+
 }

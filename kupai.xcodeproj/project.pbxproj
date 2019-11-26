@@ -18,6 +18,7 @@
 		9936963A238B8F9800121A01 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99369639238B8F9800121A01 /* CategoryView.swift */; };
 		9936963C238B8FA400121A01 /* CategoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9936963B238B8FA400121A01 /* CategoryView.xib */; };
 		9936963E238BA2D500121A01 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9936963D238BA2D500121A01 /* CategoryViewModel.swift */; };
+		99369640238CD7CC00121A01 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9936963F238CD7CC00121A01 /* CategoryViewController.swift */; };
 		993B1DFF2366AE6100DDD7AD /* Promotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993B1DFE2366AE6100DDD7AD /* Promotion.swift */; };
 		993E015B23861B3800AA19A5 /* CurrentLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993E015923861B3800AA19A5 /* CurrentLocationTableViewCell.swift */; };
 		993E015C23861B3800AA19A5 /* CurrentLocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 993E015A23861B3800AA19A5 /* CurrentLocationTableViewCell.xib */; };
@@ -59,6 +60,7 @@
 		99369639238B8F9800121A01 /* CategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryView.swift; path = "../../../../../../../Downloads/scrolling-in-horizontal-stackview-master/ScrollingInHorizontalStackView/CategoryView.swift"; sourceTree = "<group>"; };
 		9936963B238B8FA400121A01 /* CategoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CategoryView.xib; path = "../../../../../../../Downloads/scrolling-in-horizontal-stackview-master/ScrollingInHorizontalStackView/CategoryView.xib"; sourceTree = "<group>"; };
 		9936963D238BA2D500121A01 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
+		9936963F238CD7CC00121A01 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		993B1DFE2366AE6100DDD7AD /* Promotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Promotion.swift; sourceTree = "<group>"; };
 		993E015923861B3800AA19A5 /* CurrentLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationTableViewCell.swift; sourceTree = "<group>"; };
 		993E015A23861B3800AA19A5 /* CurrentLocationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrentLocationTableViewCell.xib; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				9970B13A237B68F9009BD17E /* PromotionDetailController.swift */,
 				991937E42381AC6A0056C964 /* LocationSearchViewController.swift */,
 				9936962E2386C68F00121A01 /* UserCouponDetailController.swift */,
+				9936963F238CD7CC00121A01 /* CategoryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				994DBC30233C8C70004A24CF /* PageCell.swift in Sources */,
 				9970B13B237B68F9009BD17E /* PromotionDetailController.swift in Sources */,
 				99D871E9234B2773005B9B41 /* FeedPromoCellTableViewCell.swift in Sources */,
+				99369640238CD7CC00121A01 /* CategoryViewController.swift in Sources */,
 				9936963E238BA2D500121A01 /* CategoryViewModel.swift in Sources */,
 				992BD8FD2383211A0025D87F /* Branch.swift in Sources */,
 				992BD8FF2383A2790025D87F /* CouponsViewModel.swift in Sources */,
