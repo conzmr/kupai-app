@@ -220,26 +220,9 @@ extension FeedController: UITableViewDataSource, UITableViewDelegate {
         let promotion: Promotion
         promotion = self.promotionVM.promotions[indexPath.row]
         cell.title.text = promotion.title
-        ImageHandler.downloadImage(url: promotion.image, completion: { (res) in
-            switch res {
-            case .success(let image):
-                cell.promoImage.image = image
-            case .failure(let err):
-                print("ERROR OCURRED GETTING IMAGE", err)
-            }
-        })
-        //cell.getImage(url: promotion.image, cellImage: cell.promoImage)
+        cell.getImage(url: promotion.image, cellImage: cell.promoImage)
         cell.restaurantName.text = promotion.restaurant.name
-        ImageHandler.downloadImage(url: promotion.restaurant.logo, completion: { (res) in
-            switch res {
-            case .success(let image):
-                cell.restaurantLogo.image = image
-            case .failure(let err):
-                print("ERROR OCURRED GETTING IMAGE", err)
-            }
-        })
-        //cell.restaurantLogo.image = ImageHandler.downloadImage(url: promotion.restaurant.logo)
-        //cell.getImage(url: promotion.restaurant.logo, cellImage: cell.restaurantLogo)
+        cell.getImage(url: promotion.restaurant.logo, cellImage: cell.restaurantLogo)
         return cell
     }
 
