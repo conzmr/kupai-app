@@ -21,9 +21,6 @@ class PromotionViewModel {
                              if  let error = err {
                                  return completion(.failure(error))
                              }
-                             if let data = data, let dataString = String(data: data, encoding: .utf8) {
-    //                             print("data: \(dataString)")
-                             }
                              do {
                                  self.promotionsByCategory = try JSONDecoder().decode([Promotion].self, from: data!)
                                  completion(.success(self.promotionsByCategory))
@@ -33,7 +30,7 @@ class PromotionViewModel {
                              }
                          }
                      }.resume()
-            }else{
+            } else {
                print("LAT", lat)
                print("NO LAT, LNG OR TOKEN")
             }
@@ -46,9 +43,6 @@ class PromotionViewModel {
                      DispatchQueue.main.async {
                          if  let error = err {
                              return completion(.failure(error))
-                         }
-                         if let data = data, let dataString = String(data: data, encoding: .utf8) {
-//                             print("data: \(dataString)")
                          }
                          do {
                              self.promotions = try JSONDecoder().decode([Promotion].self, from: data!)

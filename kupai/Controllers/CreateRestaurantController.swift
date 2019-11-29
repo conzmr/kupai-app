@@ -15,12 +15,16 @@ class CreateRestaurantController : UIViewController {
 
     var restaurantsVM = RestaurantsViewModel()
 
+    override func viewDidLoad() {
+        self.hideKeyboardWhenTappedAround()
+    }
+
     @IBAction func submitRestaurant(_ sender: Any) {
         addRestaurantButton.loadingIndicator(true)
 
         let nameOpt = restaurantNameInput.text
         let logoUrlOpt = restaurantLogoInput.text
-        
+
         if let name = nameOpt, let logoUrl = logoUrlOpt, name != "" && logoUrl != "" {
             if let _ = URL.init(string: logoUrl) {
                 restaurantsVM.createRestaurant(name: name, logo: logoUrl) { res in
@@ -37,6 +41,7 @@ class CreateRestaurantController : UIViewController {
                 }
             } else {
                 showAlert(title: "Porfavor usa un URL valido", message: "Link al logo debe de ser un URL valido")
+                addRestaurantButton.loadingIndicator(false)
             }
         } else {
             showAlert(title: "Completa el formulario", message: "Porfavor completa todo el formulario antes de añadir un restaurante.")

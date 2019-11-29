@@ -24,6 +24,7 @@ class AddBranchController : UIViewController, MKMapViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
 
         print("asd: my restaurant - \(String(describing: restaurant))")
         locationManager.requestWhenInUseAuthorization()
@@ -48,7 +49,6 @@ class AddBranchController : UIViewController, MKMapViewDelegate {
         // setup tap recognizer in map
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(mapTap(_:)))
         longPressGesture.minimumPressDuration = 0.5;
-//        singleTapRecognizer.delegate = self
         mapView.addGestureRecognizer(longPressGesture)
     }
 

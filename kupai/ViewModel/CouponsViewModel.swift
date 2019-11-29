@@ -22,7 +22,7 @@ class CouponsViewModel {
                     if  let error = err {
                         return completion(.failure(error))
                     }
-                    if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                    if let data = data, let _ = String(data: data, encoding: .utf8) {
 //                        print("data: \(dataString)")
                     }
                     do {
@@ -49,7 +49,7 @@ class CouponsViewModel {
                     if  let error = err {
                         return completion(.failure(error))
                     }
-                    if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                    if let data = data, let _ = String(data: data, encoding: .utf8) {
 //                        print("data: \(dataString)")
                     }
                     do {

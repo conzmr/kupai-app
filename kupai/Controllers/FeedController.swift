@@ -240,7 +240,6 @@ extension FeedController: CLLocationManagerDelegate {
             latitude = currentLocation.coordinate.latitude
             longitude = currentLocation.coordinate.longitude
             saveCurrentLocation(latitude: latitude, longitude: longitude)
-            //print("location:: \(current)")
             setNavigationLabelText(address: "Usar mi ubicación actual")
             getPromotions()
         }
