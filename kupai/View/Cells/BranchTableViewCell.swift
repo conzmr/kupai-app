@@ -15,10 +15,6 @@ class BranchTableViewCell : UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
-        cellContainer.layer.borderColor = tertiaryColor.cgColor
-        cellContainer.layer.borderWidth = 1
-        cellContainer.layer.cornerRadius = 5
         cellContainer.clipsToBounds = true
     }
 }

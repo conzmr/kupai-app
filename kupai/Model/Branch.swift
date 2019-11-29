@@ -19,7 +19,7 @@ struct Branch: Identifiable, Decodable {
     let restaurant: Restaurant?
 }
 
-struct Geopoint: Decodable {
+struct Geopoint: Codable {
     let lng: Double
     let lat: Double
 }

@@ -53,6 +53,14 @@ class BranchesController : UIViewController {
             }
         }
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let view = segue.destination as? AddBranchController {
+            if segue.identifier == "goToAddBranch" {
+                view.restaurant = restaurant
+            }
+        }
+    }
 }
 
 extension BranchesController : UITableViewDataSource, UITableViewDelegate {
