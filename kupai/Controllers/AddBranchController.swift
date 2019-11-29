@@ -26,7 +26,7 @@ class AddBranchController : UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print("asd: my restaurant - \(restaurant)")
+        print("asd: my restaurant - \(String(describing: restaurant))")
         locationManager.requestWhenInUseAuthorization()
 
         if CLLocationManager.locationServicesEnabled() {
