@@ -9,6 +9,7 @@
 import Foundation
 
 struct Restaurant: Decodable {
+    let id: String?
     let name: String
     let logo: String
 }

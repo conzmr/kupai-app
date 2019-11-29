@@ -43,7 +43,7 @@ class BranchesController : UIViewController {
 
     func getBranches() {
         self.refreshControl.beginRefreshing()
-        branchesVM.getBranches(restaurantId: restaurant.id) { res in
+        branchesVM.getBranches(restaurantId: restaurant.id!) { res in
             self.refreshControl.endRefreshing()
             switch res {
             case .success(_):
