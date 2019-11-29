@@ -54,3 +54,22 @@ func getDailyCouponURL(lat:Double, lng:Double, token: String) -> String {
 
 let getCategoriesURL = baseApiURL+"Categories"
 
+// RESTAURANTS
+let createRestaurantURL = baseApiURL+"Restaurants"
+func getRestaurantsURL(filter: String?) -> String {
+    if let filter = filter?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+        return "\(createRestaurantURL)?filter=\(filter)"
+    }
+
+    return createRestaurantURL
+}
+
+// BRANCHES
+let branchesURL = baseApiURL+"Branches"
+func getBranchesURL(filter: String?) -> String {
+    if let filter = filter?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+        return "\(branchesURL)?filter=\(filter)"
+    }
+
+    return branchesURL
+}

@@ -92,12 +92,20 @@ class UserViewModel{
         UserDefaults.standard.set(user?.email, forKey: "email")
         //hacer un if let de user.name si no viene no se settea
         UserDefaults.standard.set(user?.name ?? "Carlos Santana", forKey: "name")
+        UserDefaults.standard.set(user?.type, forKey: "userType")
         UserDefaults.standard.synchronize()
     }
     
     func isUserLoggedIn() -> Bool {
         return UserDefaults.standard.object(forKey: "token") != nil
     }
-    
+
+    func isUserType(_ type: String) -> Bool {
+        if let userType = UserDefaults.standard.string(forKey: "userType") {
+            return type == userType
+        } else {
+            return false
+        }
+    }
 }
 
