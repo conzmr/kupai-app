@@ -13,7 +13,6 @@ import MapKit
 class AddBranchController : UIViewController, MKMapViewDelegate {
     var restaurant: Restaurant!
     @IBOutlet weak var aliasTextField: UITextField!
-    @IBOutlet weak var logoTextField: UITextField!
     @IBOutlet weak var addBranchButton: UIButton!
     @IBOutlet weak var addressTextField: UITextField!
     @IBOutlet weak var mapView: MKMapView!
@@ -57,28 +56,23 @@ class AddBranchController : UIViewController, MKMapViewDelegate {
         addBranchButton.loadingIndicator(true)
 
         let aliasOpt = aliasTextField.text
-        let logoUrlOpt = logoTextField.text
         let addressOpt = addressTextField.text
 
-        if let name = aliasOpt, let logoUrl = logoUrlOpt, let address = addressOpt,
-            name != "" && logoUrl != "", address != "" {
-            if let _ = URL.init(string: logoUrl) {
-                let geolocation = Geopoint(lng: annotation.coordinate.longitude, lat: annotation.coordinate.latitude)
-                branchesVM.createBranch(restaurantId: restaurant.id, alias: name, address: address, logo: logoUrl, geolocation: geolocation) { res in
-                    switch res {
-                    case let .success(branch):
-                        print("created restaurant \(branch)")
-                        self.showAlert(title: "Sucursal creada!", message: "La sucursal \(name) ha sido creada exitosamente") { _ in
-                            self.dismiss(animated: true)
-                        }
-                    case let .failure(error):
-                        print(error)
-                        self.showAlert(title: "Ups! Algo salió mal", message: error.localizedDescription)
-                        self.addBranchButton.loadingIndicator(false)
+        if let name = aliasOpt, let address = addressOpt,
+            name != "" && address != "" {
+            let geolocation = Geopoint(lng: annotation.coordinate.longitude, lat: annotation.coordinate.latitude)
+            branchesVM.createBranch(restaurantId: restaurant.id, alias: name, address: address, geolocation: geolocation) { res in
+                switch res {
+                case let .success(branch):
+                    print("created restaurant \(branch)")
+                    self.showAlert(title: "Sucursal creada!", message: "La sucursal \(name) ha sido creada exitosamente") { _ in
+                        self.dismiss(animated: true)
                     }
+                case let .failure(error):
+                    print(error)
+                    self.showAlert(title: "Ups! Algo salió mal", message: error.localizedDescription)
+                    self.addBranchButton.loadingIndicator(false)
                 }
-            } else {
-                showAlert(title: "Porfavor usa un URL valido", message: "Link al logo debe de ser un URL valido")
             }
         } else {
             showAlert(title: "Completa el formulario", message: "Porfavor completa todo el formulario antes de añadir una sucursal.")

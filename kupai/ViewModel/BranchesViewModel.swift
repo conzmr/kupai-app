@@ -32,17 +32,21 @@ class BranchesViewModel {
         }.resume()
     }
 
-    
 
     struct EncodableBranch: Encodable {
         let alias: String
         let address: String
         let geolocation: Geopoint
         let restaurantId: String
-        let location: Int
+        let location: Location
     }
 
-    func createBranch(restaurantId: String, alias: String, address: String, logo: String, geolocation: Geopoint, completion: @escaping (Result<Branch, Error>) -> ()) {
+    struct Location: Encodable {
+        let type: String
+        let coordinates: [Double]
+    }
+
+    func createBranch(restaurantId: String, alias: String, address: String, geolocation: Geopoint, completion: @escaping (Result<Branch, Error>) -> ()) {
         guard let url = URL(string: branchesURL) else { return }
         var request = URLRequest(url: url)
         let branch = EncodableBranch(
@@ -50,12 +54,13 @@ class BranchesViewModel {
             address: address,
             geolocation: geolocation,
             restaurantId: restaurantId,
-            location: 0
+            location: Location(type: "Point", coordinates: [geolocation.lng, geolocation.lat])
         )
         print(branch)
 
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
         do {
             let encoder = JSONEncoder()
             let data = try encoder.encode(branch)
