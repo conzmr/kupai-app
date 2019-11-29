@@ -61,7 +61,7 @@ class AddBranchController : UIViewController, MKMapViewDelegate {
         if let name = aliasOpt, let address = addressOpt,
             name != "" && address != "" {
             let geolocation = Geopoint(lng: annotation.coordinate.longitude, lat: annotation.coordinate.latitude)
-            branchesVM.createBranch(restaurantId: restaurant.id, alias: name, address: address, geolocation: geolocation) { res in
+            branchesVM.createBranch(restaurantId: restaurant.id!, alias: name, address: address, geolocation: geolocation) { res in
                 switch res {
                 case let .success(branch):
                     print("created restaurant \(branch)")
