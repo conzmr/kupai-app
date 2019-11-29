@@ -77,11 +77,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func login(){
         guard let email = userTextField.text,  userTextField.text?.count != 0 else {
-            self.showAlert(title: "Empty email", message: "Please enter your email")
+            self.showAlert(title: "Campo de correo vacío", message: "Por favor, especifica tu dirección de correo")
             return
         }
         guard let password = passwordTextField.text,  passwordTextField.text?.count != 0 else {
-            self.showAlert(title: "Empty password", message: "Please enter your password")
+            self.showAlert(title: "Campo de contraseña vacío", message: "Por favor, digita tu contraseña")
             return
         }
         if(email.count > 0  && password.count > 0){

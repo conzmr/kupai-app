@@ -8,8 +8,7 @@
 
 import Foundation
 
-struct Restaurant: Identifiable, Decodable {
-    let id: String
+struct Restaurant: Decodable {
     let name: String
     let logo: String
 }

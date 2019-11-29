@@ -74,23 +74,17 @@ class PromotionDetailController: UIViewController, MKMapViewDelegate {
         if let expirationDate = promotion?.expirationDate {
             promotionExpirationDate.text = "Válido hasta "+expirationDate.toDateString(withFormat: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", targetFormat: "dd/MM/yyyy")
         }
-        getImage(url: promotion!.image)
+        ImageHandler.downloadImage(url: promotion!.image, completion: { (res) in
+            switch res {
+            case .success(let image):
+                self.promotionImage.image = image
+                self.setCustomImage(image: image)
+            case .failure(let err):
+                print("ERROR OCURRED GETTING IMAGE", err)
+            }
+        })
         updateMap()
     }
-    
-    func getImage(url: String) {
-           let url = URL(string: url)
-           DispatchQueue.global().async { [weak self] in
-               if let data = try? Data(contentsOf: url!) {
-                   if let image = UIImage(data: data) {
-                       DispatchQueue.main.async {
-                        self!.promotionImage.image = image
-                        self!.setCustomImage(image: image)
-                       }
-                   }
-               }
-           }
-       }
     
     func setCustomImage(image : UIImage) {
         

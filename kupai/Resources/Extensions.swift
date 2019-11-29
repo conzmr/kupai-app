@@ -91,21 +91,14 @@ extension UITableView {
 
 extension UITableViewCell {
     func getImage(url: String, cellImage: UIImageView){
-        let url = URL(string: url)
-        let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
-//            if let response = response {
-//                print("RESPONSE: \(response)")
-//            }
-            if let data = data {
-                DispatchQueue.main.async {
-                  cellImage.image = UIImage(data: data)
-                }
+        ImageHandler.downloadImage(url: url, completion: { (res) in
+            switch res {
+            case .success(let image):
+                cellImage.image = image
+            case .failure(let err):
+                print("ERROR OCURRED GETTING IMAGE", err)
             }
-            if let error = error {
-                print("ERROR GETTING CELL IMAGE", error)
-            }
-        }
-        task.resume()
+        })
     }
 }
 
@@ -204,7 +197,6 @@ extension String {
 }
 
 extension Date {
-
     func toString(withFormat format: String) -> String {
 
         let dateFormatter = DateFormatter()
@@ -217,15 +209,13 @@ extension Date {
 
 extension UIImageView {
     func load(url: String) {
-        let url = URL(string: url)
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url!) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self?.image = image
-                    }
-                }
+        ImageHandler.downloadImage(url: url, completion: { (res) in
+            switch res {
+            case .success(let image):
+                self.image = image
+            case .failure(let err):
+                print("ERROR OCURRED GETTING IMAGE", err)
             }
-        }
+        })
     }
 }

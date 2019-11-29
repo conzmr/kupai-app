@@ -28,6 +28,11 @@ class UserCouponsController: UIViewController {
             refreshControl.addTarget(self, action: #selector(refreshCouponsData(_:)), for: UIControl.Event.valueChanged)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+         self.refreshControl.beginRefreshing()
+         getCoupons()
+    }
+    
     @objc private func refreshCouponsData(_ sender: Any) {
         getCoupons()
     }
@@ -42,6 +47,31 @@ class UserCouponsController: UIViewController {
                    print("ERROR OCURRED GETTING USER COUPONS", err)
             }
         })
+    }
+    
+    override func becomeFirstResponder() -> Bool {
+        return true
+    }
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            print("HUBO UN TAKI SHAKI EN USER COUPONS VC")
+            let latitude:Double = UserDefaults.standard.double(forKey: "latitude")
+            let longitude:Double = UserDefaults.standard.double(forKey: "longitude")
+            couponsVM.getDailyCoupon(lat: latitude, lng: longitude, completion: { (res) in
+                //AÑADIR ALGÚN TIPO DE ACTIVITY CONTROL??
+                switch res {
+                    case .success(let userCoupon):
+                        print("SUCCESS GETTING DAILY COUPON", userCoupon)
+                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "UserCouponDetailControllerId") as? UserCouponDetailController
+                        vc!.coupon = userCoupon
+                        self.navigationController?.pushViewController(vc!, animated: true)
+                    case .failure(let err):
+                        self.showAlert(title: "No hay cupones disponibles", message: "Por favor intenta más tarde")
+                        print("ERROR OCURRED GETTING DAILY COUPON", err)
+                    }
+                })
+        }
     }
     
 }
@@ -66,6 +96,8 @@ extension UserCouponsController: UITableViewDataSource, UITableViewDelegate {
         let restaurant = uCoupon.restaurant
         let branch = uCoupon.branch
         
+        cell.userCoupon = uCoupon
+        
         cell.uCouponDetails.text = coupon.details
         cell.uCouponRestaurantName.text = restaurant.name
         cell.uCouponBranchName.text = branch.alias
@@ -89,17 +121,18 @@ extension UserCouponsController: UITableViewDataSource, UITableViewDelegate {
             }
             cell.uCouponDate.text = coupon.expirationDate.toDateString(withFormat: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", targetFormat: "dd/MM/yyyy")
         }
+        cell.delegate = self
         return cell
     }
-
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 170
-//    }
-//
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let vc = storyboard?.instantiateViewController(withIdentifier: "PromotionDetailControllerId") as? PromotionDetailController
-//        vc!.coupon = couponsVM.coupons[indexPath.row]
-//        self.navigationController?.pushViewController(vc!, animated: true)
-//    }
 }
 
+extension UserCouponsController:UserCouponTableViewCellDelegate {
+
+    func didRedeemButtonPressed(userCoupon:UserCoupon) {
+          print("AQUÍ EN EL DELEGATE")
+          let vc = self.storyboard?.instantiateViewController(withIdentifier: "UserCouponDetailControllerId") as? UserCouponDetailController
+          vc!.coupon = userCoupon
+          self.navigationController?.pushViewController(vc!, animated: true)
+      }
+
+}

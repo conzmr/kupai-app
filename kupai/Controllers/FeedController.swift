@@ -10,12 +10,14 @@ import SwiftUI
 import MapKit
 import CoreLocation
 
-class FeedController: UIViewController {
+class FeedController: UIViewController, LocationControllerDelegate {
     private let refreshControl = UIRefreshControl()
     var latitude:Double = 0.0
     var longitude:Double = 0.0
     var address:String = ""
     
+    @IBOutlet weak var categoriesContainer: UIScrollView!
+    @IBOutlet weak var categoriesHScrollableStackView: UIStackView!
     @IBOutlet weak var promotionsFeedTableView: UITableView!{
         didSet {
             let nib = UINib(nibName: "FeedPromoCellTableViewCell", bundle: nil)
@@ -28,16 +30,27 @@ class FeedController: UIViewController {
     @IBOutlet weak var promotionsFeeedTableView: UITableView!
     
     var promotionVM = PromotionViewModel()
+    var couponsVM = CouponsViewModel()
+    var categoryVM = CategoryViewModel()
     
     let locationManager = CLLocationManager()
     var currentLocation = CLLocation()
     
-    override func viewWillAppear(_ animated: Bool) {
-        reloadPromotionsData()
+    func setCategories() {
+        for category in categoryVM.categories {
+            if let categoryView = Bundle.main.loadNibNamed("CategoryView", owner: nil, options: nil)!.first as? CategoryView {
+                categoryView.delegate = self
+                categoryView.category = category
+                categoriesHScrollableStackView.addArrangedSubview(categoryView)
+            }
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //VER SI TENGO ALGO EN LOCAL STORAGE, ESO USO Y HAGO MI REQUEST, SI NO, BUSCO MI UBICACIÓN ACTUAL POR DEFAULT
+        getCategories()
         
         // Create a navView to add to the navigation bar
        // let navView = UIView()
@@ -78,14 +91,37 @@ class FeedController: UIViewController {
         //Location manager set up
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        getCurrentLocation()
 //        locationManager.requestWhenInUseAuthorization()
 //        locationManager.requestLocation()
-        reloadPromotionsData()
+
+        getFeedRequestLocation()
         refreshControl.addTarget(self, action: #selector(refreshPromotionsData(_:)), for: UIControl.Event.valueChanged)
     }
     
-    func setNavigationLabelText(){
+    override func becomeFirstResponder() -> Bool {
+        return true
+    }
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            couponsVM.getDailyCoupon(lat: latitude, lng: longitude, completion: { (res) in
+                //AÑADIR ALGÚN TIPO DE ACTIVITY CONTROL??
+                switch res {
+                    case .success(let userCoupon):
+                        print("SUCCESS GETTING DAILY COUPON", userCoupon)
+                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "UserCouponDetailControllerId") as? UserCouponDetailController
+                        vc!.coupon = userCoupon
+                        self.navigationController?.pushViewController(vc!, animated: true)
+                    case .failure(let err):
+                        self.showAlert(title: "No hay cupones disponibles", message: "Por favor intenta más tarde")
+                        print("ERROR OCURRED GETTING DAILY COUPON", err)
+                    }
+                })
+        }
+    }
+    
+    func setNavigationLabelText(address: String){
+        self.address = address
         let titleLabel = UILabel(frame: CGRect(x: 0, y: 100, width: view.frame.width , height: view.frame.height))
         titleLabel.text = address
         titleLabel.textColor = UIColor.black
@@ -94,22 +130,26 @@ class FeedController: UIViewController {
     }
     
     func getFeedRequestLocation(){
+        self.refreshControl.beginRefreshing()
         let slatitude:Double? = UserDefaults.standard.double(forKey: "latitude")
         let slongitude:Double? = UserDefaults.standard.double(forKey: "longitude")
         let saddress:String? = UserDefaults.standard.string(forKey: "address")
         if(slatitude == 0.0 || slongitude == 0.0 || saddress == nil){
+            setNavigationLabelText(address: "Usar mi ubicación actual")
             getCurrentLocation()
         }else{
-            latitude = slatitude!
-            longitude = slongitude!
-            address = saddress!
-            setNavigationLabelText()
+            self.latitude = slatitude!
+            self.longitude = slongitude!
+            setNavigationLabelText(address:saddress!)
+            getPromotions()
         }
     }
     
-    func reloadPromotionsData(){
-        getFeedRequestLocation()
+    func reloadPromotionsData(latitude: Double, longitude: Double, address: String){
         self.refreshControl.beginRefreshing()
+        self.latitude = latitude
+        self.longitude = longitude
+        setNavigationLabelText(address:address)
         getPromotions()
     }
     
@@ -117,15 +157,33 @@ class FeedController: UIViewController {
         getPromotions()
     }
     
+    @IBAction func searchLocation(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "LocationSearchViewControllerId") as? LocationSearchViewController
+        vc!.delegate = self
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
+    
     func getPromotions() {
         //EN GET PROMOTIONS DEBO PASAR LOS PARÁMETROS
-        promotionVM.getPromotions(completion: { (res) in
+        promotionVM.getPromotions(lat: latitude, lng: longitude, completion: { (res) in
             self.refreshControl.endRefreshing()
             switch res {
             case .success(_):
                 self.promotionsFeedTableView.reloadData()
             case .failure(let err):
                 print("ERROR OCURRED GETTING PROMOTIONS", err)
+            }
+        })
+    }
+    
+    func getCategories() {
+        categoryVM.getCategories(completion: { (res) in
+            self.refreshControl.endRefreshing()
+            switch res {
+            case .success(_):
+                self.setCategories()
+            case .failure(let err):
+                print("ERROR OCURRED GETTING CATEGORIES", err)
             }
         })
     }
@@ -168,10 +226,6 @@ extension FeedController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
 
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 170
-//    }
-//
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "PromotionDetailControllerId") as? PromotionDetailController
         vc!.promotion = promotionVM.promotions[indexPath.row]
@@ -185,9 +239,10 @@ extension FeedController: CLLocationManagerDelegate {
             currentLocation = current
             latitude = currentLocation.coordinate.latitude
             longitude = currentLocation.coordinate.longitude
-            address = "Usar mi ubicación actual"
+            saveCurrentLocation(latitude: latitude, longitude: longitude)
             //print("location:: \(current)")
-            setNavigationLabelText()
+            setNavigationLabelText(address: "Usar mi ubicación actual")
+            getPromotions()
         }
     }
     
@@ -210,4 +265,26 @@ extension FeedController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("error:: \(error.localizedDescription)")
     }
+    
+    func saveCurrentLocation(latitude: Double, longitude: Double) {
+        UserDefaults.standard.set(latitude, forKey: "latitude")
+        UserDefaults.standard.set(longitude, forKey: "longitude")
+        UserDefaults.standard.synchronize()
+    }
+}
+
+extension FeedController: CategoryViewDelegate {
+
+    func didCategoryPressed(category:Category) {
+          let vc = self.storyboard?.instantiateViewController(withIdentifier: "CategoryViewControllerId") as? CategoryViewController
+          vc!.category = category
+          vc!.latitude = latitude
+          vc!.longitude = longitude
+          self.navigationController?.pushViewController(vc!, animated: true)
+      }
+}
+
+protocol LocationControllerDelegate: class {
+    func reloadPromotionsData(latitude: Double, longitude: Double, address: String)
+    func getCurrentLocation()
 }

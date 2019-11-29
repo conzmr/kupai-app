@@ -8,8 +8,7 @@
 
 import SwiftUI
 
-struct Promotion: Identifiable, Decodable {
-    let id = UUID()
+struct Promotion: Decodable {
     let title: String
     let description: String
     let image: String

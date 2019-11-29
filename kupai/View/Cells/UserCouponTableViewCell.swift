@@ -8,11 +8,18 @@
 
 import UIKit
 
+protocol UserCouponTableViewCellDelegate {
+    func didRedeemButtonPressed(userCoupon:UserCoupon)
+}
+
 class UserCouponTableViewCell: UITableViewCell {
 
 
     public var circleY: CGFloat = 0
     public var circleRadius: CGFloat = 0
+    
+    var userCoupon:UserCoupon?
+    var delegate: UserCouponTableViewCellDelegate?
     
     @IBOutlet weak var couponCroppedContainer: CouponContainerView!
     @IBOutlet weak var couponMainContainer: UIView!
@@ -53,6 +60,10 @@ class UserCouponTableViewCell: UITableViewCell {
         
     }
 
+    @IBAction func showUserCouponDetail(_ sender: Any) {
+        delegate?.didRedeemButtonPressed(userCoupon:userCoupon!)
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         //super.setSelected(selected, animated: animated)
     }

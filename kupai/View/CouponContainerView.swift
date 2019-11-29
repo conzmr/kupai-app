@@ -15,6 +15,8 @@ public class CouponContainerView: UIView {
 
     public var circleY: CGFloat = 0
     public var circleRadius: CGFloat = 0
+    
+    public var borderColor: CGColor = tertiaryColor.cgColor
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,7 +35,7 @@ public class CouponContainerView: UIView {
     public override func layoutSubviews() {
         super.layoutSubviews()
         leftCircle.backgroundColor = superview?.backgroundColor
-        leftCircle.layer.borderColor = tertiaryColor.cgColor
+        leftCircle.layer.borderColor = borderColor
         leftCircle.layer.borderWidth = 1
         leftCircle.frame = CGRect(x: -circleRadius, y: circleY,
                                   width: circleRadius * 2 , height: circleRadius * 2)
@@ -42,7 +44,7 @@ public class CouponContainerView: UIView {
         leftCircle.layer.zPosition = 0
 
         rightCircle.backgroundColor = superview?.backgroundColor
-        rightCircle.layer.borderColor = tertiaryColor.cgColor
+        rightCircle.layer.borderColor = borderColor
         rightCircle.layer.borderWidth = 1
         rightCircle.frame = CGRect(x: bounds.width - circleRadius, y: circleY,
                                    width: circleRadius * 2 , height: circleRadius * 2)

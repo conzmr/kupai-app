@@ -8,8 +8,7 @@
 
 import Foundation
 
-struct Branch: Identifiable, Decodable {
-    let id: String
+struct Branch: Decodable {
     let alias: String
     let address: String
     let geolocation: Geopoint
